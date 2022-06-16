@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>给Hexo安装主题模板并美化</title>
+    <url>/2022/06/16/616-advance-ui/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已搭建好网页，想美化网站。</p>
+<p>美化网站，可以从0开始写UI界面，静态网站也不复杂就是了。但这样比较慢，有很多已经写好的开源模板可以一件套用（类比当年QQ空间的脚本）<a href="https://hexo.voxel.site/">这个网站</a>列举了Hexo下Top10的热门开源模板。试了其中俩个。</p>
+<p>Next：更简洁</p>
+<p>Matery：挺花里胡哨的，功能丰富。整体画风更随意一些（？比如文档大小写混杂hhh 亮点是可以卡片式排版。</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>安装主题很简单，就是把主题放进博客的theme文件夹，conf中改主题名，然后hexo更新页面即可。</p>
+<p>下面步骤根据官方文档整理</p>
+<ul>
+<li><p>下载想要的主题</p>
+<p>要先cd到对应hexo博客下，然后下载主题，喜欢哪个下哪个</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#下载next</span><br><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line">#下载matery</span><br><span class="line">git clone https://github.com/blinkfox/hexo-theme-matery.git themes/hexo-theme-matery</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用主题</p>
+<p>博客根目录下的_config.yml文件，theme从默认的landscape改为主题名。如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: next/hexo-theme-matery/其他安装的主题</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新下看效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+
+<p>没问题就同步到github即可</p>
+</li>
+</ul>
+<p>其中，matery就一种样式，Next可以更改主题样式</p>
+<p>在theme&#x2F;next&#x2F;下的config_yml中scheme，有Muse，Mist，Pisces，Gemini四种</p>
+<p>改完之后同样更新看效果没问题就同步即可。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>安装教程</p>
+<ul>
+<li><p>next: <a href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a></p>
+</li>
+<li><p>Matery: <a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>WebUI</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>Matery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo报错YAMLException</title>
+    <url>/2022/06/16/616-hexo-debug/</url>
+    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
+<p>报错，hexo无法将md文档转网页</p>
+<p>基本因为格式不对，空格少打了或者多大了。</p>
+<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
+<p>比如标题有特殊符号等等</p>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Debug</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>整理，一步步的个人博客搭建及美化</title>
+    <url>/2022/06/16/616-summary/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><ol>
+<li><a href="http://jingcs.github.io/2022/06/16/hexo-gitpages-install/">搭建网站</a> 包括hexo+github建立可访问网站，域名修改，插入图片。</li>
+<li><a href="http://jingcs.github.io/2022/06/16/616-hexo-usage-backup/">添加新日志</a> 包括如何在建立的网站上写日志，日志的分类标签规范</li>
+<li><a href="http://jingcs.github.io/2022/06/16/616-advance-ui/">更改美化网站</a> 包括下载并安装更新不同的网页主题设计</li>
+<li>扩展网页功能。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Web</category>
+        <category>Summary</category>
+        <category>Doing</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>GithubPages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用GitHubPages&amp;Hexo搭建个人网页</title>
+    <url>/2022/06/16/hexo-gitpages-install/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>用Github做网页，就是把github当免费服务器，网页文件全存GitHub仓库上。但因为Github没有数据库，更适合做静态网页。（动态进阶pending。这里的hexo就是个网页模板。官方推荐的还有Jekyll（国内貌似比较慢）。理论上hexo做出来的东西可以放任何服务器上，Github最方便。</p>
+<p>基本步骤就三步。</p>
+<p>首先，用hexo创建网页模板。</p>
+<p>然后，注册github建个仓库。</p>
+<p>最后，将网页模板传到github仓库上。</p>
+<p>就完成了。注意，Github网页无法做到实时更新，大概有三五分钟的延误。搞了一上午以为步骤不对网页怎么没变化，结果是我太心急……</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><strong>本地创建好网页</strong></li>
+</ol>
+<p>安装hexo</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo-cli  </span><br></pre></td></tr></table></figure>
+
+<p>用hexo建网页</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init xxx博客名（名字开心就好，不会显示在网页上）</span><br><span class="line">cd xxx博客名</span><br><span class="line">npm install </span><br><span class="line">npm install hexo-deployer-git --save #安装用于commit的程序</span><br><span class="line">npm i hexo-deployer-git #安装发布新文章</span><br></pre></td></tr></table></figure>
+
+<p>至此，网页已经建好了，本地效果可以运行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><strong>Github注册建仓库</strong></li>
+</ol>
+<p>注册就不说了，建仓库就是点绿色按钮Create a new repository</p>
+<p>有俩点需要注意</p>
+<ul>
+<li><strong>Repository name必须是 你github用户名.</strong><a href="http://github.io/"><strong>github.io</strong></a></li>
+<li><strong>设置默认分支名从main到master！！</strong><a href="https://github.com/settings/repositories"><strong>https://github.com/settings/repositories</strong></a></li>
+</ul>
+<p>第二点网上好多教程没提过。多摆俩句是因为master这词涉嫌歧视，在20年国外zzzq把默认的分支名从master换为main了。很多软件还是按照master写的。不改名可能会新建出一个master分支，每次提交push到master分支上，得合并。</p>
+<p>SSH密钥授权待补</p>
+<ol start="3">
+<li><strong>将Hexo传到Github</strong></li>
+</ol>
+<p>有俩种方法，一种是命令行， 一种是github desktop </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#命令行，前提已经cd进hexo所在位置</span><br><span class="line">hexo clean  #保险起见清理缓存</span><br><span class="line">hexo d -g   </span><br></pre></td></tr></table></figure>
+
+<p>打开浏览器 用户名.github.io就是网页</p>
+<p>也可以d上传前先debug一下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ol start="4">
+<li><p>更改域名</p>
+<p>github上：settings- pages- custom domain 输入买好的，想要自定义的域名</p>
+<p>域名上：将github用户名.github.io加入到chame</p>
+<p>网页文件：新建CHAME文件，无后缀，在里面写上想自定义的域名</p>
+<p>重新提交</p>
+<p>注意最多可能会要48小时才能更新！（一般十来分钟</p>
+</li>
+</ol>
+<p>[ ] 发布文章后主页不更新</p>
+<p>[ ] 插入图片</p>
+<p>source目录下新建images文件夹专门存储图片，图片引用方式为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/images/xxx.png)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>创建过程都很详细，黑字是备注的每个教程的不同侧重点</p>
+<ol>
+<li><p><a href="https://godweiyang.com/2018/04/13/hexo-blog/">超详细Hexo+Github博客搭建小白教程</a> 强烈安利这篇，非常详细，还开源了代码。水印，挂件，统计工具，BGM，评论，特效，答疑等等</p>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000017986794">超详细Hexo+Github Page搭建技术博客教程【持续更新】</a> 额外功能，域名，SOE搜索优化，其他插件程序等</p>
+</li>
+<li><p><a href="https://learnku.com/articles/45697#replies">超详细 Hexo + GitHub Page 搭建技术 blog 教程</a> 还有Hexo常用命令，模板推荐</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GithubPages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p>这行用来mc更新后网页是否也会同步更新。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo日志使用方法</title>
+    <url>/2022/06/16/616-hexo-usage-backup/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>前置：Hexo+GitHub，生成可访问的网站【见：<a href="http://localhost:4000/2022/06/16/hexo-gitpages-install/">搭建网站</a> 】。</p>
+<p>本篇：如何发布新日志，总过程如下</p>
+<ul>
+<li><p>新建日志的路径</p>
+<ul>
+<li><p>直接在 路径<strong>hexo博客名&#x2F;source&#x2F;_posts</strong> 下手动新建xxx.md文件</p>
+<p>自己写需要注意格式，否则可能会报错</p>
+</li>
+<li><p>使用命令行 <strong>cd 博客名</strong> ；然后<strong>hexo new post “xxxx日志名”</strong></p>
+</li>
+</ul>
+<p>注：xxx最好是英文，后面也可以改</p>
+</li>
+<li><p>打开文件写日志</p>
+<p>有关文章标题，发布时间，分类的设置，可见官方文档[1]。摘录如下</p>
+<ul>
+<li><p>tags, categories</p>
+<p>分类categories具有顺序性和层次性，为文章添加多个分类。此时文章同时包括三个分类： <strong><code>PlayStation</code> 和 <code>Games</code></strong> 分别都是父分类 <code>Diary</code> 的子分类，同时 <strong><code>Life</code></strong> 是一个没有子分类的分类。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- [Diary, PlayStation]</span><br><span class="line">- [Diary, Games]</span><br><span class="line">- [Life]</span><br></pre></td></tr></table></figure>
+
+<p>标签tags没有顺序和层次。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Air</span><br><span class="line">- Trainline</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>将日志同步到Github上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+<p>之后想修改日志也是改md然后用这命令传上去。</p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>Front-matter <a href="https://hexo.io/zh-cn/docs/front-matter">官方文档</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GithubPages</tag>
+      </tags>
+  </entry>
+</search>
