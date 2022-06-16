@@ -20,18 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="主要记录搭建过程，遇到的bug">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是一个博客">
-<meta property="og:url" content="http://example.com/archives/2022/06/index.html">
+  <meta name="description" content="Next，Matery主题安装过程。未包括next的进阶操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给Hexo安装主题模板并美化">
+<meta property="og:url" content="http://example.com/2022/06/16/616-advance-ui/index.html">
 <meta property="og:site_name" content="这是一个博客">
-<meta property="og:description" content="主要记录搭建过程，遇到的bug">
+<meta property="og:description" content="Next，Matery主题安装过程。未包括next的进阶操作。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-16T22:02:25.000Z">
+<meta property="article:modified_time" content="2022-06-16T22:30:00.338Z">
 <meta property="article:author" content="Jingyu Hu">
-<meta property="article:tag" content="‘code’">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Next">
+<meta property="article:tag" content="Matery">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/archives/2022/06/">
+<link rel="canonical" href="http://example.com/2022/06/16/616-advance-ui/">
 
 
 <script id="page-configurations">
@@ -39,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | 这是一个博客</title>
+  <title>给Hexo安装主题模板并美化 | 这是一个博客</title>
   
 
 
@@ -158,150 +162,129 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 6 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/16/616-advance-ui/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jingyu Hu">
+      <meta itemprop="description" content="主要记录搭建过程，遇到的bug">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这是一个博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          给Hexo安装主题模板并美化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-06-16 23:02:25 / Modified: 23:30:00" itemprop="dateCreated datePublished" datetime="2022-06-16T23:02:25+01:00">2022-06-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TechNotes/" itemprop="url" rel="index"><span itemprop="name">TechNotes</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TechNotes/WebUI/" itemprop="url" rel="index"><span itemprop="name">WebUI</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Next，Matery主题安装过程。未包括next的进阶操作。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
+        <h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已搭建好网页，想美化网站。</p>
+<p>美化网站，可以从0开始写UI界面，静态网站也不复杂就是了。但这样比较慢，有很多已经写好的开源模板可以一件套用（类比当年QQ空间的脚本）<a target="_blank" rel="noopener" href="https://hexo.voxel.site/">这个网站</a>列举了Hexo下Top10的热门开源模板。试了其中俩个。</p>
+<p>Next：更简洁</p>
+<p>Matery：挺花里胡哨的，功能丰富。整体画风更随意一些（？比如文档大小写混杂hhh 亮点是可以卡片式排版。</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>安装主题很简单，就是把主题放进博客的theme文件夹，conf中改主题名，然后hexo更新页面即可。</p>
+<p>下面步骤根据官方文档整理</p>
+<ul>
+<li><p>下载想要的主题</p>
+<p>要先cd到对应hexo博客下，然后下载主题，喜欢哪个下哪个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#下载next</span><br><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line">#下载matery</span><br><span class="line">git clone https://github.com/blinkfox/hexo-theme-matery.git themes/hexo-theme-matery</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用主题</p>
+<p>博客根目录下的_config.yml文件，theme从默认的landscape改为主题名。如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next/hexo-theme-matery/其他安装的主题</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新下看效果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-16T23:02:25+01:00"
-              content="2022-06-16">
-          06-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/16/616-summary/" itemprop="url">
-            <span itemprop="name">整理，一步步的个人博客搭建及美化</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-16T23:02:25+01:00"
-              content="2022-06-16">
-          06-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/16/616-advance-ui/" itemprop="url">
-            <span itemprop="name">给Hexo安装主题模板并美化</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-16T20:37:25+01:00"
-              content="2022-06-16">
-          06-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/16/616-hexo-debug/" itemprop="url">
-            <span itemprop="name">Hexo报错YAMLException</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-16T20:07:20+01:00"
-              content="2022-06-16">
-          06-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/16/hexo-gitpages-install/" itemprop="url">
-            <span itemprop="name">使用GitHubPages&Hexo搭建个人网页</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-16T18:07:25+01:00"
-              content="2022-06-16">
-          06-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/16/616-hexo-usage-backup/" itemprop="url">
-            <span itemprop="name">Hexo日志使用方法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-16T15:40:27+01:00"
-              content="2022-06-16">
-          06-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/16/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+<p>没问题就同步到github即可</p>
+</li>
+</ul>
+<p>其中，matery就一种样式，Next可以更改主题样式</p>
+<p>在theme&#x2F;next&#x2F;下的config_yml中scheme，有Muse，Mist，Pisces，Gemini四种</p>
+<p>改完之后同样更新看效果没问题就同步即可。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>安装教程</p>
+<ul>
+<li><p>next: <a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a></p>
+</li>
+<li><p>Matery: <a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
+</li>
+</ul>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/Next/" rel="tag"># Next</a>
+              <a href="/tags/Matery/" rel="tag"># Matery</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/16/616-hexo-debug/" rel="prev" title="Hexo报错YAMLException">
+      <i class="fa fa-chevron-left"></i> Hexo报错YAMLException
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/16/616-summary/" rel="next" title="整理，一步步的个人博客搭建及美化">
+      整理，一步步的个人博客搭建及美化 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -354,6 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E4%BD%93"><span class="nav-number">1.</span> <span class="nav-text">整体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
