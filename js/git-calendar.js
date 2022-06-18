@@ -3,7 +3,8 @@ function GithubCalendar(git_githubapiurl,git_color,git_user){
       var github_canlendar = (git_user,git_githubapiurl, git_color) => {
           var git_fixed = 'fixed';
           var git_px = 'px';
-          var git_month = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+          //var git_month = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+          var git_month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
           var git_monthchange = [];
           var git_oneyearbeforeday = '';
           var git_thisday = '';
@@ -81,10 +82,14 @@ var responsiveChart = () => {
       if (document.body.clientWidth > 700) {
         github_calendar_ctx.font = "600  Arial";
         github_calendar_ctx.fillStyle = '#aaa';
-        github_calendar_ctx.fillText("日", 0, 1.9 * linemaxwitdh);
-        github_calendar_ctx.fillText("二", 0, 3.9 * linemaxwitdh);
-        github_calendar_ctx.fillText("四", 0, 5.9 * linemaxwitdh);
-        github_calendar_ctx.fillText("六", 0, 7.9 * linemaxwitdh);
+        // github_calendar_ctx.fillText("日", 0, 1.9 * linemaxwitdh);
+        // github_calendar_ctx.fillText("二", 0, 3.9 * linemaxwitdh);
+        // github_calendar_ctx.fillText("四", 0, 5.9 * linemaxwitdh);
+        // github_calendar_ctx.fillText("六", 0, 7.9 * linemaxwitdh);
+        github_calendar_ctx.fillText("Sun", 0, 1.9 * linemaxwitdh);
+        github_calendar_ctx.fillText("Tues", 0, 3.9 * linemaxwitdh);
+        github_calendar_ctx.fillText("Thur", 0, 5.9 * linemaxwitdh);
+        github_calendar_ctx.fillText("Sat", 0, 7.9 * linemaxwitdh);
         var monthindexlist = github_calendar_c.width / 24;
         for (var index in git_monthchange) {
           github_calendar_ctx.fillText(git_monthchange[index], monthindexlist, 0.7 * linemaxwitdh);
@@ -226,7 +231,7 @@ var responsiveChart = () => {
           };
           var tooltip_html = (x, y, span1, span2) => {
               var html = '';
-              html += '<div class="gitmessage" style="top:' + y + 'px;left:' + x + 'px;position: fixed;z-index:9999"><div class="angle-wrapper" style="display:block;"><span>' + span1 + '&nbsp;</span><span>' + span2 + ' 次上传</span></div></div>';
+              html += '<div class="gitmessage" style="top:' + y + 'px;left:' + x + 'px;position: fixed;z-index:9999"><div class="angle-wrapper" style="display:block;"><span>' + span1 + '&nbsp;</span><span>' + span2 + ' commits</span></div></div>';
               return html
           };
           var github_canvas_box = () => {
@@ -235,7 +240,7 @@ var responsiveChart = () => {
           };
           var github_info_box = (user, color) => {
               var html = '';
-              html += '<div id="git_tooltip_container"></div><div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1"><div class="float-left text-gray">数据来源 <a href="https://github.com/' + user + '" target="blank">@' + user + '</a></div><div class="contrib-legend text-gray">Less <ul class="legend"><li style="background-color:' + color[0] + '"></li><li style="background-color:' + color[2] + '"></li><li style="background-color:' + color[4] + '"></li><li style="background-color:' + color[6] + '"></li><li style="background-color:' + color[8] + '"></li></ul>More </div></div>';
+              html += '<div id="git_tooltip_container"></div><div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1"><div class="float-left text-gray">Data Source <a href="https://github.com/' + user + '" target="blank">@' + user + '</a></div><div class="contrib-legend text-gray">Less <ul class="legend"><li style="background-color:' + color[0] + '"></li><li style="background-color:' + color[2] + '"></li><li style="background-color:' + color[4] + '"></li><li style="background-color:' + color[6] + '"></li><li style="background-color:' + color[8] + '"></li></ul>More </div></div>';
               return html
           };
           var github_main_box = (monthchange, git_data, user, color, total, thisweekdatacore, weekdatacore, oneyearbeforeday, thisday, aweekago, amonthago) => {
@@ -244,7 +249,8 @@ var responsiveChart = () => {
               var infobox = github_info_box(user, color);
               var style = github_main_style();
               html += '<div class="position-relative"><div class="border py-2 graph-before-activity-overview"><div class="js-gitcalendar-graph mx-md-2 mx-3 d-flex flex-column flex-items-end flex-xl-items-center overflow-hidden pt-1 is-graph-loading graph-canvas gitcalendar-graph height-full text-center">' + canvasbox + '</div>' + infobox + '</div></div>';
-              html += '<div style="display:flex;width:100%"><div class="contrib-column contrib-column-first table-column"><span class="text-muted">过去一年提交</span><span class="contrib-number">' + total + '</span><span class="text-muted">' + oneyearbeforeday + '&nbsp;-&nbsp;' + thisday + '</span></div><div class="contrib-column table-column"><span class="text-muted">最近一月提交</span><span class="contrib-number">' + thisweekdatacore + '</span><span class="text-muted">' + amonthago + '&nbsp;-&nbsp;' + thisday + '</span></div><div class="contrib-column table-column"><span class="text-muted">最近一周提交</span><span class="contrib-number">' + weekdatacore + '</span><span class="text-muted">' + aweekago + '&nbsp;-&nbsp;' + thisday + '</span></div></div>' + style;
+              //html += '<div style="display:flex;width:100%"><div class="contrib-column contrib-column-first table-column"><span class="text-muted">过去一年提交</span><span class="contrib-number">' + total + '</span><span class="text-muted">' + oneyearbeforeday + '&nbsp;-&nbsp;' + thisday + '</span></div><div class="contrib-column table-column"><span class="text-muted">最近一月提交</span><span class="contrib-number">' + thisweekdatacore + '</span><span class="text-muted">' + amonthago + '&nbsp;-&nbsp;' + thisday + '</span></div><div class="contrib-column table-column"><span class="text-muted">最近一周提交</span><span class="contrib-number">' + weekdatacore + '</span><span class="text-muted">' + aweekago + '&nbsp;-&nbsp;' + thisday + '</span></div></div>' + style;
+              html += '<div style="display:flex;width:100%"><div class="contrib-column contrib-column-first table-column"><span class="text-muted">Commits in the last year</span><span class="contrib-number">' + total + '</span><span class="text-muted">' + oneyearbeforeday + '&nbsp;-&nbsp;' + thisday + '</span></div><div class="contrib-column table-column"><span class="text-muted">Commits in the last month</span><span class="contrib-number">' + thisweekdatacore + '</span><span class="text-muted">' + amonthago + '&nbsp;-&nbsp;' + thisday + '</span></div><div class="contrib-column table-column"><span class="text-muted">Commits in the last week</span><span class="contrib-number">' + weekdatacore + '</span><span class="text-muted">' + aweekago + '&nbsp;-&nbsp;' + thisday + '</span></div></div>' + style;
               return html
           };
           var github_main_style = () => {

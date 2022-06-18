@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo报错YAMLException</title>
-    <url>/2022/06/16/616-hexo-debug/</url>
-    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
-<p>报错，hexo无法将md文档转网页</p>
-<p>基本因为格式不对，空格少打了或者多大了。</p>
-<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
-<p>比如标题有特殊符号等等</p>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Debug</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>给Hexo安装主题模板并美化</title>
     <url>/2022/06/16/616-advance-ui/</url>
     <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已搭建好网页，想美化网站。</p>
@@ -63,23 +46,21 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/16/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p>这行用来mc更新后网页是否也会同步更新。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>Hexo报错YAMLException</title>
+    <url>/2022/06/16/616-hexo-debug/</url>
+    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
+<p>报错，hexo无法将md文档转网页</p>
+<p>基本因为格式不对，空格少打了或者多大了。</p>
+<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
+<p>比如标题有特殊符号等等</p>
 ]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Debug</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hexo日志使用方法</title>
@@ -147,6 +128,58 @@
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>GithubPages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo中加入Github每日贡献图</title>
+    <url>/2022/06/19/hexo-github-calendar/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前置要求：已完成网页搭建。</p>
+<p>效果：</p>
+<p><img src="/pics/gitCal.png" alt="img"></p>
+<p>推荐参考[1]，整理的很全面。</p>
+<h2 id="GitHub-Calendar生成步骤"><a href="#GitHub-Calendar生成步骤" class="headerlink" title="GitHub Calendar生成步骤"></a>GitHub Calendar生成步骤</h2><p>最简单的方法是直接生成图片引用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://ghchart.rshah.org/你的用户名&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Github Chart&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://ghchart.rshah.org/jingcs" alt="Github Chart" />
+
+<p>不过为了之后倒腾，下面还用了GitHub Calendar</p>
+<h3 id="（1）安装"><a href="#（1）安装" class="headerlink" title="（1）安装"></a>（1）安装</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i hexo-githubcalendar --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="（2）修改根目录下的配置文件"><a href="#（2）修改根目录下的配置文件" class="headerlink" title="（2）修改根目录下的配置文件"></a>（2）修改根目录下的配置文件</h3><p>​	把下面的加到_config.yml文件夹中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">githubcalendar:</span><br><span class="line">  enable: true</span><br><span class="line">  priority: 0</span><br><span class="line">  enable_page: /</span><br><span class="line">  user: 你的github用户名</span><br><span class="line">  layout:</span><br><span class="line">    type: class</span><br><span class="line">    name: main-inner</span><br><span class="line">    index: 0</span><br><span class="line">  githubcalendar_html: &#x27;&lt;div class=&quot;post-block animated fadeIn&quot; style=&quot;width:100%;height:auto;padding:40px 10px 10px 10px;&quot;&gt;&lt;div id=&quot;github_loading&quot; style=&quot;height:100%;display: flex;align-items: center;justify-content: center;&quot;&gt;&lt;svg style=&quot;height:50px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  viewBox=&quot;0 0 50 50&quot; style=&quot;enable-background:new 0 0 50 50&quot; xml:space=&quot;preserve&quot;&gt;&lt;path fill=&quot;#d0d0d0&quot; d=&quot;M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z&quot; transform=&quot;rotate(275.098 25 25)&quot;&gt;&lt;animateTransform attributeType=&quot;xml&quot; attributeName=&quot;transform&quot; type=&quot;rotate&quot; from=&quot;0 25 25&quot; to=&quot;360 25 25&quot; dur=&quot;0.6s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div id=&quot;github_container&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;footer class=&quot;post-footer&quot;&gt;&lt;div class=&quot;post-eof&quot;&gt;&lt;/div&gt;&lt;/footer&gt;&#x27;</span><br><span class="line">  pc_minheight: 280px</span><br><span class="line">  mobile_minheight: 0px</span><br><span class="line">  #颜色可以自己换，这个是黑白</span><br><span class="line">  color: &quot;[&#x27;#ebedf0&#x27;, &#x27;#d3d5d8&#x27;, &#x27;#bcbdc0&#x27;, &#x27;#a4a5a8&#x27;, &#x27;#8d8e90&#x27;, &#x27;#757678&#x27;, &#x27;#5e5e60&#x27;, &#x27;#464748&#x27;, &#x27;#2f2f30&#x27;, &#x27;#2f363d&#x27;, &#x27;#24292e&#x27;]&quot;</span><br><span class="line">  api: https://python-github-calendar-api.vercel.app/api</span><br><span class="line">  #在国内网速慢可以用gitee这个</span><br><span class="line">  #api: https://python-gitee-calendar-api.vercel.app/api</span><br><span class="line">  calendar_js: https://cdn.jsdelivr.net/gh/jingcs/jingcs.github.io/js/git-calendar-cn.js</span><br><span class="line">  plus_style: &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）运行"><a href="#（3）运行" class="headerlink" title="（3）运行"></a>（3）运行</h3><p>先本地运行看效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo s </span><br></pre></td></tr></table></figure>
+
+<p>注意，三条命写一起有如果报错找不到json。分开运行就行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>没有变化清理一下缓存。</p>
+<p>没问题的话就提交到github</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://blog.meta-code.top/2022/03/15/2022-41/">在主页展示GitHub&#x2F;Gitee贡献度日历</a> 推荐 整理的很全面，包含了第2个的网址</li>
+<li><a href="https://gagalab.tech/2021/07/14/Next%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Github%E8%B4%A1%E7%8C%AE%E6%97%A5%E5%8E%86%E6%95%99%E7%A8%8B/">手把手教你在Hexo中使用Github贡献日历（以Next主题为例）</a></li>
+<li><a href="https://www.freesion.com/article/7086773921/">贡献图，不是hexo的</a></li>
+</ol>
+<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ul>
+<li>没有显示每天的commit次数(好像是网速问题)</li>
+<li>js直接插到md里</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>WebUI</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Javascript</tag>
+        <tag>StatisticsDisplay</tag>
       </tags>
   </entry>
   <entry>
@@ -245,5 +278,24 @@
         <tag>Next</tag>
         <tag>StatisticsDisplay</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p>这行用来mc更新后网页是否也会同步更新。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
 </search>
