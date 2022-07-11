@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>给Hexo安装主题模板并美化</title>
+    <url>/2022/06/16/616-advance-ui/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已搭建好网页，想美化网站。</p>
+<p>美化网站，可以从0开始写UI界面，静态网站也不复杂就是了。但这样比较慢，有很多已经写好的开源模板可以一件套用（类比当年QQ空间的脚本）<a href="https://hexo.voxel.site/">这个网站</a>列举了Hexo下Top10的热门开源模板。试了其中俩个。</p>
+<p>Next：更简洁</p>
+<p>Matery：挺花里胡哨的，功能丰富。整体画风更随意一些（？比如文档大小写混杂hhh 亮点是可以卡片式排版。</p>
+<h2 id="主题安装步骤"><a href="#主题安装步骤" class="headerlink" title="主题安装步骤"></a>主题安装步骤</h2><p>安装主题很简单，就是把主题放进博客的theme文件夹，conf中改主题名，然后hexo更新页面即可。</p>
+<p>下面步骤根据官方文档整理</p>
+<ul>
+<li><p>下载想要的主题</p>
+<p>要先cd到对应hexo博客下，然后下载主题，喜欢哪个下哪个</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#下载next</span><br><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line">#下载matery</span><br><span class="line">git clone https://github.com/blinkfox/hexo-theme-matery.git themes/hexo-theme-matery</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用主题</p>
+<p>博客根目录下的_config.yml文件，theme从默认的landscape改为主题名。如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: next/hexo-theme-matery/其他安装的主题</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新下看效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+
+<p>没问题就同步到github即可</p>
+</li>
+</ul>
+<p>其中，matery就一种样式，Next可以更改主题样式</p>
+<p>在theme&#x2F;next&#x2F;下的config_yml中scheme，有Muse，Mist，Pisces，Gemini四种</p>
+<p>改完之后同样更新看效果没问题就同步即可。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>安装教程</p>
+<ul>
+<li><p>next: <a href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a></p>
+</li>
+<li><p>Matery: <a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>WebUI</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>Matery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo报错YAMLException</title>
+    <url>/2022/06/16/616-hexo-debug/</url>
+    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
+<p>报错，hexo无法将md文档转网页</p>
+<p>基本因为格式不对，空格少打了或者多大了。</p>
+<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
+<p>比如标题有特殊符号等等</p>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Debug</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo日志使用方法</title>
     <url>/2022/06/16/616-hexo-usage-backup/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>前置：Hexo+GitHub，生成可访问的网站【见：<a href="http://localhost:4000/2022/06/16/hexo-gitpages-install/">搭建网站</a> 】。</p>
@@ -64,8 +126,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>GithubPages</tag>
         <tag>Next</tag>
+        <tag>GithubPages</tag>
       </tags>
   </entry>
   <entry>
@@ -167,58 +229,23 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo常用命令</title>
-    <url>/2022/07/11/hexo-cmd/</url>
-    <content><![CDATA[<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>所有命令都在博客文件夹下进行。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> 博客名</span><br></pre></td></tr></table></figure>
+    <title>Hello World</title>
+    <url>/2022/06/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p>这行用来mc更新后网页是否也会同步更新。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>写日志：source&#x2F;post下写md文档，写好后想提交</p>
-<p>清除缓存</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-
-
-<p>生成最新的generate</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-
-
-<p>本地查看一下show</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-
-
-<p>推送部署到云端deploy</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d </span><br></pre></td></tr></table></figure>
-
-
-
-<p>如果想加上传描述</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -m &#x27;这里写提交描述&#x27;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h2><p>下面俩种写法等价</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo d -g </span><br><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-
-
-<p>如果觉得前面命令麻烦，不想debug，可以直接</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d -g <span class="comment">#先清除缓存，generate出新的文件，再deploy。</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>同理其他命令也可以组合</p>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>CMD</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hexo中加入Github每日贡献图</title>
@@ -273,67 +300,57 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/16/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p>这行用来mc更新后网页是否也会同步更新。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>Hexo常用命令</title>
+    <url>/2022/07/11/hexo-cmd/</url>
+    <content><![CDATA[<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>所有命令都在博客文件夹下进行。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> 博客名</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>写日志：source&#x2F;post下写md文档，写好后想提交</p>
+<p>清除缓存</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>给Hexo安装主题模板并美化</title>
-    <url>/2022/06/16/616-advance-ui/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已搭建好网页，想美化网站。</p>
-<p>美化网站，可以从0开始写UI界面，静态网站也不复杂就是了。但这样比较慢，有很多已经写好的开源模板可以一件套用（类比当年QQ空间的脚本）<a href="https://hexo.voxel.site/">这个网站</a>列举了Hexo下Top10的热门开源模板。试了其中俩个。</p>
-<p>Next：更简洁</p>
-<p>Matery：挺花里胡哨的，功能丰富。整体画风更随意一些（？比如文档大小写混杂hhh 亮点是可以卡片式排版。</p>
-<h2 id="主题安装步骤"><a href="#主题安装步骤" class="headerlink" title="主题安装步骤"></a>主题安装步骤</h2><p>安装主题很简单，就是把主题放进博客的theme文件夹，conf中改主题名，然后hexo更新页面即可。</p>
-<p>下面步骤根据官方文档整理</p>
-<ul>
-<li><p>下载想要的主题</p>
-<p>要先cd到对应hexo博客下，然后下载主题，喜欢哪个下哪个</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#下载next</span><br><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line">#下载matery</span><br><span class="line">git clone https://github.com/blinkfox/hexo-theme-matery.git themes/hexo-theme-matery</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启用主题</p>
-<p>博客根目录下的_config.yml文件，theme从默认的landscape改为主题名。如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: next/hexo-theme-matery/其他安装的主题</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新下看效果</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
 
-<p>没问题就同步到github即可</p>
-</li>
-</ul>
-<p>其中，matery就一种样式，Next可以更改主题样式</p>
-<p>在theme&#x2F;next&#x2F;下的config_yml中scheme，有Muse，Mist，Pisces，Gemini四种</p>
-<p>改完之后同样更新看效果没问题就同步即可。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>安装教程</p>
-<ul>
-<li><p>next: <a href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a></p>
-</li>
-<li><p>Matery: <a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
-</li>
-</ul>
+
+<p>生成最新的generate</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+
+
+<p>本地查看一下show</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+
+
+<p>推送部署到云端deploy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d </span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果想加上传描述</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -m &#x27;这里写提交描述&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h2><p>下面俩种写法等价</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo d -g </span><br><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果觉得前面命令麻烦，不想debug，可以直接</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d -g <span class="comment">#先清除缓存，generate出新的文件，再deploy。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>同理其他命令也可以组合</p>
 ]]></content>
       <categories>
-        <category>TechNotes</category>
-        <category>WebUI</category>
+        <category>CMD</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>Next</tag>
-        <tag>Matery</tag>
       </tags>
   </entry>
   <entry>
@@ -350,23 +367,6 @@
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>StatisticsDisplay</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo报错YAMLException</title>
-    <url>/2022/06/16/616-hexo-debug/</url>
-    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
-<p>报错，hexo无法将md文档转网页</p>
-<p>基本因为格式不对，空格少打了或者多大了。</p>
-<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
-<p>比如标题有特殊符号等等</p>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Debug</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
