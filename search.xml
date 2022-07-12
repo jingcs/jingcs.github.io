@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo报错YAMLException</title>
-    <url>/2022/06/16/616-hexo-debug/</url>
-    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
-<p>报错，hexo无法将md文档转网页</p>
-<p>基本因为格式不对，空格少打了或者多大了。</p>
-<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
-<p>比如标题有特殊符号等等</p>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Debug</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>给Hexo安装主题模板并美化</title>
     <url>/2022/06/16/616-advance-ui/</url>
     <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已搭建好网页，想美化网站。</p>
@@ -63,25 +46,20 @@
       </tags>
   </entry>
   <entry>
-    <title>整理，一步步的个人博客搭建及美化</title>
-    <url>/2022/06/16/616-summary/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><ol>
-<li><a href="http://jingcs.github.io/2022/06/16/hexo-gitpages-install/">搭建网站</a> 包括hexo+github建立可访问网站，域名修改，插入图片。</li>
-<li><a href="http://jingcs.github.io/2022/06/16/616-hexo-usage-backup/">添加新日志</a> 包括如何在建立的网站上写日志，日志的分类标签规范</li>
-<li><a href="http://jingcs.github.io/2022/06/16/616-advance-ui/">更改美化网站</a> 包括下载并安装更新不同的网页主题设计</li>
-<li>扩展网页功能。</li>
-</ol>
+    <title>Hexo报错YAMLException</title>
+    <url>/2022/06/16/616-hexo-debug/</url>
+    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
+<p>报错，hexo无法将md文档转网页</p>
+<p>基本因为格式不对，空格少打了或者多大了。</p>
+<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
+<p>比如标题有特殊符号等等</p>
 ]]></content>
       <categories>
         <category>TechNotes</category>
-        <category>Web</category>
-        <category>Summary</category>
-        <category>Doing</category>
+        <category>Debug</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>Next</tag>
-        <tag>GithubPages</tag>
       </tags>
   </entry>
   <entry>
@@ -148,6 +126,104 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>自定义GithubPages域名+DNS解析加速</title>
+    <url>/2022/07/11/git-new-domains/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前置要求：已完成网页搭建。用户名.github.io能够访问网页。</p>
+<p>步骤</p>
+<ol>
+<li>申请一个新域名网址</li>
+<li>域名网站操作：更改域名的DNS解析器（Nameservers）到cloudflare</li>
+<li>Cloudflare操作：设置，映射IP地址到GIthub（DNS解析）</li>
+<li>GIthub操作：右上角setting-page-domain 更改为新域名网址。</li>
+</ol>
+<p>下面是一些自问自答，可以直接跳后面步骤。</p>
+<ul>
+<li><p><strong>什么是DNS解析？</strong></p>
+</li>
+<li><p>参考AWS：域名系统 (DNS) 将人类可读的域名 (例如，<a href="http://www.amazon.com/">www.amazon.com</a>) 转换为机器可读的 IP 地址 (例如，192.0.2.44)。更细节的之后单独写一篇【link】</p>
+</li>
+<li><p><strong>Cloudflare用来加速，为什么要加速？</strong></p>
+</li>
+<li><p>因为慢！（废话）一是github国内访问越来越慢，在墙的边缘游走。二是使用默认方式DNS解析很慢！作为急性子，等了半天网页还是404，以为是哪步搞错了，捣鼓了很久发现没错就是他慢而已……如果耐得住寂寞（其实第一次DNS解析挺快的，可能是想博好感；国内的也挺快的，但是要备案），可以将2，3步合为一步。在域名网站直接进行DNS解析（可以不用看这篇了！）</p>
+</li>
+</ul>
+<h2 id="1-申请新域名"><a href="#1-申请新域名" class="headerlink" title="1 申请新域名"></a>1 申请新域名</h2><p>域名有收费的和免费的。选择困难可以看看：关于选域名【link】</p>
+<p>收费的用过namesilo，网页非常复古域名解析也慢……不过价格算便宜的。一年3～9刀。</p>
+<p>下面以免费域名freenom为例。免费域名有效期12～24个月，freenom快到期的时候可以再免费续，无限套娃hhh</p>
+<p>为了后面解释方便，比如我选了abc.com</p>
+<h2 id="2-更改域名的nameservers到cloudflare"><a href="#2-更改域名的nameservers到cloudflare" class="headerlink" title="2 更改域名的nameservers到cloudflare"></a>2 更改域名的nameservers到cloudflare</h2><p>将默认的nameserver改到cloudflare</p>
+<p>原来的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ns1.dnsowl.com</span><br><span class="line">ns2.dnsowl.com</span><br><span class="line">ns3.dnsowl.com</span><br></pre></td></tr></table></figure>
+
+<p>现在改为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">guss.ns.cloudflare.com</span><br><span class="line">martha.ns.cloudflare.com</span><br></pre></td></tr></table></figure>
+
+<p>如下所示</p>
+<p><img src="/pics/nameserver.png" alt="img"></p>
+<h2 id="3-Cloudflare的DNS解析"><a href="#3-Cloudflare的DNS解析" class="headerlink" title="3 Cloudflare的DNS解析"></a>3 Cloudflare的DNS解析</h2><p>创建cloudflare账号，add site，输入新域名的网址abc.com</p>
+<p>dns配置成如下格式</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A</strong></td>
+<td>abc.com</td>
+<td>185.199.108.153</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>abc.com</td>
+<td>185.199.109.153</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>abc.com</td>
+<td>185.199.110.153</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>abc.com</td>
+<td>185.199.111.153</td>
+</tr>
+<tr>
+<td><strong>CNAME</strong></td>
+<td>www</td>
+<td>abc.com</td>
+</tr>
+</tbody></table>
+<p>那四个IP地址是github服务器的IP（每个人都一样，不用改）。为什么？</p>
+<p>命令行 ping 一下自己的网站就懂了</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ping</span> 用户名.github.io</span><br><span class="line">#显示<span class="number">64</span> bytes from <span class="number">185</span>.<span class="number">199</span>.<span class="number">111</span>.<span class="number">153</span>: icmp_seq=<span class="number">122</span> ttl=<span class="number">53</span> <span class="built_in">time</span>=<span class="number">11</span>.<span class="number">644</span> ms</span><br></pre></td></tr></table></figure>
+
+<p>提一嘴，如果是买的服务器不是githubpages，写一个IP地址就行。为什么github是四个IP？可能github人家有钱（？笑。总之我ping了好几次，这几个IP都有出现。</p>
+<h2 id="3-在Github上改域名"><a href="#3-在Github上改域名" class="headerlink" title="3 在Github上改域名"></a>3 在Github上改域名</h2><p>进入仓库，右上角【 …】-【settings】</p>
+<p>【Code and automation】-【pages】</p>
+<p>【Custom domain】改为新域名【<a href="http://www.abc.com】并保存/">www.abc.com】并保存</a></p>
+<p>当状态从【DNS Check in Progress】到【DNS successful】就可以用新域名访问啦。</p>
+<p>几个tips</p>
+<ul>
+<li>无法显示？清除所有缓存。拿手机访问试试</li>
+<li>设置后github自动生成了CNAME文件保存着新域名。为了防止下次更新被覆盖掉。在本地也建一个相同文件（放在source目录下</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>GithubPages</tag>
+        <tag>Cloudflare</tag>
+        <tag>DNS</tag>
+        <tag>Domain</tag>
+        <tag>Freenom</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hexo常用命令</title>
@@ -353,101 +429,72 @@
       </tags>
   </entry>
   <entry>
-    <title>自定义GithubPages域名+DNS解析加速</title>
-    <url>/2022/07/11/git-new-domains/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前置要求：已完成网页搭建。用户名.github.io能够访问网页。</p>
-<p>步骤</p>
-<ol>
-<li>申请一个新域名网址</li>
-<li>域名网站操作：更改域名的DNS解析器（Nameservers）到cloudflare</li>
-<li>Cloudflare操作：设置，映射IP地址到GIthub（DNS解析）</li>
-<li>GIthub操作：右上角setting-page-domain 更改为新域名网址。</li>
+    <title>整理，一步步的个人博客搭建及美化</title>
+    <url>/2022/06/16/616-summary/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><ol>
+<li><a href="http://jingcs.github.io/2022/06/16/hexo-gitpages-install/">搭建网站</a> 包括hexo+github建立可访问网站，域名修改，插入图片。</li>
+<li><a href="http://jingcs.github.io/2022/06/16/616-hexo-usage-backup/">添加新日志</a> 包括如何在建立的网站上写日志，日志的分类标签规范</li>
+<li><a href="http://jingcs.github.io/2022/06/16/616-advance-ui/">更改美化网站</a> 包括下载并安装更新不同的网页主题设计</li>
+<li>扩展网页功能。</li>
 </ol>
-<p>下面是一些自问自答，可以直接跳后面步骤。</p>
-<ul>
-<li><p><strong>什么是DNS解析？</strong></p>
-</li>
-<li><p>参考AWS：域名系统 (DNS) 将人类可读的域名 (例如，<a href="http://www.amazon.com/">www.amazon.com</a>) 转换为机器可读的 IP 地址 (例如，192.0.2.44)。更细节的之后单独写一篇【link】</p>
-</li>
-<li><p><strong>Cloudflare用来加速，为什么要加速？</strong></p>
-</li>
-<li><p>因为慢！（废话）一是github国内访问越来越慢，在墙的边缘游走。二是使用默认方式DNS解析很慢！作为急性子，等了半天网页还是404，以为是哪步搞错了，捣鼓了很久发现没错就是他慢而已……如果耐得住寂寞（其实第一次DNS解析挺快的，可能是想博好感；国内的也挺快的，但是要备案），可以将2，3步合为一步。在域名网站直接进行DNS解析（可以不用看这篇了！）</p>
-</li>
-</ul>
-<h2 id="1-申请新域名"><a href="#1-申请新域名" class="headerlink" title="1 申请新域名"></a>1 申请新域名</h2><p>域名有收费的和免费的。选择困难可以看看：关于选域名【link】</p>
-<p>收费的用过namesilo，网页非常复古域名解析也慢……不过价格算便宜的。一年3～9刀。</p>
-<p>下面以免费域名freenom为例。免费域名有效期12～24个月，freenom快到期的时候可以再免费续，无限套娃hhh</p>
-<p>为了后面解释方便，比如我选了abc.com</p>
-<h2 id="2-更改域名的nameservers到cloudflare"><a href="#2-更改域名的nameservers到cloudflare" class="headerlink" title="2 更改域名的nameservers到cloudflare"></a>2 更改域名的nameservers到cloudflare</h2><p>将默认的nameserver改到cloudflare</p>
-<p>原来的</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ns1.dnsowl.com</span><br><span class="line">ns2.dnsowl.com</span><br><span class="line">ns3.dnsowl.com</span><br></pre></td></tr></table></figure>
-
-<p>现在改为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">guss.ns.cloudflare.com</span><br><span class="line">martha.ns.cloudflare.com</span><br></pre></td></tr></table></figure>
-
-<p>如下所示</p>
-<p><img src="/pics/nameserver.png" alt="img"></p>
-<h2 id="3-Cloudflare的DNS解析"><a href="#3-Cloudflare的DNS解析" class="headerlink" title="3 Cloudflare的DNS解析"></a>3 Cloudflare的DNS解析</h2><p>创建cloudflare账号，add site，输入新域名的网址abc.com</p>
-<p>dns配置成如下格式</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Name</th>
-<th>Content</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>A</strong></td>
-<td>abc.com</td>
-<td>185.199.108.153</td>
-</tr>
-<tr>
-<td><strong>A</strong></td>
-<td>abc.com</td>
-<td>185.199.109.153</td>
-</tr>
-<tr>
-<td><strong>A</strong></td>
-<td>abc.com</td>
-<td>185.199.110.153</td>
-</tr>
-<tr>
-<td><strong>A</strong></td>
-<td>abc.com</td>
-<td>185.199.111.153</td>
-</tr>
-<tr>
-<td><strong>CNAME</strong></td>
-<td>www</td>
-<td>abc.com</td>
-</tr>
-</tbody></table>
-<p>那四个IP地址是github服务器的IP（每个人都一样，不用改）。为什么？</p>
-<p>命令行 ping 一下自己的网站就懂了</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ping</span> 用户名.github.io</span><br><span class="line">#显示<span class="number">64</span> bytes from <span class="number">185</span>.<span class="number">199</span>.<span class="number">111</span>.<span class="number">153</span>: icmp_seq=<span class="number">122</span> ttl=<span class="number">53</span> <span class="built_in">time</span>=<span class="number">11</span>.<span class="number">644</span> ms</span><br></pre></td></tr></table></figure>
-
-<p>提一嘴，如果是买的服务器不是githubpages，写一个IP地址就行。为什么github是四个IP？可能github人家有钱（？笑。总之我ping了好几次，这几个IP都有出现。</p>
-<h2 id="3-在Github上改域名"><a href="#3-在Github上改域名" class="headerlink" title="3 在Github上改域名"></a>3 在Github上改域名</h2><p>进入仓库，右上角【 …】-【settings】</p>
-<p>【Code and automation】-【pages】</p>
-<p>【Custom domain】改为新域名【<a href="http://www.abc.com】并保存/">www.abc.com】并保存</a></p>
-<p>当状态从【DNS Check in Progress】到【DNS successful】就可以用新域名访问啦。</p>
-<p>几个tips</p>
-<ul>
-<li>无法显示？清除所有缓存。拿手机访问试试</li>
-<li>设置后github自动生成了CNAME文件保存着新域名。为了防止下次更新被覆盖掉。在本地也建一个相同文件（放在source目录下</li>
-</ul>
 ]]></content>
       <categories>
         <category>TechNotes</category>
         <category>Web</category>
+        <category>Summary</category>
+        <category>Doing</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
         <tag>GithubPages</tag>
-        <tag>Cloudflare</tag>
-        <tag>DNS</tag>
-        <tag>Domain</tag>
-        <tag>Freenom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络-网络协议IPv4和IPv6</title>
+    <url>/2022/07/12/ip-intro/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个系列是在实践中对计算机网络相关知识概念的整理。</p>
+<h2 id="关于IP"><a href="#关于IP" class="headerlink" title="关于IP"></a>关于IP</h2><p>IP：Internet Protocol（网际互连协议）</p>
+<p>IP是TCP&#x2F;IP体系中的网络层协议，是整个TCP&#x2F;IP协议族的核心，构成互联网的基础。</p>
+<ul>
+<li><p>对上载送传输层各种协议信息（TCP、UDP等）</p>
+</li>
+<li><p>对下将IP信息包放到链路层（以太网、令牌环网络等来传送）。[1]</p>
+</li>
+</ul>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>IP在OSI模型中位于网络层，TCP&#x2F;IP和OSI说白了就是不同专家对计算机网络结构的不同定义。链路层传输层这些词也是定义的一部分。详细介绍和区别【link待填坑】</p>
+<p>要是我早生几十年就把它定义成网络一二三四五多好记！</p>
+<p>好像说了很多，但还是没有人说它究竟在干嘛。天天网上冲浪，按理说都或多或少接触过。简单说IP是种协议，它制定了信息传输的标准（IP地址，mac地址），让我们能上网。</p>
+<p>IP地址，没错就是那串用电子设备连wifi流量 被分配的类似192.168.1.0的数字，可以想象成你的住址。更有趣的一点，互联网上的一切都是有IP地址的！包括网站和应用程序</p>
+<p>所以<strong>上网其实就是用你的IP访问另一个IP的过程！</strong></p>
+<p>至此，就能很好理解为什么微博可以显示发博地，社交媒体即使关了智能算法推荐还是很能“懂”你了。</p>
+<p>对于用户，IP地址可以理解为就近分配。所以app读出你的住址，你邻居的住址，然后把你们看的互相推送（。梯子可以一定程度规避，真想找也能找到你的原始地址，目前各大app还没有那么丧心病狂就是了，毕竟我们也有忘挂梯子的时候。</p>
+<p>IP为什么就近分配？想象一下，人在广东，想家里上网，会跑上海服务点办入网吗？我们注意到连同一wifi，每次分配的IP地址可能有些不同，但大范围（前几位数）总是固定的，这个大范围能够读到你在哪，专业术语是主机。</p>
+<h2 id="IPv4和IPv6"><a href="#IPv4和IPv6" class="headerlink" title="IPv4和IPv6"></a>IPv4和IPv6</h2><p>字面意思非常简单，不同年代发布的协议版本。第4版（version 4）和第六版（version 6）。果然非母语容易被唬着。</p>
+<h3 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h3><p>IPv4规定地址32位（二进制），十进制写法xxx.xxx.xxx.xxx，其中xxx取值范围0～255。</p>
+<p>1981年被提及。PS当年全球人口40亿左右。前面说到，上网就是一个IP访问另一个IP地址。于是专家们想，我们协议搞40亿（ $2^{32}$）左右个IP地址，差不多人手一个，大家都有网上！</p>
+<h3 id="网络地址转换NAT"><a href="#网络地址转换NAT" class="headerlink" title="网络地址转换NAT"></a>网络地址转换NAT</h3><p>那时候专家没想到电子设备能这么普及，从一家一台变为一人N台……。然后就发现IP地址不够用了啊！提案有很多，比如IPv6，网络地址转换（现在还在用）。</p>
+<p>网络地址转换简单说就是一个人一个IP太奢侈了，我们决定很多人共用一个IP！内网外网用的就是他。咱就是说……一开始多整点坑位，我就不用学这么多了……</p>
+<h3 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h3><p>IPv6想法很简单粗暴，地址不够用，那我允许存更多不就完事了，长长长！</p>
+<p>IPv6规定地址128位（32进制），按全球80亿人，每人都能分配到数万亿亿个，以我们现在的眼界感觉是够用了。</p>
+<p>目前是IPv4和IPv6混用的状态。</p>
+<h3 id="IPv4-格式"><a href="#IPv4-格式" class="headerlink" title="IPv4 格式"></a>IPv4 格式</h3><p>待填</p>
+<p>服务器 主机 等</p>
+<h2 id="自问自答"><a href="#自问自答" class="headerlink" title="自问自答"></a>自问自答</h2><p><strong>网址和IP地址</strong></p>
+<p>上网的过程是IP间的访问，但我们都是输google.com而不是那一串IP地址诶？</p>
+<p>拿IPv4来说，几十亿个实在是太难记了啊！所以我们给IP地址穿上了网址的衣服，我们只记网址，电脑网址和IP两个都记。让电脑透过表面看本质，这个过程称为DNS解析。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://m.300.cn/itzspd/457078.html">IP协议介绍</a></li>
+<li><a href="https://zh.m.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">网络地址转换</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>PlainTech</category>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>TCP/IP</tag>
+        <tag>NetworkLayer</tag>
       </tags>
   </entry>
 </search>
