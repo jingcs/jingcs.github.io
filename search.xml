@@ -46,23 +46,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo报错YAMLException</title>
-    <url>/2022/06/16/616-hexo-debug/</url>
-    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
-<p>报错，hexo无法将md文档转网页</p>
-<p>基本因为格式不对，空格少打了或者多大了。</p>
-<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
-<p>比如标题有特殊符号等等</p>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Debug</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo日志使用方法</title>
     <url>/2022/06/16/616-hexo-usage-backup/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>前置：Hexo+GitHub，生成可访问的网站【见：<a href="http://localhost:4000/2022/06/16/hexo-gitpages-install/">搭建网站</a> 】。</p>
@@ -109,23 +92,59 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/16/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p>这行用来mc更新后网页是否也会同步更新。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>整理，一步步的个人博客搭建及美化</title>
+    <url>/2022/06/16/616-summary/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><ol>
+<li><a href="http://jingcs.github.io/2022/06/16/hexo-gitpages-install/">搭建网站</a> 包括hexo+github建立可访问网站，域名修改，插入图片。</li>
+<li><a href="http://jingcs.github.io/2022/06/16/616-hexo-usage-backup/">添加新日志</a> 包括如何在建立的网站上写日志，日志的分类标签规范</li>
+<li><a href="http://jingcs.github.io/2022/06/16/616-advance-ui/">更改美化网站</a> 包括下载并安装更新不同的网页主题设计</li>
+<li>扩展网页功能。</li>
+</ol>
 ]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Web</category>
+        <category>Summary</category>
+        <category>Doing</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>GithubPages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github常用命令及Desktop初体验</title>
+    <url>/2022/07/14/git-cmd/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>有时代码明明没怎么改突然就不能用了，github合并机制挺全有时也让人抓狂，一直提示冲突。好不容易历史版本pull下来，想push上去，提示我必须把最新的pull下来……我要是最新的能用我会回退到历史版本吗！搁这套娃呢。</p>
+<p>不想折腾冲突的我，找了一下午bug，发现是多删了个空格！！简单粗暴退到上一版本就没那么多事了！</p>
+<p>于是整理下一些强制命令（。有风险就有风险……我可以备份啊！备份就1秒，找bug一下午过去了</p>
+<h2 id="本地版本回滚（更安心）"><a href="#本地版本回滚（更安心）" class="headerlink" title="本地版本回滚（更安心）"></a>本地版本回滚（更安心）</h2><p>在本地回退到某一个版本（不影响远端），命令行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git checkout xxxx(commit号)</span><br></pre></td></tr></table></figure>
+
+<p>其中xxx是一串类似2a3b4e的commit号，可以在github desktop-history找到。</p>
+<p>也可以desktop里找到想要的回退版本，右键revert changes in commit</p>
+<p>如果提示error，有conflicts，添加冲突的文件（error: Reverting is not possible because you have unmerged files.）</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add filename(文件名)</span><br></pre></td></tr></table></figure>
+
+<p>这时候就可以发现本地文件已经到历史版本了，但无法推送到分支，因为是detached head分支。这时想合并可以把这个保存为新分支，然后merge到主分支。</p>
+<h2 id="提交历史版本（更简单粗暴）"><a href="#提交历史版本（更简单粗暴）" class="headerlink" title="提交历史版本（更简单粗暴）"></a>提交历史版本（更简单粗暴）</h2><p>除了revert，使用reset会更加简单粗暴</p>
+<p>简单说，revert是永久时光机，能去过去，也能回未来。reset是一次性时光机，回到过去，未来就被擦掉了没有后悔药。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git reset --hard xxxx(commit号)</span><br></pre></td></tr></table></figure>
+
+<p>这样github就不会提示你有新的没pull下来，不能push了。-f代表强制推送。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -f</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
   </entry>
   <entry>
     <title>自定义GithubPages域名+DNS解析加速</title>
@@ -224,6 +243,25 @@
         <tag>Domain</tag>
         <tag>Freenom</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p>这行用来mc更新后网页是否也会同步更新。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Hexo常用命令</title>
@@ -332,6 +370,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo报错YAMLException</title>
+    <url>/2022/06/16/616-hexo-debug/</url>
+    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
+<p>报错，hexo无法将md文档转网页</p>
+<p>基本因为格式不对，空格少打了或者多大了。</p>
+<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
+<p>比如标题有特殊符号等等（目前测试出不能使用的：[ ]</p>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Debug</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用GitHubPages&amp;Hexo搭建个人网页</title>
     <url>/2022/06/16/hexo-gitpages-install/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>用Github做网页，就是把github当免费服务器，网页文件全存GitHub仓库上。但因为Github没有数据库，更适合做静态网页。（动态进阶pending。这里的hexo就是个网页模板。官方推荐的还有Jekyll（国内貌似比较慢）。理论上hexo做出来的东西可以放任何服务器上，Github最方便。</p>
@@ -429,28 +484,6 @@
       </tags>
   </entry>
   <entry>
-    <title>整理，一步步的个人博客搭建及美化</title>
-    <url>/2022/06/16/616-summary/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><ol>
-<li><a href="http://jingcs.github.io/2022/06/16/hexo-gitpages-install/">搭建网站</a> 包括hexo+github建立可访问网站，域名修改，插入图片。</li>
-<li><a href="http://jingcs.github.io/2022/06/16/616-hexo-usage-backup/">添加新日志</a> 包括如何在建立的网站上写日志，日志的分类标签规范</li>
-<li><a href="http://jingcs.github.io/2022/06/16/616-advance-ui/">更改美化网站</a> 包括下载并安装更新不同的网页主题设计</li>
-<li>扩展网页功能。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Web</category>
-        <category>Summary</category>
-        <category>Doing</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
-        <tag>GithubPages</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机网络-网络协议IPv4和IPv6</title>
     <url>/2022/07/12/ip-intro/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个系列是在实践中对计算机网络相关知识概念的整理。</p>
@@ -495,6 +528,50 @@
       <tags>
         <tag>TCP/IP</tag>
         <tag>NetworkLayer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown常用命令</title>
+    <url>/2022/07/15/md-cmd/</url>
+    <content><![CDATA[<p>金鱼脑记一些常用</p>
+<h2 id="代码公式"><a href="#代码公式" class="headerlink" title="代码公式"></a>代码公式</h2><h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$公式$</span><br></pre></td></tr></table></figure>
+
+<p>效果 $x^2$</p>
+<p>Q：公式没反应</p>
+<p>A：typora-偏好设置- markdown语法-勾选所有</p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>三个&#96;，mac电脑按中英切换键，再按波浪号（1左边）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```code```</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>插入链接&#x2F;图片都是以下格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
+
+<p>⚠️不要写反了！❌   !(备注)[url] ❌ </p>
+<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ul>
+<li><p>本地引用</p>
+<p>注意pics指专属图片文件夹。如图片和md放在同一文件夹下，直接引用。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/pics/xxx.png)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>云端引用 (github图床)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](https://cdn.jsdelivr.net/gh/用户名/仓库名/文件夹/xxxx.jpg)</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p>同理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
+
+<p>效果<a href="www.google.com">google’s url</a></p>
+]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Md</tag>
+        <tag>Typora</tag>
       </tags>
   </entry>
 </search>
