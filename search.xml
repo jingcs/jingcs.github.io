@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo报错YAMLException</title>
+    <url>/2022/06/16/616-hexo-debug/</url>
+    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
+<p>报错，hexo无法将md文档转网页</p>
+<p>基本因为格式不对，空格少打了或者多大了。</p>
+<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
+<p>比如标题有特殊符号等等（目前测试出不能使用的：[ ]</p>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Debug</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>给Hexo安装主题模板并美化</title>
     <url>/2022/06/16/616-advance-ui/</url>
     <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已搭建好网页，想美化网站。</p>
@@ -92,25 +109,79 @@
       </tags>
   </entry>
   <entry>
-    <title>整理，一步步的个人博客搭建及美化</title>
-    <url>/2022/06/16/616-summary/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><ol>
-<li><a href="http://jingcs.github.io/2022/06/16/hexo-gitpages-install/">搭建网站</a> 包括hexo+github建立可访问网站，域名修改，插入图片。</li>
-<li><a href="http://jingcs.github.io/2022/06/16/616-hexo-usage-backup/">添加新日志</a> 包括如何在建立的网站上写日志，日志的分类标签规范</li>
-<li><a href="http://jingcs.github.io/2022/06/16/616-advance-ui/">更改美化网站</a> 包括下载并安装更新不同的网页主题设计</li>
-<li>扩展网页功能。</li>
+    <title>在google中添加站点地图（Hexo和Wp）</title>
+    <url>/2022/07/15/create-sitemap/</url>
+    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>搜索引擎排位是件生意，加上每天无数个新网站，一般来说搜索引擎不会主动收录你的自建网站！（博客园这种二级衍生的除外，或者有篇日志被第三方引流百万点击突然火了，引起大牛注意.jpg）于是自建网站，我们需要手动向每个搜索引擎提出收录请求，才会被搜到。</p>
+<p>整体步骤如下</p>
+<ol>
+<li><p>找到想被收录的搜索引擎站点</p>
+</li>
+<li><p>录入并验证网站</p>
+</li>
+<li><p>为网站生成XML站点地图</p>
+</li>
+<li><p>将XML加入到搜索引擎sitemap中</p>
+</li>
+<li><p>测试验证是否被收录</p>
+</li>
+</ol>
+<h2 id="1-找到想被收录的搜索引擎站点"><a href="#1-找到想被收录的搜索引擎站点" class="headerlink" title="1 找到想被收录的搜索引擎站点"></a>1 找到想被收录的搜索引擎站点</h2><p>这里列俩常用的</p>
+<p>google: <a href="https://search.google.com/search-console">https://search.google.com/search-console</a></p>
+<p>Baidu: <a href="https://ziyuan.baidu.com/site/index">https://ziyuan.baidu.com/site/index</a></p>
+<p>Bing：<a href="https://www.bing.com/webmasters">https://www.bing.com/webmasters</a></p>
+<p>其他的可自行搜索</p>
+<h2 id="2-录入并验证网站"><a href="#2-录入并验证网站" class="headerlink" title="2 录入并验证网站"></a>2 录入并验证网站</h2><p>搜索引擎需要验证你是网站的所有者。（为什么？后面会说隐患）</p>
+<p>以google search console为例 添加资源</p>
+<p>网域和网址前缀都可以。这里演示前者【网域】。</p>
+<p><img src="/pics/google_console.png" alt="google_console"></p>
+<p>namesilo好像可以登录验证，这里以所有DNS服务商为例。</p>
+<p>复制google给的验证字符串。</p>
+<p><img src="/pics/dns_copy.png" alt="google_console"></p>
+<p>打开域名管理网站，这里用的cloudflare，DNS解析处，选择TXT，粘贴</p>
+<p><img src="/pics/add-txt-google.png" alt="google_console"></p>
+<p>回到google界面点验证，就ok了。</p>
+<h2 id="3-为网站生成XML站点地图"><a href="#3-为网站生成XML站点地图" class="headerlink" title="3 为网站生成XML站点地图"></a>3 为网站生成XML站点地图</h2><p>站点地图简单说就是 你网站中所有日志标题和链接的list合集。</p>
+<h3 id="3-1-wordpress"><a href="#3-1-wordpress" class="headerlink" title="3.1 wordpress"></a>3.1 wordpress</h3><p>可以安装插件XML Sitemaps - active激活</p>
+<p>左菜单栏 - settings- XML-sitemap</p>
+<p>复制出XML的url（The URL to your sitemap index file is: x x x x x x x）</p>
+<p>粘到搜索引擎的站点地图即可（part 4）</p>
+<h3 id="3-2-Hexo-Github-Pages"><a href="#3-2-Hexo-Github-Pages" class="headerlink" title="3.2 Hexo Github Pages"></a>3.2 Hexo Github Pages</h3><p>参考教程<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">1</a></p>
+<p>cd到博客目录下，安装hexo-generator-sitemap插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save #google的XML用这个</span><br><span class="line">npm install hexo-generator-sitemap --save #百度的XML用这个</span><br></pre></td></tr></table></figure>
+
+<p>生成XML站点地图</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>博客目录下可以找到新生成的sitemap.xml</p>
+<p>将更新后的博客发布，找到xml文件的链接</p>
+<p>粘到搜索引擎站点地图里即可（part 4）</p>
+<h2 id="4-将XML加入到搜索引擎sitemap中"><a href="#4-将XML加入到搜索引擎sitemap中" class="headerlink" title="4 将XML加入到搜索引擎sitemap中"></a>4 将XML加入到搜索引擎sitemap中</h2><p>站点地图-添加新的站点地图-将链接粘过去就好</p>
+<p>链接格式一般是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">网址名/xxxxx.xml</span><br><span class="line">网站名/xml_sitemap=params=</span><br></pre></td></tr></table></figure>
+
+<p>都是可以的。</p>
+<h3 id="4-1-无法获取-x2F-无法读取此站点地图"><a href="#4-1-无法获取-x2F-无法读取此站点地图" class="headerlink" title="4.1 无法获取&#x2F;无法读取此站点地图"></a>4.1 无法获取&#x2F;无法读取此站点地图</h3><p>google有延时，一般1～3天才会更新。</p>
+<p>google中的站点可以同步到bing，我去bing试了下，几分钟后显示成功。</p>
+<h2 id="5-测试验证是否被收录"><a href="#5-测试验证是否被收录" class="headerlink" title="5 测试验证是否被收录"></a>5 测试验证是否被收录</h2><p>site: xxxxx（你的网站名）</p>
+<p>能搜到就是被收录了。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>Hexo博客站点地图配置（Google）<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">https://mizeri.github.io/2021/04/18/hexo-sitemap-google/</a></li>
 </ol>
 ]]></content>
       <categories>
-        <category>TechNotes</category>
-        <category>Web</category>
-        <category>Summary</category>
-        <category>Doing</category>
+        <category>TechNote</category>
+        <category>SEO</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>Next</tag>
-        <tag>GithubPages</tag>
+        <tag>Google</tag>
+        <tag>Search</tag>
+        <tag>Sitemap</tag>
+        <tag>XML</tag>
+        <tag>Wordpress</tag>
+        <tag>DNS</tag>
+        <tag>Bing</tag>
+        <tag>Baidu</tag>
       </tags>
   </entry>
   <entry>
@@ -144,6 +215,160 @@
       </categories>
       <tags>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p>这行用来mc更新后网页是否也会同步更新。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>使用GitHubPages&amp;Hexo搭建个人网页</title>
+    <url>/2022/06/16/hexo-gitpages-install/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>用Github做网页，就是把github当免费服务器，网页文件全存GitHub仓库上。但因为Github没有数据库，更适合做静态网页。（动态进阶pending。这里的hexo就是个网页模板。官方推荐的还有Jekyll（国内貌似比较慢）。理论上hexo做出来的东西可以放任何服务器上，Github最方便。</p>
+<p>基本步骤就三步。</p>
+<p>首先，用hexo创建网页模板。</p>
+<p>然后，注册github建个仓库。</p>
+<p>最后，将网页模板传到github仓库上。</p>
+<p>就完成了。注意，Github网页无法做到实时更新，大概有三五分钟的延误。搞了一上午以为步骤不对网页怎么没变化，结果是我太心急……</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><strong>本地创建好网页</strong></li>
+</ol>
+<p>安装hexo</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo-cli  </span><br></pre></td></tr></table></figure>
+
+<p>用hexo建网页</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init xxx博客名（名字开心就好，不会显示在网页上）</span><br><span class="line">cd xxx博客名</span><br><span class="line">npm install </span><br><span class="line">npm install hexo-deployer-git --save #安装用于commit的程序</span><br><span class="line">npm i hexo-deployer-git #安装发布新文章</span><br></pre></td></tr></table></figure>
+
+<p>至此，网页已经建好了，本地效果可以运行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><strong>Github注册建仓库</strong></li>
+</ol>
+<p>注册就不说了，建仓库就是点绿色按钮Create a new repository</p>
+<p>有俩点需要注意</p>
+<ul>
+<li><strong>Repository name必须是 你github用户名.</strong><a href="http://github.io/"><strong>github.io</strong></a></li>
+<li><strong>设置默认分支名从main到master！！</strong><a href="https://github.com/settings/repositories"><strong>https://github.com/settings/repositories</strong></a></li>
+</ul>
+<p>第二点网上好多教程没提过。多摆俩句是因为master这词涉嫌歧视，在20年国外zzzq把默认的分支名从master换为main了。很多软件还是按照master写的。不改名可能会新建出一个master分支，每次提交push到master分支上，得合并。</p>
+<p>SSH密钥授权待补</p>
+<ol start="3">
+<li><strong>将Hexo传到Github</strong></li>
+</ol>
+<p>有俩种方法，一种是命令行， 一种是github desktop </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#命令行，前提已经cd进hexo所在位置</span><br><span class="line">hexo clean  #保险起见清理缓存</span><br><span class="line">hexo d -g   </span><br></pre></td></tr></table></figure>
+
+<p>打开浏览器 用户名.github.io就是网页</p>
+<p>也可以d上传前先debug一下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ol start="4">
+<li><p>更改域名</p>
+<p>github上：settings- pages- custom domain 输入买好的，想要自定义的域名</p>
+<p>域名上：将github用户名.github.io加入到chame</p>
+<p>网页文件：新建CHAME文件，无后缀，在里面写上想自定义的域名</p>
+<p>重新提交</p>
+<p>注意最多可能会要48小时才能更新！（一般十来分钟</p>
+</li>
+</ol>
+<p>[ ] 发布文章后主页不更新</p>
+<p>[ ] 插入图片</p>
+<p>source目录下新建images文件夹专门存储图片，图片引用方式为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/images/xxx.png)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>创建过程都很详细，黑字是备注的每个教程的不同侧重点</p>
+<ol>
+<li><p><a href="https://godweiyang.com/2018/04/13/hexo-blog/">超详细Hexo+Github博客搭建小白教程</a> 强烈安利这篇，非常详细，还开源了代码。水印，挂件，统计工具，BGM，评论，特效，答疑等等</p>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000017986794">超详细Hexo+Github Page搭建技术博客教程【持续更新】</a> 额外功能，域名，SOE搜索优化，其他插件程序等</p>
+</li>
+<li><p><a href="https://learnku.com/articles/45697#replies">超详细 Hexo + GitHub Page 搭建技术 blog 教程</a> 还有Hexo常用命令，模板推荐</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GithubPages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo常用命令</title>
+    <url>/2022/07/11/hexo-cmd/</url>
+    <content><![CDATA[<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>所有命令都在博客文件夹下进行。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> 博客名</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>写日志：source&#x2F;post下写md文档，写好后想提交</p>
+<p>清除缓存</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+
+
+<p>生成最新的generate</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+
+
+<p>本地查看一下show</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+
+
+<p>推送部署到云端deploy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d </span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果想加上传描述</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -m &#x27;这里写提交描述&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h2><p>下面俩种写法等价</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo d -g </span><br><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果觉得前面命令麻烦，不想debug，可以直接</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d -g <span class="comment">#先清除缓存，generate出新的文件，再deploy。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>同理其他命令也可以组合</p>
+]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -238,83 +463,32 @@
       </categories>
       <tags>
         <tag>GithubPages</tag>
-        <tag>Cloudflare</tag>
         <tag>DNS</tag>
+        <tag>Cloudflare</tag>
         <tag>Domain</tag>
         <tag>Freenom</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/16/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p>这行用来mc更新后网页是否也会同步更新。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hexo常用命令</title>
-    <url>/2022/07/11/hexo-cmd/</url>
-    <content><![CDATA[<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>所有命令都在博客文件夹下进行。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> 博客名</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>写日志：source&#x2F;post下写md文档，写好后想提交</p>
-<p>清除缓存</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-
-
-
-<p>生成最新的generate</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-
-
-<p>本地查看一下show</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-
-
-<p>推送部署到云端deploy</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d </span><br></pre></td></tr></table></figure>
-
-
-
-<p>如果想加上传描述</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -m &#x27;这里写提交描述&#x27;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h2><p>下面俩种写法等价</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo d -g </span><br><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-
-
-<p>如果觉得前面命令麻烦，不想debug，可以直接</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d -g <span class="comment">#先清除缓存，generate出新的文件，再deploy。</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>同理其他命令也可以组合</p>
+    <title>整理，一步步的个人博客搭建及美化</title>
+    <url>/2022/06/16/616-summary/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><ol>
+<li><a href="http://jingcs.github.io/2022/06/16/hexo-gitpages-install/">搭建网站</a> 包括hexo+github建立可访问网站，域名修改，插入图片。</li>
+<li><a href="http://jingcs.github.io/2022/06/16/616-hexo-usage-backup/">添加新日志</a> 包括如何在建立的网站上写日志，日志的分类标签规范</li>
+<li><a href="http://jingcs.github.io/2022/06/16/616-advance-ui/">更改美化网站</a> 包括下载并安装更新不同的网页主题设计</li>
+<li>扩展网页功能。</li>
+</ol>
 ]]></content>
       <categories>
-        <category>CMD</category>
-        <category>Hexo</category>
+        <category>TechNotes</category>
+        <category>Web</category>
+        <category>Summary</category>
+        <category>Doing</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>GithubPages</tag>
       </tags>
   </entry>
   <entry>
@@ -370,120 +544,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo报错YAMLException</title>
-    <url>/2022/06/16/616-hexo-debug/</url>
-    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
-<p>报错，hexo无法将md文档转网页</p>
-<p>基本因为格式不对，空格少打了或者多大了。</p>
-<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
-<p>比如标题有特殊符号等等（目前测试出不能使用的：[ ]</p>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Debug</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用GitHubPages&amp;Hexo搭建个人网页</title>
-    <url>/2022/06/16/hexo-gitpages-install/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>用Github做网页，就是把github当免费服务器，网页文件全存GitHub仓库上。但因为Github没有数据库，更适合做静态网页。（动态进阶pending。这里的hexo就是个网页模板。官方推荐的还有Jekyll（国内貌似比较慢）。理论上hexo做出来的东西可以放任何服务器上，Github最方便。</p>
-<p>基本步骤就三步。</p>
-<p>首先，用hexo创建网页模板。</p>
-<p>然后，注册github建个仓库。</p>
-<p>最后，将网页模板传到github仓库上。</p>
-<p>就完成了。注意，Github网页无法做到实时更新，大概有三五分钟的延误。搞了一上午以为步骤不对网页怎么没变化，结果是我太心急……</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><strong>本地创建好网页</strong></li>
-</ol>
-<p>安装hexo</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo-cli  </span><br></pre></td></tr></table></figure>
-
-<p>用hexo建网页</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init xxx博客名（名字开心就好，不会显示在网页上）</span><br><span class="line">cd xxx博客名</span><br><span class="line">npm install </span><br><span class="line">npm install hexo-deployer-git --save #安装用于commit的程序</span><br><span class="line">npm i hexo-deployer-git #安装发布新文章</span><br></pre></td></tr></table></figure>
-
-<p>至此，网页已经建好了，本地效果可以运行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li><strong>Github注册建仓库</strong></li>
-</ol>
-<p>注册就不说了，建仓库就是点绿色按钮Create a new repository</p>
-<p>有俩点需要注意</p>
-<ul>
-<li><strong>Repository name必须是 你github用户名.</strong><a href="http://github.io/"><strong>github.io</strong></a></li>
-<li><strong>设置默认分支名从main到master！！</strong><a href="https://github.com/settings/repositories"><strong>https://github.com/settings/repositories</strong></a></li>
-</ul>
-<p>第二点网上好多教程没提过。多摆俩句是因为master这词涉嫌歧视，在20年国外zzzq把默认的分支名从master换为main了。很多软件还是按照master写的。不改名可能会新建出一个master分支，每次提交push到master分支上，得合并。</p>
-<p>SSH密钥授权待补</p>
-<ol start="3">
-<li><strong>将Hexo传到Github</strong></li>
-</ol>
-<p>有俩种方法，一种是命令行， 一种是github desktop </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#命令行，前提已经cd进hexo所在位置</span><br><span class="line">hexo clean  #保险起见清理缓存</span><br><span class="line">hexo d -g   </span><br></pre></td></tr></table></figure>
-
-<p>打开浏览器 用户名.github.io就是网页</p>
-<p>也可以d上传前先debug一下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ol start="4">
-<li><p>更改域名</p>
-<p>github上：settings- pages- custom domain 输入买好的，想要自定义的域名</p>
-<p>域名上：将github用户名.github.io加入到chame</p>
-<p>网页文件：新建CHAME文件，无后缀，在里面写上想自定义的域名</p>
-<p>重新提交</p>
-<p>注意最多可能会要48小时才能更新！（一般十来分钟</p>
-</li>
-</ol>
-<p>[ ] 发布文章后主页不更新</p>
-<p>[ ] 插入图片</p>
-<p>source目录下新建images文件夹专门存储图片，图片引用方式为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/images/xxx.png)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>创建过程都很详细，黑字是备注的每个教程的不同侧重点</p>
-<ol>
-<li><p><a href="https://godweiyang.com/2018/04/13/hexo-blog/">超详细Hexo+Github博客搭建小白教程</a> 强烈安利这篇，非常详细，还开源了代码。水印，挂件，统计工具，BGM，评论，特效，答疑等等</p>
-</li>
-<li><p><a href="https://segmentfault.com/a/1190000017986794">超详细Hexo+Github Page搭建技术博客教程【持续更新】</a> 额外功能，域名，SOE搜索优化，其他插件程序等</p>
-</li>
-<li><p><a href="https://learnku.com/articles/45697#replies">超详细 Hexo + GitHub Page 搭建技术 blog 教程</a> 还有Hexo常用命令，模板推荐</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>GithubPages</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于Hexo+Next的进阶美化操作</title>
-    <url>/2022/06/18/hexo-next-ada-toolkit/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已完成Hexo网页搭建，完成Next模板设置</p>
-<p>参考官方文档，进一步设置<a href="https://hexo-next.readthedocs.io/zh_CN/latest/next/advanced/%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/">https://hexo-next.readthedocs.io/zh_CN/latest/next/advanced/%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/</a></p>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>WebUI</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
-        <tag>StatisticsDisplay</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机网络-网络协议IPv4和IPv6</title>
     <url>/2022/07/12/ip-intro/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个系列是在实践中对计算机网络相关知识概念的整理。</p>
@@ -528,6 +588,22 @@
       <tags>
         <tag>TCP/IP</tag>
         <tag>NetworkLayer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于Hexo+Next的进阶美化操作</title>
+    <url>/2022/06/18/hexo-next-ada-toolkit/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已完成Hexo网页搭建，完成Next模板设置</p>
+<p>参考官方文档，进一步设置<a href="https://hexo-next.readthedocs.io/zh_CN/latest/next/advanced/%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/">https://hexo-next.readthedocs.io/zh_CN/latest/next/advanced/%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/</a></p>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>WebUI</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>StatisticsDisplay</tag>
       </tags>
   </entry>
   <entry>
