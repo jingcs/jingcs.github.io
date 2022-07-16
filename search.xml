@@ -650,4 +650,59 @@
         <tag>Typora</tag>
       </tags>
   </entry>
+  <entry>
+    <title>在wordpress中加入文章阅读量浏览量（javascript）</title>
+    <url>/2022/07/16/wp-views-counter-auto-update/</url>
+    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>整体参考[1]</p>
+<p>增加了整体步骤，文件插入位置，以及使用【特定主题】时，怎么找到地方插入。</p>
+<p>整体步骤</p>
+<ol>
+<li>编写计数函数</li>
+<li>自定义统计间隔时间</li>
+<li>将views值插入到想显示的地方</li>
+</ol>
+<h2 id="1-编写计数函数"><a href="#1-编写计数函数" class="headerlink" title="1 编写计数函数"></a>1 编写计数函数</h2><p>复制以下函数到functions.php文件最后。</p>
+<p>具体操作是左边导航栏在appearance- editor</p>
+<p>content主题是右边栏的Theme Functions</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count) &#123;</span><br><span class="line">        $count = <span class="number">1</span>;</span><br><span class="line">        <span class="title function_">delete_post_meta</span>($postID, $count_key);</span><br><span class="line">        <span class="title function_">add_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $count++;</span><br><span class="line">        <span class="title function_">update_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-自定义统计间隔时间"><a href="#2-自定义统计间隔时间" class="headerlink" title="2 自定义统计间隔时间"></a>2 自定义统计间隔时间</h2><p>添加以下代码至主题的single.php 文件最上面</p>
+<p>其中99999999是设置的间隔时间，间隔时间内，cookie相同的访问不累加</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"><span class="keyword">if</span>(!<span class="title function_">isset</span>($_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>]) || $_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>] != <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">    <span class="title function_">setPostViews</span>($post-&gt;<span class="variable constant_">ID</span>);</span><br><span class="line">    <span class="title function_">setcookie</span>(<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>,<span class="string">&#x27;1&#x27;</span>,<span class="title function_">time</span>() + <span class="number">99999999</span>,<span class="variable constant_">COOKIEPATH</span>,<span class="variable constant_">COOKIE_DOMAIN</span>);</span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意，如果没有找到single.php</p>
+<p>可以看看右边的小字<em>This child theme inherits templates from a parent theme XXXX</em></p>
+<p>切换到XXXX，就能找到了</p>
+<h2 id="3-将views值插入到想显示的地方"><a href="#3-将views值插入到想显示的地方" class="headerlink" title="3 将views值插入到想显示的地方"></a>3 将views值插入到想显示的地方</h2><p>将views添加到要显示浏览次数的位置</p>
+<p>文章列表(template-parts&#x2F;content.php)</p>
+<p>文章详情页面(template-parts&#x2F;content-single.php)</p>
+<p>搜索结果页面(template-parts&#x2F;content-search.php)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php echo <span class="string">&#x27;阅读量：&#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>());.<span class="string">&#x27;次&#x27;</span>?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里踩坑</p>
+<p>对于不同主题，文件有差异。</p>
+<p>比如我目前用的content主题。显示【作者xxx分类xxxtagsxxx】都封装在了spicepress_single_post_category_content()函数中。单独加上去字体颜色不一样也不再一排。需要找到这个函数，并在里面添加views。</p>
+<p>content是在 template-tags.php 中</p>
+<p>还可以设置下css样式我懒了就直接这样加了</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_">get_theme_mod</span>(<span class="string">&#x27;spicepress_enable_single_post_tag&#x27;</span>,<span class="literal">true</span>)==<span class="literal">true</span>):	</span><br><span class="line">	$spicepress_tag_list = <span class="title function_">get_the_tag_list</span>();</span><br><span class="line">	<span class="keyword">if</span>(!<span class="title function_">empty</span>($spicepress_tag_list)) &#123; ?&gt;</span><br><span class="line">			<span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag-links&quot;</span>&gt;</span><span class="meta">&lt;?php esc_html_e(&#x27;Tag&#x27;,&#x27;spicepress&#x27;);?&gt;</span> <span class="meta">&lt;?php the_tags(&#x27;&#x27;, &#x27;, &#x27;, &#x27;&#x27;); ?&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;?php echo <span class="string">&#x27;Views &#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>()).<span class="string">&#x27;&#x27;</span>;?&gt;	在这加</span><br><span class="line">	&lt;?php &#125; </span><br><span class="line">endif;?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>最后效果</p>
+<p><img src="/pics/views-counter.png" alt="views-counter"></p>
+<p>其他地方读了代码后可以同理修改</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://m.php.cn/cms/wordpress/478394.html">详解WordPress文章阅读量如何统计和显示（非插件）</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Toolkit</category>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>Wordpress</tag>
+        <tag>Javascript</tag>
+        <tag>StatisticsDisplay</tag>
+        <tag>Wp</tag>
+        <tag>Cookie</tag>
+      </tags>
+  </entry>
 </search>
