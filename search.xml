@@ -705,4 +705,60 @@
         <tag>Cookie</tag>
       </tags>
   </entry>
+  <entry>
+    <title></title>
+    <url>/2022/07/17/vps_ssr/</url>
+    <content><![CDATA[<p>探索VPS系列</p>
+<h2 id="整体步骤"><a href="#整体步骤" class="headerlink" title="整体步骤"></a>整体步骤</h2><ol>
+<li>买服务器</li>
+<li>安装加速器</li>
+<li>安装SSR</li>
+</ol>
+<h2 id="1-买服务器"><a href="#1-买服务器" class="headerlink" title="1 买服务器"></a>1 买服务器</h2><p>有许多服务器供选择，比如vultr每月最低3.5美金。</p>
+<p>Cloud Compute - Regular Performance - New York (NJ)</p>
+<h2 id="2-安装BBR加速器"><a href="#2-安装BBR加速器" class="headerlink" title="2 安装BBR加速器"></a>2 安装BBR加速器</h2><p>然后打开命令行工具</p>
+<p><strong>进入服务器</strong></p>
+<p>ssh root@服务器的IP</p>
+<p>输入yes，输入服务器密码（购买网页上有复制下来）</p>
+<p>显示[root@server3 ~]# 即登录成功</p>
+<p><strong>安装谷歌BBR加速器</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span><br></pre></td></tr></table></figure>
+
+<p>安装完后，按提示重启 VPS，输入 Y 回车重启。稍候 1min 等待重启完成，再重新连接 Xshell。重启后输入 lsmod | grep bbr ，出现 tcp_bbr 即说明 BBR 已经启动。</p>
+<h2 id="3-安装SSR"><a href="#3-安装SSR" class="headerlink" title="3 安装SSR"></a>3 安装SSR</h2><p>依次运行下面三条命令。分别代表下载SSR安装包，给安装包可运行的权限，安装安装包。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks-all.sh</span><br><span class="line"></span><br><span class="line"> ./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</span><br></pre></td></tr></table></figure>
+
+<p>之后依次输入密码，端口（看你心情随意设置），选择加密方式等等。全部弄完按回车，他就自动安装了。安装好后会打印一堆刚刚自己设的信息，这就是登录凭证了。</p>
+<h2 id="可以用了"><a href="#可以用了" class="headerlink" title="可以用了"></a>可以用了</h2><p>把自己上面设置的信息，输进去就可以用了</p>
+<ul>
+<li>Windows 版本 ShadowsocksR</li>
+<li>Android 版本 ShadowsocksR APK文件</li>
+<li>MAC 电脑 ShadowsocksX dmg安装包</li>
+<li>IOS <strong>App Store</strong>搜索 <strong>potatso lite</strong>自行安装 （海外store）</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://wmovc.com/758/">VPS</a></li>
+<li><a href="%5Bhttps://jackmezone.medium.com/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91-vultr-vps-%E6%90%AD%E5%BB%BA-shadowsocks-ss-%E6%95%99%E7%A8%8B-%E6%96%B0%E6%89%8B%E5%90%91-968613081aae%5D(https://jackmezone.medium.com/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91-vultr-vps-%E6%90%AD%E5%BB%BA-shadowsocks-ss-%E6%95%99%E7%A8%8B-%E6%96%B0%E6%89%8B%E5%90%91-968613081aae)">科学上网：Vultr VPS 搭建 Shadowsocks（ss）教程（新手向）</a>（不知道ios怎么用）</li>
+<li><a href="https://github.com/lewisYe/front-end-engineer/issues/35">Mac vultr搭建ss教程</a></li>
+<li><a href="http://spechles.cn/2016/03/01/%E5%88%A9%E7%94%A8VPS%E6%90%AD%E4%B8%AA%E6%A2%AF%E5%AD%90/">图裂了但是挺清晰的</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>使用SMTP定时自动发送邮件</title>
+    <url>/2022/07/17/c-smtp-mails/</url>
+    <content><![CDATA[<p>想做一个定时爬取煤炉上新并推送的东西，总之这是第一步。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendmail</span>()</span> &#123;</span><br><span class="line">           <span class="comment">//MessageBox.Show(&quot;进入&quot;);</span></span><br><span class="line">           <span class="built_in">string</span> user = <span class="string">&quot;xxxxxx@163.com&quot;</span>;</span><br><span class="line">           <span class="built_in">string</span> password = <span class="string">&quot;password&quot;</span>;</span><br><span class="line">           <span class="built_in">string</span> host = <span class="string">&quot;smtp.163.com&quot;</span>;<span class="comment">//设置邮件的服务器</span></span><br><span class="line">           <span class="built_in">string</span> mailAddress = <span class="string">&quot;xxxxxx@163.com&quot;</span>; <span class="comment">//替换成你的hotmail账户</span></span><br><span class="line">           <span class="built_in">string</span> ToAddress = <span class="string">&quot;xxxxx@163.com&quot;</span>;<span class="comment">//目标邮件地址。</span></span><br><span class="line"></span><br><span class="line">           <span class="built_in">string</span> title = <span class="string">&quot;这是邮件标题&quot;</span>;</span><br><span class="line">           <span class="built_in">string</span> content = <span class="string">&quot;这是邮件的内容&quot;</span>;</span><br><span class="line">           <span class="built_in">string</span> fileAddress = <span class="string">&quot;xxxxxxx&quot;</span>;<span class="comment">//这是附件的地址,绝对地址要加@</span></span><br><span class="line"></span><br><span class="line">           <span class="comment">//初始化SMTP类</span></span><br><span class="line">           SmtpClient smtp = <span class="keyword">new</span> SmtpClient(host);</span><br><span class="line">           smtp.EnableSsl = <span class="literal">true</span>; <span class="comment">//开启安全连接。</span></span><br><span class="line">           smtp.Credentials = <span class="keyword">new</span> NetworkCredential(user, password); <span class="comment">//创建用户凭证</span></span><br><span class="line">           smtp.DeliveryMethod = SmtpDeliveryMethod.Network; <span class="comment">//使用网络传送</span></span><br><span class="line">           MailMessage message = <span class="keyword">new</span> MailMessage(mailAddress, ToAddress, title, content); <span class="comment">//创建邮件</span></span><br><span class="line">           Attachment attachment = <span class="keyword">new</span> Attachment(fileAddress);</span><br><span class="line">           message.Attachments.Add(attachment);</span><br><span class="line"></span><br><span class="line">           MessageBox.Show(<span class="string">&quot;等待发送中...&quot;</span>);</span><br><span class="line">           message.IsBodyHtml = <span class="literal">true</span>;  <span class="comment">//这里很重要，漏了的话发出去的是html代码</span></span><br><span class="line">           smtp.Send(message); <span class="comment">//发送邮件</span></span><br><span class="line">           smtp.Dispose();</span><br><span class="line">           message.Dispose();</span><br><span class="line">           attachment.Dispose();</span><br><span class="line">           MessageBox.Show(<span class="string">&quot;邮件发送成功！&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>.Net</tag>
+        <tag>SMTP</tag>
+      </tags>
+  </entry>
 </search>
