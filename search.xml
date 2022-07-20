@@ -178,15 +178,45 @@
       </tags>
   </entry>
   <entry>
-    <title>在Colab上运行项目（py文件及模块导入）</title>
+    <title>在Colab上运行项目（py文件及模块导入解决方案）</title>
     <url>/2022/07/19/colab/</url>
-    <content><![CDATA[<h2 id="项目导入"><a href="#项目导入" class="headerlink" title="项目导入"></a>项目导入</h2><h3 id="方法1-直接上传到Google-Drive"><a href="#方法1-直接上传到Google-Drive" class="headerlink" title="方法1: 直接上传到Google Drive"></a>方法1: 直接上传到Google Drive</h3><p>优点：永久保存，不会被删除</p>
+    <content><![CDATA[<h2 id="项目导入"><a href="#项目导入" class="headerlink" title="项目导入"></a>项目导入</h2><h3 id="方法1-直接上传到Google-Drive"><a href="#方法1-直接上传到Google-Drive" class="headerlink" title="方法1: 直接上传到Google Drive"></a>方法1: 直接上传到Google Drive</h3><p>参考[2]</p>
+<p>优点：永久保存，不会被删除</p>
 <p>缺点：需要授权访问google drive。安全风险</p>
+<p>本地项目上传到云盘后，在colab新建ipynb文件，授权colab访问云盘</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> drive</span><br><span class="line">drive.mount(<span class="string">&#x27;/content/drive/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>进入项目</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.chdir(<span class="string">&#x27;drive/MyDrive/你的项目名&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="方法2-Github-Clone过来"><a href="#方法2-Github-Clone过来" class="headerlink" title="方法2: Github Clone过来"></a>方法2: Github Clone过来</h3><p>优点：更方便。</p>
-<p>缺点：文件隔几个小时会被清空</p>
-<h2 id="模块引用"><a href="#模块引用" class="headerlink" title="模块引用"></a>模块引用</h2><p>出现错误</p>
+<p>缺点：虚拟机会被销毁，同时文件隔几个小时会被清空</p>
+<p>在colab中新建ipynb文件，输入命令克隆过来</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!git clone github项目网址</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="模块引用"><a href="#模块引用" class="headerlink" title="模块引用"></a>模块引用</h2><p>运行过程中出现出现无法import包，参考[1]，</p>
+<p>1、ModuleNotFoundError: No module named ‘XXXX’，</p>
+<p>2、AttributeError:’module’ XXXX’ has no attribute ‘xx’</p>
+<p>解决方法就是需要使用绝对路径</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&#x27;/content/drive/MyDrive/horseshoe-bnn&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行文件"><a href="#运行文件" class="headerlink" title="运行文件"></a>运行文件</h2><p>如果是首页的main.py直接运行就可以</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!python main.py</span><br></pre></td></tr></table></figure>
+
+<p>如果在其他文件夹下</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!python ./文件夹<span class="number">1</span>/文件夹<span class="number">2</span>/<span class="keyword">try</span>.py</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://zhuanlan.zhihu.com/p/105647700">No module named ‘xxx’</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/105647700">解决colab无法调用模块（无法使用其它文件内函数）的问题</a></li>
+<li><a href="https://blog.csdn.net/weixin_37589575/article/details/94591580">Google Colab 部署自己的机器学习项目</a></li>
 </ol>
 ]]></content>
       <categories>
@@ -198,8 +228,8 @@
         <tag>Google</tag>
         <tag>Github</tag>
         <tag>Python</tag>
-        <tag>Remote</tag>
         <tag>Colab</tag>
+        <tag>Drive</tag>
       </tags>
   </entry>
   <entry>
@@ -807,6 +837,74 @@
       </categories>
       <tags>
         <tag>MorganStanley</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode285 Inorder Successor in BST</title>
+    <url>/2022/07/19/leetcode-285/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
+<p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,3], p = 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: 1&#x27;s in-order successor node is 2. Note that both p and the return value is of TreeNode type.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], p = 6</span><br><span class="line">Output: null</span><br><span class="line">Explanation: There is no in-order successor of the current node, so the answer is null.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[1, 104]</code>.</li>
+<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
+<li>All Nodes will have unique values.</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/105647700">解决colab无法调用模块（无法使用其它文件内函数）的问题</a></li>
+<li><a href="https://blog.csdn.net/weixin_37589575/article/details/94591580">Google Colab 部署自己的机器学习项目</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>BST</tag>
+        <tag>Inorder</tag>
+        <tag>Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Leetcode 701 二叉搜索树BST中插入元素</title>
+    <url>/2022/07/19/leetcode-701/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h2><p>BST二叉搜索树中插入元素</p>
+<p>二叉搜索树：左边&lt;root&lt;右边</p>
+<p><a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">https://leetcode.com/problems/insert-into-a-binary-search-tree/</a></p>
+<p>You are given the <code>root</code> node of a binary search tree (BST) and a <code>value</code> to insert into the tree. Return <em>the root node of the BST after the insertion</em>. It is guaranteed that the new value does not exist in the original BST.</p>
+<p>Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
+<p>Example 1:</p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br><span class="line">Explanation: Another accepted tree is:</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://assets.leetcode.com/uploads/2020/10/05/bst.jpg" alt="img"></p>
+<p>Example 2:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [40,20,60,10,30,50,70], val = 25</span><br><span class="line">Output: [40,20,60,10,30,50,70,null,null,25]</span><br></pre></td></tr></table></figure>
+
+<p>Example 3:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h2><p>我什么时候能自己想出递归代码omg……每次看递归都觉得被降维打击……</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public TreeNode insertIntoBST(TreeNode root, int val) &#123;</span><br><span class="line">    if (root==null)&#123;</span><br><span class="line">        TreeNode addNode=new TreeNode(val);</span><br><span class="line">        return addNode;</span><br><span class="line">    &#125;</span><br><span class="line">    if(val&lt;root.val)&#123;</span><br><span class="line">        root.left=insertIntoBST(root.left,val);//小，左边插入</span><br><span class="line">    &#125;</span><br><span class="line">    if (val&gt;root.val)&#123;</span><br><span class="line">        root.right=insertIntoBST(root.right,val);//大，右边插入</span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>BST</tag>
+        <tag>Tree</tag>
+        <tag>Backtracking</tag>
+        <tag>BinarySearch</tag>
       </tags>
   </entry>
 </search>
