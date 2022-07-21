@@ -20,25 +20,22 @@
     var CONFIG = {"hostname":"jingcs.ml","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="项目导入drive，项目运行，模块引用No module named &#39;XXXX&#39;">
+  <meta name="description" content="中序遍历二叉搜索树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode285 Inorder Successor in BST">
-<meta property="og:url" content="http://jingcs.ml/2022/07/19/leetcode-285/index.html">
+<meta property="og:title" content="leetcode268 找缺失值">
+<meta property="og:url" content="http://jingcs.ml/2022/07/21/leetcode-268-missing-num/index.html">
 <meta property="og:site_name" content="这是一个博客">
-<meta property="og:description" content="项目导入drive，项目运行，模块引用No module named &#39;XXXX&#39;">
+<meta property="og:description" content="中序遍历二叉搜索树">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG">
-<meta property="og:image" content="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG">
-<meta property="article:published_time" content="2022-07-19T22:32:12.000Z">
-<meta property="article:modified_time" content="2022-07-20T22:17:11.224Z">
+<meta property="article:published_time" content="2022-07-21T22:32:12.000Z">
+<meta property="article:modified_time" content="2022-07-21T22:36:30.409Z">
 <meta property="article:author" content="Jingyu Hu">
-<meta property="article:tag" content="BST">
-<meta property="article:tag" content="Inorder">
-<meta property="article:tag" content="Tree">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="Binary Search">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG">
 
-<link rel="canonical" href="http://jingcs.ml/2022/07/19/leetcode-285/">
+<link rel="canonical" href="http://jingcs.ml/2022/07/21/leetcode-268-missing-num/">
 
 
 <script id="page-configurations">
@@ -51,7 +48,7 @@
   };
 </script>
 
-  <title>leetcode285 Inorder Successor in BST | 这是一个博客</title>
+  <title>leetcode268 找缺失值 | 这是一个博客</title>
   
 
 
@@ -201,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://jingcs.ml/2022/07/19/leetcode-285/">
+    <link itemprop="mainEntityOfPage" href="http://jingcs.ml/2022/07/21/leetcode-268-missing-num/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -214,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode285 Inorder Successor in BST
+          leetcode268 找缺失值
         </h1>
 
         <div class="post-meta">
@@ -223,16 +220,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-07-19 23:32:12" itemprop="dateCreated datePublished" datetime="2022-07-19T23:32:12+01:00">2022-07-19</time>
+              <time title="Created: 2022-07-21 23:32:12 / Modified: 23:36:30" itemprop="dateCreated datePublished" datetime="2022-07-21T23:32:12+01:00">2022-07-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-20 23:17:11" itemprop="dateModified" datetime="2022-07-20T23:17:11+01:00">2022-07-20</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -260,7 +251,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>651</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -269,7 +260,7 @@
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               <span>1 mins.</span>
             </span>
-            <div class="post-description">项目导入drive，项目运行，模块引用No module named 'XXXX'</div>
+            <div class="post-description">中序遍历二叉搜索树</div>
 
         </div>
       </header>
@@ -280,26 +271,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
-<p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>找到数组0～n中的缺失值</p>
+<p>Given an array <code>nums</code> containing <code>n</code> distinct numbers in the range <code>[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></p>
 <p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: root = [2,1,3], p = 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: 1&#x27;s in-order successor node is 2. Note that both p and the return value is of TreeNode type.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [3,0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], p = 6</span><br><span class="line">Output: null</span><br><span class="line">Explanation: There is no in-order successor of the current node, so the answer is null.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [9,6,4,2,3,5,7,0,1]</span><br><span class="line">Output: 8</span><br><span class="line">Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li>The number of nodes in the tree is in the range <code>[1, 104]</code>.</li>
-<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
-<li>All Nodes will have unique values.</li>
+<li><code>n == nums.length</code></li>
+<li><code>1 &lt;= n &lt;= 104</code></li>
+<li><code>0 &lt;= nums[i] &lt;= n</code></li>
+<li>All the numbers of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105647700">解决colab无法调用模块（无法使用其它文件内函数）的问题</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_37589575/article/details/94591580">Google Colab 部署自己的机器学习项目</a></li>
-</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>为了更适配不同情况，没有考虑时间复杂度</p>
+<p>适配【5，7，9】这种非0开始情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">missingNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">       Arrays.sort(nums);</span><br><span class="line">      <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> i=nums[<span class="number">0</span>];i&lt;=nums[nums.length-<span class="number">1</span>];i++)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//（首项+末项）*项数/2</span></span><br><span class="line">      <span class="type">int</span> cnt=(nums[nums.length-<span class="number">1</span>]-nums[<span class="number">0</span>]+<span class="number">1</span>);<span class="comment">//相数</span></span><br><span class="line">      sum=(nums[<span class="number">0</span>]+nums[nums.length-<span class="number">1</span>])*cnt/<span class="number">2</span>;</span><br><span class="line">      <span class="comment">//减掉已有的，就是缺失值</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">        sum-=n;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//[0,1，2]这种情况，缺失值2+1=3，[1]这种情况返回0</span></span><br><span class="line">			<span class="keyword">if</span>(sum==<span class="number">0</span>&amp;&amp;nums[<span class="number">0</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">				sum=nums[nums.length-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -309,9 +302,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/BST/" rel="tag"># BST</a>
-              <a href="/tags/Inorder/" rel="tag"># Inorder</a>
-              <a href="/tags/Tree/" rel="tag"># Tree</a>
+              <a href="/tags/Array/" rel="tag"># Array</a>
+              <a href="/tags/Math/" rel="tag"># Math</a>
+              <a href="/tags/Binary-Search/" rel="tag"># Binary Search</a>
           </div>
 
         
@@ -320,13 +313,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/07/19/leetcode-701/" rel="prev" title="Leetcode 701 二叉搜索树BST中插入元素">
-      <i class="fa fa-chevron-left"></i> Leetcode 701 二叉搜索树BST中插入元素
+    <a href="/2022/07/20/leetcode-285/" rel="prev" title="leetcode285 Inorder Successor in BST">
+      <i class="fa fa-chevron-left"></i> leetcode285 Inorder Successor in BST
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/07/19/colab/" rel="next" title="在Colab上运行项目（py文件及模块导入解决方案）">
-      在Colab上运行项目（py文件及模块导入解决方案） <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -385,7 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -401,7 +391,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -414,7 +404,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -451,13 +441,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">18k</span>
+    <span title="Symbols count total">19k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">16 mins.</span>
+    <span title="Reading time total">17 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
