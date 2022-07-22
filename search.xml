@@ -941,4 +941,39 @@
         <tag>Binary Search</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Java常用API</title>
+    <url>/2022/07/21/cmd-java/</url>
+    <content><![CDATA[<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p><strong>Str转int</strong> </p>
+<p>Integer.parseInt(str)</p>
+<p><strong>str转char[]</strong></p>
+<p>char[] c &#x3D; str.toCharArray();</p>
+<p><strong>str某一位char</strong> </p>
+<p>c&#x3D;str.charAt(i)</p>
+<p><strong>int转str</strong> </p>
+<p>Integer.toString(int)</p>
+<p>String.valueOf(int) 就是调用的tostring实现，更快（？</p>
+<h2 id="String和Char"><a href="#String和Char" class="headerlink" title="String和Char"></a>String和Char</h2><p>String常用</p>
+<p>小写str.toLowerCase();</p>
+<p>分隔 String[] s&#x3D;str.split(“\\.”) 两条\注意</p>
+<p>替换&#x2F;删除特殊字符s.replaceAll(“要替换的”, “替换后”)，替换后为空即为删除。</p>
+<p>Char</p>
+<p>判断字母和数字：Character.isLetterOrDigit(s.charAt(i))</p>
+<p>单引号char[] chars&#x3D;{‘a’,’a’,’a’,’b’,’b’};</p>
+<p>length</p>
+<p>String[], char[] 的是length</p>
+<p>其他linkedlist,str,全都是length()</p>
+<p>strArr.length</p>
+<p>strArr[0].length()</p>
+]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+        <tag>Char</tag>
+        <tag>API</tag>
+      </tags>
+  </entry>
 </search>
