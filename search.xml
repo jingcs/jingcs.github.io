@@ -85,6 +85,52 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo日志使用方法</title>
+    <url>/2022/06/16/616-hexo-usage-backup/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>前置：Hexo+GitHub，生成可访问的网站【见：<a href="http://localhost:4000/2022/06/16/hexo-gitpages-install/">搭建网站</a> 】。</p>
+<p>本篇：如何发布新日志，总过程如下</p>
+<ul>
+<li><p>新建日志的路径</p>
+<ul>
+<li><p>直接在 路径<strong>hexo博客名&#x2F;source&#x2F;_posts</strong> 下手动新建xxx.md文件</p>
+<p>自己写需要注意格式，否则可能会报错</p>
+</li>
+<li><p>使用命令行 <strong>cd 博客名</strong> ；然后<strong>hexo new post “xxxx日志名”</strong></p>
+</li>
+</ul>
+<p>注：xxx最好是英文，后面也可以改</p>
+</li>
+<li><p>打开文件写日志</p>
+<p>有关文章标题，发布时间，分类的设置，可见官方文档[1]。摘录如下</p>
+<ul>
+<li><p>tags, categories</p>
+<p>分类categories具有顺序性和层次性，为文章添加多个分类。此时文章同时包括三个分类： <strong><code>PlayStation</code> 和 <code>Games</code></strong> 分别都是父分类 <code>Diary</code> 的子分类，同时 <strong><code>Life</code></strong> 是一个没有子分类的分类。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- [Diary, PlayStation]</span><br><span class="line">- [Diary, Games]</span><br><span class="line">- [Life]</span><br></pre></td></tr></table></figure>
+
+<p>标签tags没有顺序和层次。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Air</span><br><span class="line">- Trainline</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>将日志同步到Github上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+<p>之后想修改日志也是改md然后用这命令传上去。</p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>Front-matter <a href="https://hexo.io/zh-cn/docs/front-matter">官方文档</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GithubPages</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用SMTP定时自动发送邮件</title>
     <url>/2022/07/17/c-smtp-mails/</url>
     <content><![CDATA[<p>想做一个定时爬取煤炉上新并推送的东西，总之这是第一步。</p>
@@ -175,61 +221,6 @@
         <tag>DNS</tag>
         <tag>Bing</tag>
         <tag>Baidu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Colab上运行项目（py文件及模块导入解决方案）</title>
-    <url>/2022/07/19/colab/</url>
-    <content><![CDATA[<h2 id="项目导入"><a href="#项目导入" class="headerlink" title="项目导入"></a>项目导入</h2><h3 id="方法1-直接上传到Google-Drive"><a href="#方法1-直接上传到Google-Drive" class="headerlink" title="方法1: 直接上传到Google Drive"></a>方法1: 直接上传到Google Drive</h3><p>参考[2]</p>
-<p>优点：永久保存，不会被删除</p>
-<p>缺点：需要授权访问google drive。安全风险</p>
-<p>本地项目上传到云盘后，在colab新建ipynb文件，授权colab访问云盘</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> drive</span><br><span class="line">drive.mount(<span class="string">&#x27;/content/drive/&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>进入项目</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.chdir(<span class="string">&#x27;drive/MyDrive/你的项目名&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="方法2-Github-Clone过来"><a href="#方法2-Github-Clone过来" class="headerlink" title="方法2: Github Clone过来"></a>方法2: Github Clone过来</h3><p>优点：更方便。</p>
-<p>缺点：虚拟机会被销毁，同时文件隔几个小时会被清空</p>
-<p>在colab中新建ipynb文件，输入命令克隆过来</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!git clone github项目网址</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="模块引用"><a href="#模块引用" class="headerlink" title="模块引用"></a>模块引用</h2><p>运行过程中出现出现无法import包，参考[1]，</p>
-<p>1、ModuleNotFoundError: No module named ‘XXXX’，</p>
-<p>2、AttributeError:’module’ XXXX’ has no attribute ‘xx’</p>
-<p>解决方法就是需要使用绝对路径</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&#x27;/content/drive/MyDrive/horseshoe-bnn&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="运行文件"><a href="#运行文件" class="headerlink" title="运行文件"></a>运行文件</h2><p>如果是首页的main.py直接运行就可以</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!python main.py</span><br></pre></td></tr></table></figure>
-
-<p>如果在其他文件夹下</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!python ./文件夹<span class="number">1</span>/文件夹<span class="number">2</span>/<span class="keyword">try</span>.py</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://zhuanlan.zhihu.com/p/105647700">解决colab无法调用模块（无法使用其它文件内函数）的问题</a></li>
-<li><a href="https://blog.csdn.net/weixin_37589575/article/details/94591580">Google Colab 部署自己的机器学习项目</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Cloud</category>
-        <category>Debug</category>
-      </categories>
-      <tags>
-        <tag>Google</tag>
-        <tag>Github</tag>
-        <tag>Python</tag>
-        <tag>Colab</tag>
-        <tag>Drive</tag>
       </tags>
   </entry>
   <entry>
@@ -364,25 +355,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/16/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p>这行用来mc更新后网页是否也会同步更新。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hexo常用命令</title>
     <url>/2022/07/11/hexo-cmd/</url>
     <content><![CDATA[<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>所有命令都在博客文件夹下进行。</p>
@@ -435,6 +407,25 @@
       <tags>
         <tag>Hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p>这行用来mc更新后网页是否也会同步更新。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Hexo中加入Github每日贡献图</title>
@@ -570,6 +561,61 @@
       </tags>
   </entry>
   <entry>
+    <title>在Colab上运行项目（py文件及模块导入解决方案）</title>
+    <url>/2022/07/19/colab/</url>
+    <content><![CDATA[<h2 id="项目导入"><a href="#项目导入" class="headerlink" title="项目导入"></a>项目导入</h2><h3 id="方法1-直接上传到Google-Drive"><a href="#方法1-直接上传到Google-Drive" class="headerlink" title="方法1: 直接上传到Google Drive"></a>方法1: 直接上传到Google Drive</h3><p>参考[2]</p>
+<p>优点：永久保存，不会被删除</p>
+<p>缺点：需要授权访问google drive。安全风险</p>
+<p>本地项目上传到云盘后，在colab新建ipynb文件，授权colab访问云盘</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> drive</span><br><span class="line">drive.mount(<span class="string">&#x27;/content/drive/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>进入项目</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.chdir(<span class="string">&#x27;drive/MyDrive/你的项目名&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="方法2-Github-Clone过来"><a href="#方法2-Github-Clone过来" class="headerlink" title="方法2: Github Clone过来"></a>方法2: Github Clone过来</h3><p>优点：更方便。</p>
+<p>缺点：虚拟机会被销毁，同时文件隔几个小时会被清空</p>
+<p>在colab中新建ipynb文件，输入命令克隆过来</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!git clone github项目网址</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="模块引用"><a href="#模块引用" class="headerlink" title="模块引用"></a>模块引用</h2><p>运行过程中出现出现无法import包，参考[1]，</p>
+<p>1、ModuleNotFoundError: No module named ‘XXXX’，</p>
+<p>2、AttributeError:’module’ XXXX’ has no attribute ‘xx’</p>
+<p>解决方法就是需要使用绝对路径</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&#x27;/content/drive/MyDrive/horseshoe-bnn&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行文件"><a href="#运行文件" class="headerlink" title="运行文件"></a>运行文件</h2><p>如果是首页的main.py直接运行就可以</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!python main.py</span><br></pre></td></tr></table></figure>
+
+<p>如果在其他文件夹下</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!python ./文件夹<span class="number">1</span>/文件夹<span class="number">2</span>/<span class="keyword">try</span>.py</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/105647700">解决colab无法调用模块（无法使用其它文件内函数）的问题</a></li>
+<li><a href="https://blog.csdn.net/weixin_37589575/article/details/94591580">Google Colab 部署自己的机器学习项目</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Debug</category>
+        <category>Cloud</category>
+      </categories>
+      <tags>
+        <tag>Google</tag>
+        <tag>Github</tag>
+        <tag>Python</tag>
+        <tag>Colab</tag>
+        <tag>Drive</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基于Hexo+Next的进阶美化操作</title>
     <url>/2022/06/18/hexo-next-ada-toolkit/</url>
     <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已完成Hexo网页搭建，完成Next模板设置</p>
@@ -583,278 +629,6 @@
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>StatisticsDisplay</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络-网络协议IPv4和IPv6</title>
-    <url>/2022/07/12/ip-intro/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个系列是在实践中对计算机网络相关知识概念的整理。</p>
-<h2 id="关于IP"><a href="#关于IP" class="headerlink" title="关于IP"></a>关于IP</h2><p>IP：Internet Protocol（网际互连协议）</p>
-<p>IP是TCP&#x2F;IP体系中的网络层协议，是整个TCP&#x2F;IP协议族的核心，构成互联网的基础。</p>
-<ul>
-<li><p>对上载送传输层各种协议信息（TCP、UDP等）</p>
-</li>
-<li><p>对下将IP信息包放到链路层（以太网、令牌环网络等来传送）。[1]</p>
-</li>
-</ul>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>IP在OSI模型中位于网络层，TCP&#x2F;IP和OSI说白了就是不同专家对计算机网络结构的不同定义。链路层传输层这些词也是定义的一部分。详细介绍和区别【link待填坑】</p>
-<p>要是我早生几十年就把它定义成网络一二三四五多好记！</p>
-<p>好像说了很多，但还是没有人说它究竟在干嘛。天天网上冲浪，按理说都或多或少接触过。简单说IP是种协议，它制定了信息传输的标准（IP地址，mac地址），让我们能上网。</p>
-<p>IP地址，没错就是那串用电子设备连wifi流量 被分配的类似192.168.1.0的数字，可以想象成你的住址。更有趣的一点，互联网上的一切都是有IP地址的！包括网站和应用程序</p>
-<p>所以<strong>上网其实就是用你的IP访问另一个IP的过程！</strong></p>
-<p>至此，就能很好理解为什么微博可以显示发博地，社交媒体即使关了智能算法推荐还是很能“懂”你了。</p>
-<p>对于用户，IP地址可以理解为就近分配。所以app读出你的住址，你邻居的住址，然后把你们看的互相推送（。梯子可以一定程度规避，真想找也能找到你的原始地址，目前各大app还没有那么丧心病狂就是了，毕竟我们也有忘挂梯子的时候。</p>
-<p>IP为什么就近分配？想象一下，人在广东，想家里上网，会跑上海服务点办入网吗？我们注意到连同一wifi，每次分配的IP地址可能有些不同，但大范围（前几位数）总是固定的，这个大范围能够读到你在哪，专业术语是主机。</p>
-<h2 id="IPv4和IPv6"><a href="#IPv4和IPv6" class="headerlink" title="IPv4和IPv6"></a>IPv4和IPv6</h2><p>字面意思非常简单，不同年代发布的协议版本。第4版（version 4）和第六版（version 6）。果然非母语容易被唬着。</p>
-<h3 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h3><p>IPv4规定地址32位（二进制），十进制写法xxx.xxx.xxx.xxx，其中xxx取值范围0～255。</p>
-<p>1981年被提及。PS当年全球人口40亿左右。前面说到，上网就是一个IP访问另一个IP地址。于是专家们想，我们协议搞40亿（ $2^{32}$）左右个IP地址，差不多人手一个，大家都有网上！</p>
-<h3 id="网络地址转换NAT"><a href="#网络地址转换NAT" class="headerlink" title="网络地址转换NAT"></a>网络地址转换NAT</h3><p>那时候专家没想到电子设备能这么普及，从一家一台变为一人N台……。然后就发现IP地址不够用了啊！提案有很多，比如IPv6，网络地址转换（现在还在用）。</p>
-<p>网络地址转换简单说就是一个人一个IP太奢侈了，我们决定很多人共用一个IP！内网外网用的就是他。咱就是说……一开始多整点坑位，我就不用学这么多了……</p>
-<h3 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h3><p>IPv6想法很简单粗暴，地址不够用，那我允许存更多不就完事了，长长长！</p>
-<p>IPv6规定地址128位（32进制），按全球80亿人，每人都能分配到数万亿亿个，以我们现在的眼界感觉是够用了。</p>
-<p>目前是IPv4和IPv6混用的状态。</p>
-<h3 id="IPv4-格式"><a href="#IPv4-格式" class="headerlink" title="IPv4 格式"></a>IPv4 格式</h3><p>待填</p>
-<p>服务器 主机 等</p>
-<h2 id="自问自答"><a href="#自问自答" class="headerlink" title="自问自答"></a>自问自答</h2><p><strong>网址和IP地址</strong></p>
-<p>上网的过程是IP间的访问，但我们都是输google.com而不是那一串IP地址诶？</p>
-<p>拿IPv4来说，几十亿个实在是太难记了啊！所以我们给IP地址穿上了网址的衣服，我们只记网址，电脑网址和IP两个都记。让电脑透过表面看本质，这个过程称为DNS解析。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://m.300.cn/itzspd/457078.html">IP协议介绍</a></li>
-<li><a href="https://zh.m.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">网络地址转换</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>PlainTech</category>
-        <category>Network</category>
-      </categories>
-      <tags>
-        <tag>TCP/IP</tag>
-        <tag>NetworkLayer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown常用命令</title>
-    <url>/2022/07/15/md-cmd/</url>
-    <content><![CDATA[<p>金鱼脑记一些常用</p>
-<h2 id="代码公式"><a href="#代码公式" class="headerlink" title="代码公式"></a>代码公式</h2><h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$公式$</span><br></pre></td></tr></table></figure>
-
-<p>效果 $x^2$</p>
-<p>Q：公式没反应</p>
-<p>A：typora-偏好设置- markdown语法-勾选所有</p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>三个&#96;，mac电脑按中英切换键，再按波浪号（1左边）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```code```</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>插入链接&#x2F;图片都是以下格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
-
-<p>⚠️不要写反了！❌   !(备注)[url] ❌ </p>
-<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ul>
-<li><p>本地引用</p>
-<p>注意pics指专属图片文件夹。如图片和md放在同一文件夹下，直接引用。</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/pics/xxx.png)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>云端引用 (github图床)</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](https://cdn.jsdelivr.net/gh/用户名/仓库名/文件夹/xxxx.jpg)</span><br></pre></td></tr></table></figure>
-
-<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p>同理</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
-
-<p>效果<a href="www.google.com">google’s url</a></p>
-]]></content>
-      <categories>
-        <category>CMD</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Md</tag>
-        <tag>Typora</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo日志使用方法</title>
-    <url>/2022/06/16/616-hexo-usage-backup/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>前置：Hexo+GitHub，生成可访问的网站【见：<a href="http://localhost:4000/2022/06/16/hexo-gitpages-install/">搭建网站</a> 】。</p>
-<p>本篇：如何发布新日志，总过程如下</p>
-<ul>
-<li><p>新建日志的路径</p>
-<ul>
-<li><p>直接在 路径<strong>hexo博客名&#x2F;source&#x2F;_posts</strong> 下手动新建xxx.md文件</p>
-<p>自己写需要注意格式，否则可能会报错</p>
-</li>
-<li><p>使用命令行 <strong>cd 博客名</strong> ；然后<strong>hexo new post “xxxx日志名”</strong></p>
-</li>
-</ul>
-<p>注：xxx最好是英文，后面也可以改</p>
-</li>
-<li><p>打开文件写日志</p>
-<p>有关文章标题，发布时间，分类的设置，可见官方文档[1]。摘录如下</p>
-<ul>
-<li><p>tags, categories</p>
-<p>分类categories具有顺序性和层次性，为文章添加多个分类。此时文章同时包括三个分类： <strong><code>PlayStation</code> 和 <code>Games</code></strong> 分别都是父分类 <code>Diary</code> 的子分类，同时 <strong><code>Life</code></strong> 是一个没有子分类的分类。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- [Diary, PlayStation]</span><br><span class="line">- [Diary, Games]</span><br><span class="line">- [Life]</span><br></pre></td></tr></table></figure>
-
-<p>标签tags没有顺序和层次。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Air</span><br><span class="line">- Trainline</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>将日志同步到Github上</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-
-<p>之后想修改日志也是改md然后用这命令传上去。</p>
-</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li>Front-matter <a href="https://hexo.io/zh-cn/docs/front-matter">官方文档</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>GithubPages</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在wordpress中加入文章阅读量浏览量（javascript）</title>
-    <url>/2022/07/16/wp-views-counter-auto-update/</url>
-    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>整体参考[1]</p>
-<p>增加了整体步骤，文件插入位置，以及使用【特定主题】时，怎么找到地方插入。</p>
-<p>整体步骤</p>
-<ol>
-<li>编写计数函数</li>
-<li>自定义统计间隔时间</li>
-<li>将views值插入到想显示的地方</li>
-</ol>
-<h2 id="1-编写计数函数"><a href="#1-编写计数函数" class="headerlink" title="1 编写计数函数"></a>1 编写计数函数</h2><p>复制以下函数到functions.php文件最后。</p>
-<p>具体操作是左边导航栏在appearance- editor</p>
-<p>content主题是右边栏的Theme Functions</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count) &#123;</span><br><span class="line">        $count = <span class="number">1</span>;</span><br><span class="line">        <span class="title function_">delete_post_meta</span>($postID, $count_key);</span><br><span class="line">        <span class="title function_">add_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $count++;</span><br><span class="line">        <span class="title function_">update_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-自定义统计间隔时间"><a href="#2-自定义统计间隔时间" class="headerlink" title="2 自定义统计间隔时间"></a>2 自定义统计间隔时间</h2><p>添加以下代码至主题的single.php 文件最上面</p>
-<p>其中99999999是设置的间隔时间，间隔时间内，cookie相同的访问不累加</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"><span class="keyword">if</span>(!<span class="title function_">isset</span>($_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>]) || $_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>] != <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">    <span class="title function_">setPostViews</span>($post-&gt;<span class="variable constant_">ID</span>);</span><br><span class="line">    <span class="title function_">setcookie</span>(<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>,<span class="string">&#x27;1&#x27;</span>,<span class="title function_">time</span>() + <span class="number">99999999</span>,<span class="variable constant_">COOKIEPATH</span>,<span class="variable constant_">COOKIE_DOMAIN</span>);</span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意，如果没有找到single.php</p>
-<p>可以看看右边的小字<em>This child theme inherits templates from a parent theme XXXX</em></p>
-<p>切换到XXXX，就能找到了</p>
-<h2 id="3-将views值插入到想显示的地方"><a href="#3-将views值插入到想显示的地方" class="headerlink" title="3 将views值插入到想显示的地方"></a>3 将views值插入到想显示的地方</h2><p>将views添加到要显示浏览次数的位置</p>
-<p>文章列表(template-parts&#x2F;content.php)</p>
-<p>文章详情页面(template-parts&#x2F;content-single.php)</p>
-<p>搜索结果页面(template-parts&#x2F;content-search.php)</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php echo <span class="string">&#x27;阅读量：&#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>());.<span class="string">&#x27;次&#x27;</span>?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这里踩坑</p>
-<p>对于不同主题，文件有差异。</p>
-<p>比如我目前用的content主题。显示【作者xxx分类xxxtagsxxx】都封装在了spicepress_single_post_category_content()函数中。单独加上去字体颜色不一样也不再一排。需要找到这个函数，并在里面添加views。</p>
-<p>content是在 template-tags.php 中</p>
-<p>还可以设置下css样式我懒了就直接这样加了</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_">get_theme_mod</span>(<span class="string">&#x27;spicepress_enable_single_post_tag&#x27;</span>,<span class="literal">true</span>)==<span class="literal">true</span>):	</span><br><span class="line">	$spicepress_tag_list = <span class="title function_">get_the_tag_list</span>();</span><br><span class="line">	<span class="keyword">if</span>(!<span class="title function_">empty</span>($spicepress_tag_list)) &#123; ?&gt;</span><br><span class="line">			<span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag-links&quot;</span>&gt;</span><span class="meta">&lt;?php esc_html_e(&#x27;Tag&#x27;,&#x27;spicepress&#x27;);?&gt;</span> <span class="meta">&lt;?php the_tags(&#x27;&#x27;, &#x27;, &#x27;, &#x27;&#x27;); ?&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;?php echo <span class="string">&#x27;Views &#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>()).<span class="string">&#x27;&#x27;</span>;?&gt;	在这加</span><br><span class="line">	&lt;?php &#125; </span><br><span class="line">endif;?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>最后效果</p>
-<p><img src="/pics/views-counter.png" alt="views-counter"></p>
-<p>其他地方读了代码后可以同理修改</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://m.php.cn/cms/wordpress/478394.html">详解WordPress文章阅读量如何统计和显示（非插件）</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Toolkit</category>
-        <category>WP</category>
-      </categories>
-      <tags>
-        <tag>Wordpress</tag>
-        <tag>Javascript</tag>
-        <tag>StatisticsDisplay</tag>
-        <tag>Wp</tag>
-        <tag>Cookie</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Morgan</title>
-    <url>/2022/07/19/off-mor/</url>
-    <content><![CDATA[<h2 id="xxx"><a href="#xxx" class="headerlink" title="xxx"></a>xxx</h2><p>随便存一下</p>
-<p><img src="/pics/morgan/m1.png" alt="m1"></p>
-<p><img src="/pics/morgan/m2.png" alt="m2"></p>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-      <tags>
-        <tag>MorganStanley</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode285 Inorder Successor in BST</title>
-    <url>/2022/07/20/leetcode-285/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
-<p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,3], p = 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: 1&#x27;s in-order successor node is 2. Note that both p and the return value is of TreeNode type.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], p = 6</span><br><span class="line">Output: null</span><br><span class="line">Explanation: There is no in-order successor of the current node, so the answer is null.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[1, 104]</code>.</li>
-<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
-<li>All Nodes will have unique values.</li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">inorderSuccessor</span><span class="params">(TreeNode root, TreeNode p)</span> &#123;</span><br><span class="line">        TreeNode ans=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(root!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val&lt;=p.val)&#123;</span><br><span class="line">                root=root.right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans=root;</span><br><span class="line">                root=root.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>BST</tag>
-        <tag>Inorder</tag>
-        <tag>Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Leetcode 701 二叉搜索树BST中插入元素</title>
-    <url>/2022/07/19/leetcode-701/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h2><p>BST二叉搜索树中插入元素</p>
-<p>二叉搜索树：左边&lt;root&lt;右边</p>
-<p><a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">https://leetcode.com/problems/insert-into-a-binary-search-tree/</a></p>
-<p>You are given the <code>root</code> node of a binary search tree (BST) and a <code>value</code> to insert into the tree. Return <em>the root node of the BST after the insertion</em>. It is guaranteed that the new value does not exist in the original BST.</p>
-<p>Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
-<p>Example 1:</p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br><span class="line">Explanation: Another accepted tree is:</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://assets.leetcode.com/uploads/2020/10/05/bst.jpg" alt="img"></p>
-<p>Example 2:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [40,20,60,10,30,50,70], val = 25</span><br><span class="line">Output: [40,20,60,10,30,50,70,null,null,25]</span><br></pre></td></tr></table></figure>
-
-<p>Example 3:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h2><p>我什么时候能自己想出递归代码omg……每次看递归都觉得被降维打击……</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public TreeNode insertIntoBST(TreeNode root, int val) &#123;</span><br><span class="line">    if (root==null)&#123;</span><br><span class="line">        TreeNode addNode=new TreeNode(val);</span><br><span class="line">        return addNode;</span><br><span class="line">    &#125;</span><br><span class="line">    if(val&lt;root.val)&#123;</span><br><span class="line">        root.left=insertIntoBST(root.left,val);//小，左边插入</span><br><span class="line">    &#125;</span><br><span class="line">    if (val&gt;root.val)&#123;</span><br><span class="line">        root.right=insertIntoBST(root.right,val);//大，右边插入</span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>BST</tag>
-        <tag>Tree</tag>
-        <tag>Backtracking</tag>
-        <tag>BinarySearch</tag>
       </tags>
   </entry>
   <entry>
@@ -926,39 +700,6 @@
         <tag>String</tag>
         <tag>Char</tag>
         <tag>API</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode314</title>
-    <url>/2022/07/31/leetcode-314-tree-vertical-traversal/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary tree, return <em><strong>the vertical order traversal</strong> of its nodes’ values</em>. (i.e., from top to bottom, column by column).</p>
-<p>If two nodes are in the same row and column, the order should be from <strong>left to right</strong>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree1.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: [[9],[3,15],[20],[7]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2-1.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7]</span><br><span class="line">Output: [[4],[9],[3,0,1],[8],[7]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7,null,null,null,2,5]</span><br><span class="line">Output: [[4],[9,5],[3,0,1],[8,2],[7]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>Traversal</tag>
-        <tag>Binary Tree</tag>
-        <tag>Premium</tag>
       </tags>
   </entry>
   <entry>
@@ -1059,6 +800,87 @@
       </tags>
   </entry>
   <entry>
+    <title>计算机网络-网络协议IPv4和IPv6</title>
+    <url>/2022/07/12/ip-intro/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个系列是在实践中对计算机网络相关知识概念的整理。</p>
+<h2 id="关于IP"><a href="#关于IP" class="headerlink" title="关于IP"></a>关于IP</h2><p>IP：Internet Protocol（网际互连协议）</p>
+<p>IP是TCP&#x2F;IP体系中的网络层协议，是整个TCP&#x2F;IP协议族的核心，构成互联网的基础。</p>
+<ul>
+<li><p>对上载送传输层各种协议信息（TCP、UDP等）</p>
+</li>
+<li><p>对下将IP信息包放到链路层（以太网、令牌环网络等来传送）。[1]</p>
+</li>
+</ul>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>IP在OSI模型中位于网络层，TCP&#x2F;IP和OSI说白了就是不同专家对计算机网络结构的不同定义。链路层传输层这些词也是定义的一部分。详细介绍和区别【link待填坑】</p>
+<p>要是我早生几十年就把它定义成网络一二三四五多好记！</p>
+<p>好像说了很多，但还是没有人说它究竟在干嘛。天天网上冲浪，按理说都或多或少接触过。简单说IP是种协议，它制定了信息传输的标准（IP地址，mac地址），让我们能上网。</p>
+<p>IP地址，没错就是那串用电子设备连wifi流量 被分配的类似192.168.1.0的数字，可以想象成你的住址。更有趣的一点，互联网上的一切都是有IP地址的！包括网站和应用程序</p>
+<p>所以<strong>上网其实就是用你的IP访问另一个IP的过程！</strong></p>
+<p>至此，就能很好理解为什么微博可以显示发博地，社交媒体即使关了智能算法推荐还是很能“懂”你了。</p>
+<p>对于用户，IP地址可以理解为就近分配。所以app读出你的住址，你邻居的住址，然后把你们看的互相推送（。梯子可以一定程度规避，真想找也能找到你的原始地址，目前各大app还没有那么丧心病狂就是了，毕竟我们也有忘挂梯子的时候。</p>
+<p>IP为什么就近分配？想象一下，人在广东，想家里上网，会跑上海服务点办入网吗？我们注意到连同一wifi，每次分配的IP地址可能有些不同，但大范围（前几位数）总是固定的，这个大范围能够读到你在哪，专业术语是主机。</p>
+<h2 id="IPv4和IPv6"><a href="#IPv4和IPv6" class="headerlink" title="IPv4和IPv6"></a>IPv4和IPv6</h2><p>字面意思非常简单，不同年代发布的协议版本。第4版（version 4）和第六版（version 6）。果然非母语容易被唬着。</p>
+<h3 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h3><p>IPv4规定地址32位（二进制），十进制写法xxx.xxx.xxx.xxx，其中xxx取值范围0～255。</p>
+<p>1981年被提及。PS当年全球人口40亿左右。前面说到，上网就是一个IP访问另一个IP地址。于是专家们想，我们协议搞40亿（ $2^{32}$）左右个IP地址，差不多人手一个，大家都有网上！</p>
+<h3 id="网络地址转换NAT"><a href="#网络地址转换NAT" class="headerlink" title="网络地址转换NAT"></a>网络地址转换NAT</h3><p>那时候专家没想到电子设备能这么普及，从一家一台变为一人N台……。然后就发现IP地址不够用了啊！提案有很多，比如IPv6，网络地址转换（现在还在用）。</p>
+<p>网络地址转换简单说就是一个人一个IP太奢侈了，我们决定很多人共用一个IP！内网外网用的就是他。咱就是说……一开始多整点坑位，我就不用学这么多了……</p>
+<h3 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h3><p>IPv6想法很简单粗暴，地址不够用，那我允许存更多不就完事了，长长长！</p>
+<p>IPv6规定地址128位（32进制），按全球80亿人，每人都能分配到数万亿亿个，以我们现在的眼界感觉是够用了。</p>
+<p>目前是IPv4和IPv6混用的状态。</p>
+<h3 id="IPv4-格式"><a href="#IPv4-格式" class="headerlink" title="IPv4 格式"></a>IPv4 格式</h3><p>待填</p>
+<p>服务器 主机 等</p>
+<h2 id="自问自答"><a href="#自问自答" class="headerlink" title="自问自答"></a>自问自答</h2><p><strong>网址和IP地址</strong></p>
+<p>上网的过程是IP间的访问，但我们都是输google.com而不是那一串IP地址诶？</p>
+<p>拿IPv4来说，几十亿个实在是太难记了啊！所以我们给IP地址穿上了网址的衣服，我们只记网址，电脑网址和IP两个都记。让电脑透过表面看本质，这个过程称为DNS解析。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://m.300.cn/itzspd/457078.html">IP协议介绍</a></li>
+<li><a href="https://zh.m.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">网络地址转换</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>PlainTech</category>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>TCP/IP</tag>
+        <tag>NetworkLayer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Leetcode 701 二叉搜索树BST中插入元素</title>
+    <url>/2022/07/19/leetcode-701/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h2><p>BST二叉搜索树中插入元素</p>
+<p>二叉搜索树：左边&lt;root&lt;右边</p>
+<p><a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">https://leetcode.com/problems/insert-into-a-binary-search-tree/</a></p>
+<p>You are given the <code>root</code> node of a binary search tree (BST) and a <code>value</code> to insert into the tree. Return <em>the root node of the BST after the insertion</em>. It is guaranteed that the new value does not exist in the original BST.</p>
+<p>Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
+<p>Example 1:</p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br><span class="line">Explanation: Another accepted tree is:</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://assets.leetcode.com/uploads/2020/10/05/bst.jpg" alt="img"></p>
+<p>Example 2:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [40,20,60,10,30,50,70], val = 25</span><br><span class="line">Output: [40,20,60,10,30,50,70,null,null,25]</span><br></pre></td></tr></table></figure>
+
+<p>Example 3:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h2><p>我什么时候能自己想出递归代码omg……每次看递归都觉得被降维打击……</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public TreeNode insertIntoBST(TreeNode root, int val) &#123;</span><br><span class="line">    if (root==null)&#123;</span><br><span class="line">        TreeNode addNode=new TreeNode(val);</span><br><span class="line">        return addNode;</span><br><span class="line">    &#125;</span><br><span class="line">    if(val&lt;root.val)&#123;</span><br><span class="line">        root.left=insertIntoBST(root.left,val);//小，左边插入</span><br><span class="line">    &#125;</span><br><span class="line">    if (val&gt;root.val)&#123;</span><br><span class="line">        root.right=insertIntoBST(root.right,val);//大，右边插入</span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Backtracking</tag>
+        <tag>BST</tag>
+        <tag>Tree</tag>
+        <tag>BinarySearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>整理K sum问题</title>
     <url>/2022/08/05/leetcode-k-sum/</url>
     <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>K sum问题基本是K个数的和为target，输出数字组合方法&#x2F;所在index。</p>
@@ -1097,6 +919,184 @@
         <tag>Pointer</tag>
         <tag>Summary</tag>
         <tag>Sum</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode314</title>
+    <url>/2022/07/31/leetcode-314-tree-vertical-traversal/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary tree, return <em><strong>the vertical order traversal</strong> of its nodes’ values</em>. (i.e., from top to bottom, column by column).</p>
+<p>If two nodes are in the same row and column, the order should be from <strong>left to right</strong>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree1.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: [[9],[3,15],[20],[7]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2-1.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7]</span><br><span class="line">Output: [[4],[9],[3,0,1],[8],[7]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7,null,null,null,2,5]</span><br><span class="line">Output: [[4],[9,5],[3,0,1],[8,2],[7]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Traversal</tag>
+        <tag>Binary Tree</tag>
+        <tag>Premium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown常用命令</title>
+    <url>/2022/07/15/md-cmd/</url>
+    <content><![CDATA[<p>金鱼脑记一些常用</p>
+<h2 id="代码公式"><a href="#代码公式" class="headerlink" title="代码公式"></a>代码公式</h2><h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$公式$</span><br></pre></td></tr></table></figure>
+
+<p>效果 $x^2$</p>
+<p>Q：公式没反应</p>
+<p>A：typora-偏好设置- markdown语法-勾选所有</p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>三个&#96;，mac电脑按中英切换键，再按波浪号（1左边）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```code```</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>插入链接&#x2F;图片都是以下格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
+
+<p>⚠️不要写反了！❌   !(备注)[url] ❌ </p>
+<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ul>
+<li><p>本地引用</p>
+<p>注意pics指专属图片文件夹。如图片和md放在同一文件夹下，直接引用。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/pics/xxx.png)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>云端引用 (github图床)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](https://cdn.jsdelivr.net/gh/用户名/仓库名/文件夹/xxxx.jpg)</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p>同理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
+
+<p>效果<a href="www.google.com">google’s url</a></p>
+]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Md</tag>
+        <tag>Typora</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode285 Inorder Successor in BST</title>
+    <url>/2022/07/20/leetcode-285/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
+<p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,3], p = 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: 1&#x27;s in-order successor node is 2. Note that both p and the return value is of TreeNode type.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], p = 6</span><br><span class="line">Output: null</span><br><span class="line">Explanation: There is no in-order successor of the current node, so the answer is null.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[1, 104]</code>.</li>
+<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
+<li>All Nodes will have unique values.</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">inorderSuccessor</span><span class="params">(TreeNode root, TreeNode p)</span> &#123;</span><br><span class="line">        TreeNode ans=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(root!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val&lt;=p.val)&#123;</span><br><span class="line">                root=root.right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans=root;</span><br><span class="line">                root=root.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>BST</tag>
+        <tag>Tree</tag>
+        <tag>Inorder</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在wordpress中加入文章阅读量浏览量（javascript）</title>
+    <url>/2022/07/16/wp-views-counter-auto-update/</url>
+    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>整体参考[1]</p>
+<p>增加了整体步骤，文件插入位置，以及使用【特定主题】时，怎么找到地方插入。</p>
+<p>整体步骤</p>
+<ol>
+<li>编写计数函数</li>
+<li>自定义统计间隔时间</li>
+<li>将views值插入到想显示的地方</li>
+</ol>
+<h2 id="1-编写计数函数"><a href="#1-编写计数函数" class="headerlink" title="1 编写计数函数"></a>1 编写计数函数</h2><p>复制以下函数到functions.php文件最后。</p>
+<p>具体操作是左边导航栏在appearance- editor</p>
+<p>content主题是右边栏的Theme Functions</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count) &#123;</span><br><span class="line">        $count = <span class="number">1</span>;</span><br><span class="line">        <span class="title function_">delete_post_meta</span>($postID, $count_key);</span><br><span class="line">        <span class="title function_">add_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $count++;</span><br><span class="line">        <span class="title function_">update_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-自定义统计间隔时间"><a href="#2-自定义统计间隔时间" class="headerlink" title="2 自定义统计间隔时间"></a>2 自定义统计间隔时间</h2><p>添加以下代码至主题的single.php 文件最上面</p>
+<p>其中99999999是设置的间隔时间，间隔时间内，cookie相同的访问不累加</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"><span class="keyword">if</span>(!<span class="title function_">isset</span>($_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>]) || $_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>] != <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">    <span class="title function_">setPostViews</span>($post-&gt;<span class="variable constant_">ID</span>);</span><br><span class="line">    <span class="title function_">setcookie</span>(<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>,<span class="string">&#x27;1&#x27;</span>,<span class="title function_">time</span>() + <span class="number">99999999</span>,<span class="variable constant_">COOKIEPATH</span>,<span class="variable constant_">COOKIE_DOMAIN</span>);</span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意，如果没有找到single.php</p>
+<p>可以看看右边的小字<em>This child theme inherits templates from a parent theme XXXX</em></p>
+<p>切换到XXXX，就能找到了</p>
+<h2 id="3-将views值插入到想显示的地方"><a href="#3-将views值插入到想显示的地方" class="headerlink" title="3 将views值插入到想显示的地方"></a>3 将views值插入到想显示的地方</h2><p>将views添加到要显示浏览次数的位置</p>
+<p>文章列表(template-parts&#x2F;content.php)</p>
+<p>文章详情页面(template-parts&#x2F;content-single.php)</p>
+<p>搜索结果页面(template-parts&#x2F;content-search.php)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php echo <span class="string">&#x27;阅读量：&#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>());.<span class="string">&#x27;次&#x27;</span>?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里踩坑</p>
+<p>对于不同主题，文件有差异。</p>
+<p>比如我目前用的content主题。显示【作者xxx分类xxxtagsxxx】都封装在了spicepress_single_post_category_content()函数中。单独加上去字体颜色不一样也不再一排。需要找到这个函数，并在里面添加views。</p>
+<p>content是在 template-tags.php 中</p>
+<p>还可以设置下css样式我懒了就直接这样加了</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_">get_theme_mod</span>(<span class="string">&#x27;spicepress_enable_single_post_tag&#x27;</span>,<span class="literal">true</span>)==<span class="literal">true</span>):	</span><br><span class="line">	$spicepress_tag_list = <span class="title function_">get_the_tag_list</span>();</span><br><span class="line">	<span class="keyword">if</span>(!<span class="title function_">empty</span>($spicepress_tag_list)) &#123; ?&gt;</span><br><span class="line">			<span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag-links&quot;</span>&gt;</span><span class="meta">&lt;?php esc_html_e(&#x27;Tag&#x27;,&#x27;spicepress&#x27;);?&gt;</span> <span class="meta">&lt;?php the_tags(&#x27;&#x27;, &#x27;, &#x27;, &#x27;&#x27;); ?&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;?php echo <span class="string">&#x27;Views &#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>()).<span class="string">&#x27;&#x27;</span>;?&gt;	在这加</span><br><span class="line">	&lt;?php &#125; </span><br><span class="line">endif;?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>最后效果</p>
+<p><img src="/pics/views-counter.png" alt="views-counter"></p>
+<p>其他地方读了代码后可以同理修改</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://m.php.cn/cms/wordpress/478394.html">详解WordPress文章阅读量如何统计和显示（非插件）</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Toolkit</category>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>Wordpress</tag>
+        <tag>Javascript</tag>
+        <tag>StatisticsDisplay</tag>
+        <tag>Wp</tag>
+        <tag>Cookie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Morgan</title>
+    <url>/2022/07/19/off-mor/</url>
+    <content><![CDATA[<h2 id="xxx"><a href="#xxx" class="headerlink" title="xxx"></a>xxx</h2><p>随便存一下</p>
+<p><img src="/pics/morgan/m1.png" alt="m1"></p>
+<p><img src="/pics/morgan/m2.png" alt="m2"></p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+      <tags>
+        <tag>MorganStanley</tag>
       </tags>
   </entry>
 </search>
