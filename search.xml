@@ -1156,7 +1156,46 @@
 <h2 id="1-下载MIMIC-IV数据集"><a href="#1-下载MIMIC-IV数据集" class="headerlink" title="1 下载MIMIC-IV数据集"></a>1 下载MIMIC-IV数据集</h2><p><a href="https://physionet.org/content/mimiciv/0.4/">下载地址</a>是一个压缩包，解压后三个文件夹，文件夹内的具体数据不用解压。</p>
 <h2 id="2-安装Postgres数据库"><a href="#2-安装Postgres数据库" class="headerlink" title="2 安装Postgres数据库"></a>2 安装Postgres数据库</h2><p><a href="https://www.bilibili.com/video/BV1iP4y1s7J1">参考教程</a>，整理下视频里出现的连接。</p>
 <p>官网地址：<a href="https://www.postgresql.org/">https://www.postgresql.org/</a></p>
-<p>安装时最好都选default，不然之后还要调。</p>
+<p>tips:数据库密码之后要用到！安装时最好都选default，不然之后还要调环境。</p>
+<h3 id="测试安装效果"><a href="#测试安装效果" class="headerlink" title="测试安装效果"></a>测试安装效果</h3><ul>
+<li><p>法1：使用安装的sql shell(psql)，一直按回车，直到让你输刚刚设置的密码。</p>
+</li>
+<li><p>法2：直接使用mac自带命令行，可能出现无法找到psql，这时可以添加路径</p>
+<p>export PATH&#x3D;&#x2F;Library&#x2F;PostgreSQL&#x2F;14&#x2F;bin:$PATH</p>
+</li>
+</ul>
+<p>出现以下即为安装成功</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">postgres=#</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-导入MIMIC数据集"><a href="#3-导入MIMIC数据集" class="headerlink" title="3 导入MIMIC数据集"></a>3 导入MIMIC数据集</h2><p>如果可以熟练使用sql，自行导入即可。这里官方提供了已经写好的sql命令，我们一键运行即可。</p>
+<h3 id="3-1-下载数据库导入sql命令合集"><a href="#3-1-下载数据库导入sql命令合集" class="headerlink" title="3.1 下载数据库导入sql命令合集"></a>3.1 下载数据库导入sql命令合集</h3><p>数据地址： <a href="https://github.com/MIT-LCP/mimic-code">Mimic-code</a></p>
+<p>命令行下载</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gh repo clone MIT-LCP/mimic-code</span><br></pre></td></tr></table></figure>
+
+<p>或者下载后解压</p>
+<h3 id="3-2-在Postgres中创建mimiciv数据表"><a href="#3-2-在Postgres中创建mimiciv数据表" class="headerlink" title="3.2 在Postgres中创建mimiciv数据表"></a>3.2 在Postgres中创建mimiciv数据表</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE mimiciv OWNER postgres;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-进入mimiciv数据表"><a href="#3-3-进入mimiciv数据表" class="headerlink" title="3.3 进入mimiciv数据表"></a>3.3 进入mimiciv数据表</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">\c mimiciv</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-在mimiciv中创建子表"><a href="#3-4-在mimiciv中创建子表" class="headerlink" title="3.4 在mimiciv中创建子表"></a>3.4 在mimiciv中创建子表</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">\i <span class="operator">/</span>mimic<span class="operator">-</span>code<span class="operator">/</span>mimic<span class="operator">-</span>iv<span class="operator">/</span>buildmimic<span class="operator">/</span>postgres<span class="operator">/</span>create.sql</span><br></pre></td></tr></table></figure>
+
+<p>其中xxxxx是3.1的gituhb项目Mimic-code所在路径。在mac中，默认初始路径在users&#x2F;xxx&#x2F;，相对路径填后面就好。如果写绝对路径，就带上&#x2F;users&#x2F;xxx&#x2F;</p>
+<h3 id="3-5-把数据导入mimiciv中"><a href="#3-5-把数据导入mimiciv中" class="headerlink" title="3.5 把数据导入mimiciv中"></a>3.5 把数据导入mimiciv中</h3><p>注意，Mac下路径引用不需要引号</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#设置步骤<span class="number">1</span>中下载数据集所在地址</span><br><span class="line">\<span class="keyword">set</span> mimic_data_dir <span class="operator">/</span>Users<span class="operator">/</span>hjy<span class="operator">/</span>gitProject<span class="operator">/</span>mimic<span class="operator">-</span>iv<span class="number">-1.0</span></span><br><span class="line">#运行github中的导入代码</span><br><span class="line">\i <span class="operator">/</span>Users<span class="operator">/</span>xxx<span class="operator">/</span>mimic<span class="operator">-</span>code<span class="operator">/</span>mimic<span class="operator">-</span>iv<span class="operator">/</span>buildmimic<span class="operator">/</span>postgres<span class="operator">/</span>load_gz.sql</span><br></pre></td></tr></table></figure>
+
+<p>如果是用的其他版本的mimic，将mimic-iv改成对应版本即可</p>
+<p>此处用时约40min</p>
+<h3 id="3-6-建立constraints和index"><a href="#3-6-建立constraints和index" class="headerlink" title="3.6 建立constraints和index"></a>3.6 建立constraints和index</h3><p>步骤3.5已经将数据复制进去了，但还无法被搜索到。</p>
+<p>需要建立索引。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">\i <span class="operator">/</span>Users<span class="operator">/</span>xxx<span class="operator">/</span>mimic<span class="operator">-</span>code<span class="operator">/</span>mimic<span class="operator">-</span>iv<span class="operator">/</span>buildmimic<span class="operator">/</span>postgres<span class="operator">/</span>constraint.sql</span><br><span class="line">\i <span class="operator">/</span>Users<span class="operator">/</span>xxx<span class="operator">/</span>mimic<span class="operator">-</span>code<span class="operator">/</span>mimic<span class="operator">-</span>iv<span class="operator">/</span>buildmimic<span class="operator">/</span>postgres<span class="operator">/</span>index.sql</span><br></pre></td></tr></table></figure>
+
+<p>此处用时约50min</p>
+<h2 id="4-数据集可视化"><a href="#4-数据集可视化" class="headerlink" title="4 数据集可视化"></a>4 数据集可视化</h2><p>数据导入后怎么使用？</p>
+<p>validation.sql里给了一些例子，但用命令行还是不够直观，这里使用pgadmin查询导出数据。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> mimiciv_icu LIMIT <span class="number">10</span> #报错，因为没精确到mimiciv_icu下面的子表</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> mimiciv_icu.chartevents LIMIT <span class="number">10</span> #正确</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Tech</category>
@@ -1166,6 +1205,7 @@
         <tag>MIMIC</tag>
         <tag>PgAdmin</tag>
         <tag>Postgres</tag>
+        <tag>Path</tag>
       </tags>
   </entry>
 </search>
