@@ -1137,4 +1137,35 @@
         <tag>Cookie</tag>
       </tags>
   </entry>
+  <entry>
+    <title>MAX下安装mimic-iv数据集</title>
+    <url>/2022/08/11/bayes-mimic-install/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>MIMIC-IV是个临床数据集，整体步骤</p>
+<ul>
+<li>下载数据集</li>
+<li>下载数据库（最熟悉的mysql，这里以postgres为例）</li>
+<li>导入数据集</li>
+<li>数据库可视化软件进行查询和数据导出（常见的navicat，这里以pgadmin为例）</li>
+</ul>
+<p>一些tips（劝退</p>
+<ul>
+<li>内存要求大！数据压缩包7G，解压后40G，安装到数据库后需要100G+</li>
+<li>安装时间较久。看反馈windows可能会安4-6个小时，mac下安了2个小时</li>
+<li>需要在<a href="https://physionet.org/content/mimiciv/0.4/">这里</a>申请权限+答题后才能下载数据集</li>
+</ul>
+<h2 id="1-下载MIMIC-IV数据集"><a href="#1-下载MIMIC-IV数据集" class="headerlink" title="1 下载MIMIC-IV数据集"></a>1 下载MIMIC-IV数据集</h2><p><a href="https://physionet.org/content/mimiciv/0.4/">下载地址</a>是一个压缩包，解压后三个文件夹，文件夹内的具体数据不用解压。</p>
+<h2 id="2-安装Postgres数据库"><a href="#2-安装Postgres数据库" class="headerlink" title="2 安装Postgres数据库"></a>2 安装Postgres数据库</h2><p><a href="https://www.bilibili.com/video/BV1iP4y1s7J1">参考教程</a>，整理下视频里出现的连接。</p>
+<p>官网地址：<a href="https://www.postgresql.org/">https://www.postgresql.org/</a></p>
+<p>安装时最好都选default，不然之后还要调。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>MIMIC</tag>
+        <tag>PgAdmin</tag>
+        <tag>Postgres</tag>
+      </tags>
+  </entry>
 </search>
