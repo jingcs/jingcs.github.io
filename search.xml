@@ -1183,7 +1183,7 @@
 
 <p>其中xxxxx是3.1的gituhb项目Mimic-code所在路径。在mac中，默认初始路径在users&#x2F;xxx&#x2F;，相对路径填后面就好。如果写绝对路径，就带上&#x2F;users&#x2F;xxx&#x2F;</p>
 <h3 id="3-5-把数据导入mimiciv中"><a href="#3-5-把数据导入mimiciv中" class="headerlink" title="3.5 把数据导入mimiciv中"></a>3.5 把数据导入mimiciv中</h3><p>注意，Mac下路径引用不需要引号</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#设置步骤<span class="number">1</span>中下载数据集所在地址</span><br><span class="line">\<span class="keyword">set</span> mimic_data_dir <span class="operator">/</span>Users<span class="operator">/</span>hjy<span class="operator">/</span>gitProject<span class="operator">/</span>mimic<span class="operator">-</span>iv<span class="number">-1.0</span></span><br><span class="line">#运行github中的导入代码</span><br><span class="line">\i <span class="operator">/</span>Users<span class="operator">/</span>xxx<span class="operator">/</span>mimic<span class="operator">-</span>code<span class="operator">/</span>mimic<span class="operator">-</span>iv<span class="operator">/</span>buildmimic<span class="operator">/</span>postgres<span class="operator">/</span>load_gz.sql</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#设置步骤<span class="number">1</span>中下载数据集所在地址</span><br><span class="line">\<span class="keyword">set</span> mimic_data_dir <span class="operator">/</span>Users<span class="operator">/</span>xxx<span class="operator">/</span>gitProject<span class="operator">/</span>mimic<span class="operator">-</span>iv<span class="number">-1.0</span></span><br><span class="line">#运行github中的导入代码</span><br><span class="line">\i <span class="operator">/</span>Users<span class="operator">/</span>xxx<span class="operator">/</span>mimic<span class="operator">-</span>code<span class="operator">/</span>mimic<span class="operator">-</span>iv<span class="operator">/</span>buildmimic<span class="operator">/</span>postgres<span class="operator">/</span>load_gz.sql</span><br></pre></td></tr></table></figure>
 
 <p>如果是用的其他版本的mimic，将mimic-iv改成对应版本即可</p>
 <p>此处用时约40min</p>
@@ -1206,6 +1206,29 @@
         <tag>PgAdmin</tag>
         <tag>Postgres</tag>
         <tag>Path</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mimic-iv数据集预处理</title>
+    <url>/2022/08/12/bayes-mimic-preprocess/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>MIMIC-IV是个临床数据集，整体步骤</p>
+<p>参考<a href="https://www.bilibili.com/video/BV1mL4y1w7Fz">https://www.bilibili.com/video/BV1mL4y1w7Fz</a></p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><p>subject_id 病人编号，多次住院也不变</p>
+<p>Hadm_id 住院编号，一个病人多次住院</p>
+<p>icustay_id 病房编号，一个病人在不同病房</p>
+<p>admission time 入院时间</p>
+<p>dischattime 出院时间</p>
+<p>ICU种类：CCU心脏疾病</p>
+<p>dod 死亡时间（可能在出院后</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>MIMIC</tag>
+        <tag>PgAdmin</tag>
+        <tag>Dataset</tag>
       </tags>
   </entry>
 </search>
