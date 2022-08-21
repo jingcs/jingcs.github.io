@@ -1196,6 +1196,10 @@
 <p>validation.sql里给了一些例子，但用命令行还是不够直观，这里使用pgadmin查询导出数据。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> mimiciv_icu LIMIT <span class="number">10</span> #报错，因为没精确到mimiciv_icu下面的子表</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> mimiciv_icu.chartevents LIMIT <span class="number">10</span> #正确</span><br></pre></td></tr></table></figure>
 
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#standardise dataframe</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">formatEach</span>(<span class="params">person</span>):</span><br><span class="line">  rows=person.row</span><br><span class="line">  cols=person.cols</span><br><span class="line">  formated_Df=new Dataframe[<span class="number">48</span>][cols]</span><br><span class="line">  <span class="built_in">int</span>(person.Hour)</span><br><span class="line">  <span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">48</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Tech</category>
