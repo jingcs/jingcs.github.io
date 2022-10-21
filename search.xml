@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo报错YAMLException</title>
+    <url>/2022/06/16/616-hexo-debug/</url>
+    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
+<p>报错，hexo无法将md文档转网页</p>
+<p>基本因为格式不对，空格少打了或者多大了。</p>
+<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
+<p>比如标题有特殊符号等等（目前测试出不能使用的：[ ]</p>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Debug</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>给Hexo安装主题模板并美化</title>
     <url>/2022/06/16/616-advance-ui/</url>
     <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已搭建好网页，想美化网站。</p>
@@ -43,23 +60,6 @@
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>Matery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo报错YAMLException</title>
-    <url>/2022/06/16/616-hexo-debug/</url>
-    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
-<p>报错，hexo无法将md文档转网页</p>
-<p>基本因为格式不对，空格少打了或者多大了。</p>
-<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
-<p>比如标题有特殊符号等等（目前测试出不能使用的：[ ]</p>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>Debug</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -128,6 +128,29 @@
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>GithubPages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mimic-iv数据集预处理</title>
+    <url>/2022/08/12/bayes-mimic-preprocess/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>MIMIC-IV是个临床数据集，整体步骤</p>
+<p>参考<a href="https://www.bilibili.com/video/BV1mL4y1w7Fz">https://www.bilibili.com/video/BV1mL4y1w7Fz</a></p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><p>subject_id 病人编号，多次住院也不变</p>
+<p>Hadm_id 住院编号，一个病人多次住院</p>
+<p>icustay_id 病房编号，一个病人在不同病房</p>
+<p>admission time 入院时间</p>
+<p>dischattime 出院时间</p>
+<p>ICU种类：CCU心脏疾病</p>
+<p>dod 死亡时间（可能在出院后</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>MIMIC</tag>
+        <tag>PgAdmin</tag>
+        <tag>Dataset</tag>
       </tags>
   </entry>
   <entry>
@@ -206,29 +229,6 @@
       </tags>
   </entry>
   <entry>
-    <title>mimic-iv数据集预处理</title>
-    <url>/2022/08/12/bayes-mimic-preprocess/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>MIMIC-IV是个临床数据集，整体步骤</p>
-<p>参考<a href="https://www.bilibili.com/video/BV1mL4y1w7Fz">https://www.bilibili.com/video/BV1mL4y1w7Fz</a></p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><p>subject_id 病人编号，多次住院也不变</p>
-<p>Hadm_id 住院编号，一个病人多次住院</p>
-<p>icustay_id 病房编号，一个病人在不同病房</p>
-<p>admission time 入院时间</p>
-<p>dischattime 出院时间</p>
-<p>ICU种类：CCU心脏疾病</p>
-<p>dod 死亡时间（可能在出院后</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-        <category>Database</category>
-      </categories>
-      <tags>
-        <tag>MIMIC</tag>
-        <tag>PgAdmin</tag>
-        <tag>Dataset</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用SMTP定时自动发送邮件</title>
     <url>/2022/07/17/c-smtp-mails/</url>
     <content><![CDATA[<p>想做一个定时爬取煤炉上新并推送的东西，总之这是第一步。</p>
@@ -243,117 +243,6 @@
         <tag>C#</tag>
         <tag>.Net</tag>
         <tag>SMTP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在google中添加站点地图（Hexo和Wp）</title>
-    <url>/2022/07/15/create-sitemap/</url>
-    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>搜索引擎排位是件生意，加上每天无数个新网站，一般来说搜索引擎不会主动收录你的自建网站！（博客园这种二级衍生的除外，或者有篇日志被第三方引流百万点击突然火了，引起大牛注意.jpg）于是自建网站，我们需要手动向每个搜索引擎提出收录请求，才会被搜到。</p>
-<p>整体步骤如下</p>
-<ol>
-<li><p>找到想被收录的搜索引擎站点</p>
-</li>
-<li><p>录入并验证网站</p>
-</li>
-<li><p>为网站生成XML站点地图</p>
-</li>
-<li><p>将XML加入到搜索引擎sitemap中</p>
-</li>
-<li><p>测试验证是否被收录</p>
-</li>
-</ol>
-<h2 id="1-找到想被收录的搜索引擎站点"><a href="#1-找到想被收录的搜索引擎站点" class="headerlink" title="1 找到想被收录的搜索引擎站点"></a>1 找到想被收录的搜索引擎站点</h2><p>这里列俩常用的</p>
-<p>google: <a href="https://search.google.com/search-console">https://search.google.com/search-console</a></p>
-<p>Baidu: <a href="https://ziyuan.baidu.com/site/index">https://ziyuan.baidu.com/site/index</a></p>
-<p>Bing：<a href="https://www.bing.com/webmasters">https://www.bing.com/webmasters</a></p>
-<p>其他的可自行搜索</p>
-<h2 id="2-录入并验证网站"><a href="#2-录入并验证网站" class="headerlink" title="2 录入并验证网站"></a>2 录入并验证网站</h2><p>搜索引擎需要验证你是网站的所有者。（为什么？后面会说隐患）</p>
-<p>以google search console为例 添加资源</p>
-<p>网域和网址前缀都可以。这里演示前者【网域】。</p>
-<p><img src="/pics/google_console.png" alt="google_console"></p>
-<p>namesilo好像可以登录验证，这里以所有DNS服务商为例。</p>
-<p>复制google给的验证字符串。</p>
-<p><img src="/pics/dns_copy.png" alt="google_console"></p>
-<p>打开域名管理网站，这里用的cloudflare，DNS解析处，选择TXT，粘贴</p>
-<p><img src="/pics/add-txt-google.png" alt="google_console"></p>
-<p>回到google界面点验证，就ok了。</p>
-<h2 id="3-为网站生成XML站点地图"><a href="#3-为网站生成XML站点地图" class="headerlink" title="3 为网站生成XML站点地图"></a>3 为网站生成XML站点地图</h2><p>站点地图简单说就是 你网站中所有日志标题和链接的list合集。</p>
-<h3 id="3-1-wordpress"><a href="#3-1-wordpress" class="headerlink" title="3.1 wordpress"></a>3.1 wordpress</h3><p>可以安装插件XML Sitemaps - active激活</p>
-<p>左菜单栏 - settings- XML-sitemap</p>
-<p>复制出XML的url（The URL to your sitemap index file is: x x x x x x x）</p>
-<p>粘到搜索引擎的站点地图即可（part 4）</p>
-<h3 id="3-2-Hexo-Github-Pages"><a href="#3-2-Hexo-Github-Pages" class="headerlink" title="3.2 Hexo Github Pages"></a>3.2 Hexo Github Pages</h3><p>参考教程<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">1</a></p>
-<p>cd到博客目录下，安装hexo-generator-sitemap插件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save #google的XML用这个</span><br><span class="line">npm install hexo-generator-sitemap --save #百度的XML用这个</span><br></pre></td></tr></table></figure>
-
-<p>生成XML站点地图</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<p>博客目录下可以找到新生成的sitemap.xml</p>
-<p>将更新后的博客发布，找到xml文件的链接</p>
-<p>粘到搜索引擎站点地图里即可（part 4）</p>
-<h2 id="4-将XML加入到搜索引擎sitemap中"><a href="#4-将XML加入到搜索引擎sitemap中" class="headerlink" title="4 将XML加入到搜索引擎sitemap中"></a>4 将XML加入到搜索引擎sitemap中</h2><p>站点地图-添加新的站点地图-将链接粘过去就好</p>
-<p>链接格式一般是：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">网址名/xxxxx.xml</span><br><span class="line">网站名/xml_sitemap=params=</span><br></pre></td></tr></table></figure>
-
-<p>都是可以的。</p>
-<h3 id="4-1-无法获取-x2F-无法读取此站点地图"><a href="#4-1-无法获取-x2F-无法读取此站点地图" class="headerlink" title="4.1 无法获取&#x2F;无法读取此站点地图"></a>4.1 无法获取&#x2F;无法读取此站点地图</h3><p>google有延时，一般1～3天才会更新。</p>
-<p>google中的站点可以同步到bing，我去bing试了下，几分钟后显示成功。</p>
-<h2 id="5-测试验证是否被收录"><a href="#5-测试验证是否被收录" class="headerlink" title="5 测试验证是否被收录"></a>5 测试验证是否被收录</h2><p>site: xxxxx（你的网站名）</p>
-<p>能搜到就是被收录了。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li>Hexo博客站点地图配置（Google）<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">https://mizeri.github.io/2021/04/18/hexo-sitemap-google/</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>SEO</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Google</tag>
-        <tag>Search</tag>
-        <tag>Sitemap</tag>
-        <tag>XML</tag>
-        <tag>Wordpress</tag>
-        <tag>DNS</tag>
-        <tag>Bing</tag>
-        <tag>Baidu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java常用API</title>
-    <url>/2022/07/21/cmd-java/</url>
-    <content><![CDATA[<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p><strong>Str转int</strong> </p>
-<p>Integer.parseInt(str)</p>
-<p><strong>str转char[]</strong></p>
-<p>char[] c &#x3D; str.toCharArray();</p>
-<p><strong>str某一位char</strong> </p>
-<p>c&#x3D;str.charAt(i)</p>
-<p><strong>int转str</strong> </p>
-<p>Integer.toString(int)</p>
-<p>String.valueOf(int) 就是调用的tostring实现，更快（？</p>
-<h2 id="String和Char"><a href="#String和Char" class="headerlink" title="String和Char"></a>String和Char</h2><p>String常用</p>
-<p>小写str.toLowerCase();</p>
-<p>分隔 String[] s&#x3D;str.split(“\\.”) 两条\注意</p>
-<p>替换&#x2F;删除特殊字符s.replaceAll(“要替换的”, “替换后”)，替换后为空即为删除。</p>
-<p>Char</p>
-<p>判断字母和数字：Character.isLetterOrDigit(s.charAt(i))</p>
-<p>单引号char[] chars&#x3D;{‘a’,’a’,’a’,’b’,’b’};</p>
-<p>length</p>
-<p>String[], char[] 的是length</p>
-<p>其他linkedlist,str,全都是length()</p>
-<p>strArr.length</p>
-<p>strArr[0].length()</p>
-]]></content>
-      <categories>
-        <category>CMD</category>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>String</tag>
-        <tag>Char</tag>
-        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -404,31 +293,80 @@
         <category>Cloud</category>
       </categories>
       <tags>
-        <tag>Google</tag>
         <tag>Github</tag>
         <tag>Python</tag>
+        <tag>Google</tag>
         <tag>Colab</tag>
         <tag>Drive</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/16/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p>这行用来mc更新后网页是否也会同步更新。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>Java常用API</title>
+    <url>/2022/07/21/cmd-java/</url>
+    <content><![CDATA[<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p><strong>Str转int</strong> </p>
+<p>Integer.parseInt(str)</p>
+<p><strong>str转char[]</strong></p>
+<p>char[] c &#x3D; str.toCharArray();</p>
+<p><strong>str某一位char</strong> </p>
+<p>c&#x3D;str.charAt(i)</p>
+<p><strong>int转str</strong> </p>
+<p>Integer.toString(int)</p>
+<p>String.valueOf(int) 就是调用的tostring实现，更快（？</p>
+<h2 id="String和Char"><a href="#String和Char" class="headerlink" title="String和Char"></a>String和Char</h2><p>String常用</p>
+<p>小写str.toLowerCase();</p>
+<p>分隔 String[] s&#x3D;str.split(“\\.”) 两条\注意</p>
+<p>替换&#x2F;删除特殊字符s.replaceAll(“要替换的”, “替换后”)，替换后为空即为删除。</p>
+<p>Char</p>
+<p>判断字母和数字：Character.isLetterOrDigit(s.charAt(i))</p>
+<p>单引号char[] chars&#x3D;{‘a’,’a’,’a’,’b’,’b’};</p>
+<p>length</p>
+<p>String[], char[] 的是length</p>
+<p>其他linkedlist,str,全都是length()</p>
+<p>strArr.length</p>
+<p>strArr[0].length()</p>
 ]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+        <tag>Char</tag>
+        <tag>API</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github常用命令及Desktop初体验</title>
+    <url>/2022/07/14/git-cmd/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>有时代码明明没怎么改突然就不能用了，github合并机制挺全有时也让人抓狂，一直提示冲突。好不容易历史版本pull下来，想push上去，提示我必须把最新的pull下来……我要是最新的能用我会回退到历史版本吗！搁这套娃呢。</p>
+<p>不想折腾冲突的我，找了一下午bug，发现是多删了个空格！！简单粗暴退到上一版本就没那么多事了！</p>
+<p>于是整理下一些强制命令（。有风险就有风险……我可以备份啊！备份就1秒，找bug一下午过去了</p>
+<h2 id="本地版本回滚（更安心）"><a href="#本地版本回滚（更安心）" class="headerlink" title="本地版本回滚（更安心）"></a>本地版本回滚（更安心）</h2><p>在本地回退到某一个版本（不影响远端），命令行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git checkout xxxx(commit号)</span><br></pre></td></tr></table></figure>
+
+<p>其中xxx是一串类似2a3b4e的commit号，可以在github desktop-history找到。</p>
+<p>也可以desktop里找到想要的回退版本，右键revert changes in commit</p>
+<p>如果提示error，有conflicts，添加冲突的文件（error: Reverting is not possible because you have unmerged files.）</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add filename(文件名)</span><br></pre></td></tr></table></figure>
+
+<p>这时候就可以发现本地文件已经到历史版本了，但无法推送到分支，因为是detached head分支。这时想合并可以把这个保存为新分支，然后merge到主分支。</p>
+<h2 id="提交历史版本（更简单粗暴）"><a href="#提交历史版本（更简单粗暴）" class="headerlink" title="提交历史版本（更简单粗暴）"></a>提交历史版本（更简单粗暴）</h2><p>除了revert，使用reset会更加简单粗暴</p>
+<p>简单说，revert是永久时光机，能去过去，也能回未来。reset是一次性时光机，回到过去，未来就被擦掉了没有后悔药。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git reset --hard xxxx(commit号)</span><br></pre></td></tr></table></figure>
+
+<p>这样github就不会提示你有新的没pull下来，不能push了。-f代表强制推送。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -f</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
   </entry>
   <entry>
     <title>自定义GithubPages域名+DNS解析加速</title>
@@ -522,11 +460,30 @@
       </categories>
       <tags>
         <tag>GithubPages</tag>
-        <tag>DNS</tag>
         <tag>Cloudflare</tag>
+        <tag>DNS</tag>
         <tag>Domain</tag>
         <tag>Freenom</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p>这行用来mc更新后网页是否也会同步更新。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Hexo常用命令</title>
@@ -580,6 +537,134 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在google中添加站点地图（Hexo和Wp）</title>
+    <url>/2022/07/15/create-sitemap/</url>
+    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>搜索引擎排位是件生意，加上每天无数个新网站，一般来说搜索引擎不会主动收录你的自建网站！（博客园这种二级衍生的除外，或者有篇日志被第三方引流百万点击突然火了，引起大牛注意.jpg）于是自建网站，我们需要手动向每个搜索引擎提出收录请求，才会被搜到。</p>
+<p>整体步骤如下</p>
+<ol>
+<li><p>找到想被收录的搜索引擎站点</p>
+</li>
+<li><p>录入并验证网站</p>
+</li>
+<li><p>为网站生成XML站点地图</p>
+</li>
+<li><p>将XML加入到搜索引擎sitemap中</p>
+</li>
+<li><p>测试验证是否被收录</p>
+</li>
+</ol>
+<h2 id="1-找到想被收录的搜索引擎站点"><a href="#1-找到想被收录的搜索引擎站点" class="headerlink" title="1 找到想被收录的搜索引擎站点"></a>1 找到想被收录的搜索引擎站点</h2><p>这里列俩常用的</p>
+<p>google: <a href="https://search.google.com/search-console">https://search.google.com/search-console</a></p>
+<p>Baidu: <a href="https://ziyuan.baidu.com/site/index">https://ziyuan.baidu.com/site/index</a></p>
+<p>Bing：<a href="https://www.bing.com/webmasters">https://www.bing.com/webmasters</a></p>
+<p>其他的可自行搜索</p>
+<h2 id="2-录入并验证网站"><a href="#2-录入并验证网站" class="headerlink" title="2 录入并验证网站"></a>2 录入并验证网站</h2><p>搜索引擎需要验证你是网站的所有者。（为什么？后面会说隐患）</p>
+<p>以google search console为例 添加资源</p>
+<p>网域和网址前缀都可以。这里演示前者【网域】。</p>
+<p><img src="/pics/google_console.png" alt="google_console"></p>
+<p>namesilo好像可以登录验证，这里以所有DNS服务商为例。</p>
+<p>复制google给的验证字符串。</p>
+<p><img src="/pics/dns_copy.png" alt="google_console"></p>
+<p>打开域名管理网站，这里用的cloudflare，DNS解析处，选择TXT，粘贴</p>
+<p><img src="/pics/add-txt-google.png" alt="google_console"></p>
+<p>回到google界面点验证，就ok了。</p>
+<h2 id="3-为网站生成XML站点地图"><a href="#3-为网站生成XML站点地图" class="headerlink" title="3 为网站生成XML站点地图"></a>3 为网站生成XML站点地图</h2><p>站点地图简单说就是 你网站中所有日志标题和链接的list合集。</p>
+<h3 id="3-1-wordpress"><a href="#3-1-wordpress" class="headerlink" title="3.1 wordpress"></a>3.1 wordpress</h3><p>可以安装插件XML Sitemaps - active激活</p>
+<p>左菜单栏 - settings- XML-sitemap</p>
+<p>复制出XML的url（The URL to your sitemap index file is: x x x x x x x）</p>
+<p>粘到搜索引擎的站点地图即可（part 4）</p>
+<h3 id="3-2-Hexo-Github-Pages"><a href="#3-2-Hexo-Github-Pages" class="headerlink" title="3.2 Hexo Github Pages"></a>3.2 Hexo Github Pages</h3><p>参考教程<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">1</a></p>
+<p>cd到博客目录下，安装hexo-generator-sitemap插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save #google的XML用这个</span><br><span class="line">npm install hexo-generator-sitemap --save #百度的XML用这个</span><br></pre></td></tr></table></figure>
+
+<p>生成XML站点地图</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>博客目录下可以找到新生成的sitemap.xml</p>
+<p>将更新后的博客发布，找到xml文件的链接</p>
+<p>粘到搜索引擎站点地图里即可（part 4）</p>
+<h2 id="4-将XML加入到搜索引擎sitemap中"><a href="#4-将XML加入到搜索引擎sitemap中" class="headerlink" title="4 将XML加入到搜索引擎sitemap中"></a>4 将XML加入到搜索引擎sitemap中</h2><p>站点地图-添加新的站点地图-将链接粘过去就好</p>
+<p>链接格式一般是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">网址名/xxxxx.xml</span><br><span class="line">网站名/xml_sitemap=params=</span><br></pre></td></tr></table></figure>
+
+<p>都是可以的。</p>
+<h3 id="4-1-无法获取-x2F-无法读取此站点地图"><a href="#4-1-无法获取-x2F-无法读取此站点地图" class="headerlink" title="4.1 无法获取&#x2F;无法读取此站点地图"></a>4.1 无法获取&#x2F;无法读取此站点地图</h3><p>google有延时，一般1～3天才会更新。</p>
+<p>google中的站点可以同步到bing，我去bing试了下，几分钟后显示成功。</p>
+<h2 id="5-测试验证是否被收录"><a href="#5-测试验证是否被收录" class="headerlink" title="5 测试验证是否被收录"></a>5 测试验证是否被收录</h2><p>site: xxxxx（你的网站名）</p>
+<p>能搜到就是被收录了。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>Hexo博客站点地图配置（Google）<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">https://mizeri.github.io/2021/04/18/hexo-sitemap-google/</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>SEO</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Google</tag>
+        <tag>DNS</tag>
+        <tag>Search</tag>
+        <tag>Sitemap</tag>
+        <tag>XML</tag>
+        <tag>Wordpress</tag>
+        <tag>Bing</tag>
+        <tag>Baidu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo中加入Github每日贡献图</title>
+    <url>/2022/06/19/hexo-github-calendar/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前置要求：已完成网页搭建。</p>
+<p>效果：</p>
+<p><img src="/pics/gitCal.png" alt="img"></p>
+<p>推荐参考[1]，整理的很全面。</p>
+<h2 id="GitHub-Calendar生成步骤"><a href="#GitHub-Calendar生成步骤" class="headerlink" title="GitHub Calendar生成步骤"></a>GitHub Calendar生成步骤</h2><p>最简单的方法是直接生成图片引用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://ghchart.rshah.org/你的用户名&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Github Chart&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://ghchart.rshah.org/jingcs" alt="Github Chart" />
+
+<p>不过为了之后倒腾，下面还用了GitHub Calendar</p>
+<h3 id="（1）安装"><a href="#（1）安装" class="headerlink" title="（1）安装"></a>（1）安装</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i hexo-githubcalendar --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="（2）修改根目录下的配置文件"><a href="#（2）修改根目录下的配置文件" class="headerlink" title="（2）修改根目录下的配置文件"></a>（2）修改根目录下的配置文件</h3><p>​	把下面的加到_config.yml文件夹中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">githubcalendar:</span><br><span class="line">  enable: true</span><br><span class="line">  priority: 0</span><br><span class="line">  enable_page: /</span><br><span class="line">  user: 你的github用户名</span><br><span class="line">  layout:</span><br><span class="line">    type: class</span><br><span class="line">    name: main-inner</span><br><span class="line">    index: 0</span><br><span class="line">  githubcalendar_html: &#x27;&lt;div class=&quot;post-block animated fadeIn&quot; style=&quot;width:100%;height:auto;padding:40px 10px 10px 10px;&quot;&gt;&lt;div id=&quot;github_loading&quot; style=&quot;height:100%;display: flex;align-items: center;justify-content: center;&quot;&gt;&lt;svg style=&quot;height:50px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  viewBox=&quot;0 0 50 50&quot; style=&quot;enable-background:new 0 0 50 50&quot; xml:space=&quot;preserve&quot;&gt;&lt;path fill=&quot;#d0d0d0&quot; d=&quot;M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z&quot; transform=&quot;rotate(275.098 25 25)&quot;&gt;&lt;animateTransform attributeType=&quot;xml&quot; attributeName=&quot;transform&quot; type=&quot;rotate&quot; from=&quot;0 25 25&quot; to=&quot;360 25 25&quot; dur=&quot;0.6s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div id=&quot;github_container&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;footer class=&quot;post-footer&quot;&gt;&lt;div class=&quot;post-eof&quot;&gt;&lt;/div&gt;&lt;/footer&gt;&#x27;</span><br><span class="line">  pc_minheight: 280px</span><br><span class="line">  mobile_minheight: 0px</span><br><span class="line">  #颜色可以自己换，这个是黑白</span><br><span class="line">  color: &quot;[&#x27;#ebedf0&#x27;, &#x27;#d3d5d8&#x27;, &#x27;#bcbdc0&#x27;, &#x27;#a4a5a8&#x27;, &#x27;#8d8e90&#x27;, &#x27;#757678&#x27;, &#x27;#5e5e60&#x27;, &#x27;#464748&#x27;, &#x27;#2f2f30&#x27;, &#x27;#2f363d&#x27;, &#x27;#24292e&#x27;]&quot;</span><br><span class="line">  api: https://python-github-calendar-api.vercel.app/api</span><br><span class="line">  #在国内网速慢可以用gitee这个</span><br><span class="line">  #api: https://python-gitee-calendar-api.vercel.app/api</span><br><span class="line">  calendar_js: https://cdn.jsdelivr.net/gh/jingcs/jingcs.github.io/js/git-calendar-cn.js</span><br><span class="line">  plus_style: &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）运行"><a href="#（3）运行" class="headerlink" title="（3）运行"></a>（3）运行</h3><p>先本地运行看效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo s </span><br></pre></td></tr></table></figure>
+
+<p>注意，三条命写一起有如果报错找不到json。分开运行就行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>没有变化清理一下缓存。</p>
+<p>没问题的话就提交到github</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://blog.meta-code.top/2022/03/15/2022-41/">在主页展示GitHub&#x2F;Gitee贡献度日历</a> 推荐 整理的很全面，包含了第2个的网址</li>
+<li><a href="https://gagalab.tech/2021/07/14/Next%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Github%E8%B4%A1%E7%8C%AE%E6%97%A5%E5%8E%86%E6%95%99%E7%A8%8B/">手把手教你在Hexo中使用Github贡献日历（以Next主题为例）</a></li>
+<li><a href="https://www.freesion.com/article/7086773921/">贡献图，不是hexo的</a></li>
+</ol>
+<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ul>
+<li>没有显示每天的commit次数(好像是网速问题)</li>
+<li>js直接插到md里</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>WebUI</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Javascript</tag>
+        <tag>StatisticsDisplay</tag>
       </tags>
   </entry>
   <entry>
@@ -664,91 +749,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Github常用命令及Desktop初体验</title>
-    <url>/2022/07/14/git-cmd/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>有时代码明明没怎么改突然就不能用了，github合并机制挺全有时也让人抓狂，一直提示冲突。好不容易历史版本pull下来，想push上去，提示我必须把最新的pull下来……我要是最新的能用我会回退到历史版本吗！搁这套娃呢。</p>
-<p>不想折腾冲突的我，找了一下午bug，发现是多删了个空格！！简单粗暴退到上一版本就没那么多事了！</p>
-<p>于是整理下一些强制命令（。有风险就有风险……我可以备份啊！备份就1秒，找bug一下午过去了</p>
-<h2 id="本地版本回滚（更安心）"><a href="#本地版本回滚（更安心）" class="headerlink" title="本地版本回滚（更安心）"></a>本地版本回滚（更安心）</h2><p>在本地回退到某一个版本（不影响远端），命令行</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git checkout xxxx(commit号)</span><br></pre></td></tr></table></figure>
-
-<p>其中xxx是一串类似2a3b4e的commit号，可以在github desktop-history找到。</p>
-<p>也可以desktop里找到想要的回退版本，右键revert changes in commit</p>
-<p>如果提示error，有conflicts，添加冲突的文件（error: Reverting is not possible because you have unmerged files.）</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add filename(文件名)</span><br></pre></td></tr></table></figure>
-
-<p>这时候就可以发现本地文件已经到历史版本了，但无法推送到分支，因为是detached head分支。这时想合并可以把这个保存为新分支，然后merge到主分支。</p>
-<h2 id="提交历史版本（更简单粗暴）"><a href="#提交历史版本（更简单粗暴）" class="headerlink" title="提交历史版本（更简单粗暴）"></a>提交历史版本（更简单粗暴）</h2><p>除了revert，使用reset会更加简单粗暴</p>
-<p>简单说，revert是永久时光机，能去过去，也能回未来。reset是一次性时光机，回到过去，未来就被擦掉了没有后悔药。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git reset --hard xxxx(commit号)</span><br></pre></td></tr></table></figure>
-
-<p>这样github就不会提示你有新的没pull下来，不能push了。-f代表强制推送。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -f</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>CMD</category>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo中加入Github每日贡献图</title>
-    <url>/2022/06/19/hexo-github-calendar/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前置要求：已完成网页搭建。</p>
-<p>效果：</p>
-<p><img src="/pics/gitCal.png" alt="img"></p>
-<p>推荐参考[1]，整理的很全面。</p>
-<h2 id="GitHub-Calendar生成步骤"><a href="#GitHub-Calendar生成步骤" class="headerlink" title="GitHub Calendar生成步骤"></a>GitHub Calendar生成步骤</h2><p>最简单的方法是直接生成图片引用。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://ghchart.rshah.org/你的用户名&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Github Chart&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<img src="https://ghchart.rshah.org/jingcs" alt="Github Chart" />
-
-<p>不过为了之后倒腾，下面还用了GitHub Calendar</p>
-<h3 id="（1）安装"><a href="#（1）安装" class="headerlink" title="（1）安装"></a>（1）安装</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i hexo-githubcalendar --save</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="（2）修改根目录下的配置文件"><a href="#（2）修改根目录下的配置文件" class="headerlink" title="（2）修改根目录下的配置文件"></a>（2）修改根目录下的配置文件</h3><p>​	把下面的加到_config.yml文件夹中</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">githubcalendar:</span><br><span class="line">  enable: true</span><br><span class="line">  priority: 0</span><br><span class="line">  enable_page: /</span><br><span class="line">  user: 你的github用户名</span><br><span class="line">  layout:</span><br><span class="line">    type: class</span><br><span class="line">    name: main-inner</span><br><span class="line">    index: 0</span><br><span class="line">  githubcalendar_html: &#x27;&lt;div class=&quot;post-block animated fadeIn&quot; style=&quot;width:100%;height:auto;padding:40px 10px 10px 10px;&quot;&gt;&lt;div id=&quot;github_loading&quot; style=&quot;height:100%;display: flex;align-items: center;justify-content: center;&quot;&gt;&lt;svg style=&quot;height:50px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  viewBox=&quot;0 0 50 50&quot; style=&quot;enable-background:new 0 0 50 50&quot; xml:space=&quot;preserve&quot;&gt;&lt;path fill=&quot;#d0d0d0&quot; d=&quot;M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z&quot; transform=&quot;rotate(275.098 25 25)&quot;&gt;&lt;animateTransform attributeType=&quot;xml&quot; attributeName=&quot;transform&quot; type=&quot;rotate&quot; from=&quot;0 25 25&quot; to=&quot;360 25 25&quot; dur=&quot;0.6s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div id=&quot;github_container&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;footer class=&quot;post-footer&quot;&gt;&lt;div class=&quot;post-eof&quot;&gt;&lt;/div&gt;&lt;/footer&gt;&#x27;</span><br><span class="line">  pc_minheight: 280px</span><br><span class="line">  mobile_minheight: 0px</span><br><span class="line">  #颜色可以自己换，这个是黑白</span><br><span class="line">  color: &quot;[&#x27;#ebedf0&#x27;, &#x27;#d3d5d8&#x27;, &#x27;#bcbdc0&#x27;, &#x27;#a4a5a8&#x27;, &#x27;#8d8e90&#x27;, &#x27;#757678&#x27;, &#x27;#5e5e60&#x27;, &#x27;#464748&#x27;, &#x27;#2f2f30&#x27;, &#x27;#2f363d&#x27;, &#x27;#24292e&#x27;]&quot;</span><br><span class="line">  api: https://python-github-calendar-api.vercel.app/api</span><br><span class="line">  #在国内网速慢可以用gitee这个</span><br><span class="line">  #api: https://python-gitee-calendar-api.vercel.app/api</span><br><span class="line">  calendar_js: https://cdn.jsdelivr.net/gh/jingcs/jingcs.github.io/js/git-calendar-cn.js</span><br><span class="line">  plus_style: &quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）运行"><a href="#（3）运行" class="headerlink" title="（3）运行"></a>（3）运行</h3><p>先本地运行看效果</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo s </span><br></pre></td></tr></table></figure>
-
-<p>注意，三条命写一起有如果报错找不到json。分开运行就行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>没有变化清理一下缓存。</p>
-<p>没问题的话就提交到github</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://blog.meta-code.top/2022/03/15/2022-41/">在主页展示GitHub&#x2F;Gitee贡献度日历</a> 推荐 整理的很全面，包含了第2个的网址</li>
-<li><a href="https://gagalab.tech/2021/07/14/Next%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Github%E8%B4%A1%E7%8C%AE%E6%97%A5%E5%8E%86%E6%95%99%E7%A8%8B/">手把手教你在Hexo中使用Github贡献日历（以Next主题为例）</a></li>
-<li><a href="https://www.freesion.com/article/7086773921/">贡献图，不是hexo的</a></li>
-</ol>
-<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ul>
-<li>没有显示每天的commit次数(好像是网速问题)</li>
-<li>js直接插到md里</li>
-</ul>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>WebUI</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Javascript</tag>
-        <tag>StatisticsDisplay</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于Hexo+Next的进阶美化操作</title>
     <url>/2022/06/18/hexo-next-ada-toolkit/</url>
     <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已完成Hexo网页搭建，完成Next模板设置</p>
@@ -762,53 +762,6 @@
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>StatisticsDisplay</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络-网络协议IPv4和IPv6</title>
-    <url>/2022/07/12/ip-intro/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个系列是在实践中对计算机网络相关知识概念的整理。</p>
-<h2 id="关于IP"><a href="#关于IP" class="headerlink" title="关于IP"></a>关于IP</h2><p>IP：Internet Protocol（网际互连协议）</p>
-<p>IP是TCP&#x2F;IP体系中的网络层协议，是整个TCP&#x2F;IP协议族的核心，构成互联网的基础。</p>
-<ul>
-<li><p>对上载送传输层各种协议信息（TCP、UDP等）</p>
-</li>
-<li><p>对下将IP信息包放到链路层（以太网、令牌环网络等来传送）。[1]</p>
-</li>
-</ul>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>IP在OSI模型中位于网络层，TCP&#x2F;IP和OSI说白了就是不同专家对计算机网络结构的不同定义。链路层传输层这些词也是定义的一部分。详细介绍和区别【link待填坑】</p>
-<p>要是我早生几十年就把它定义成网络一二三四五多好记！</p>
-<p>好像说了很多，但还是没有人说它究竟在干嘛。天天网上冲浪，按理说都或多或少接触过。简单说IP是种协议，它制定了信息传输的标准（IP地址，mac地址），让我们能上网。</p>
-<p>IP地址，没错就是那串用电子设备连wifi流量 被分配的类似192.168.1.0的数字，可以想象成你的住址。更有趣的一点，互联网上的一切都是有IP地址的！包括网站和应用程序</p>
-<p>所以<strong>上网其实就是用你的IP访问另一个IP的过程！</strong></p>
-<p>至此，就能很好理解为什么微博可以显示发博地，社交媒体即使关了智能算法推荐还是很能“懂”你了。</p>
-<p>对于用户，IP地址可以理解为就近分配。所以app读出你的住址，你邻居的住址，然后把你们看的互相推送（。梯子可以一定程度规避，真想找也能找到你的原始地址，目前各大app还没有那么丧心病狂就是了，毕竟我们也有忘挂梯子的时候。</p>
-<p>IP为什么就近分配？想象一下，人在广东，想家里上网，会跑上海服务点办入网吗？我们注意到连同一wifi，每次分配的IP地址可能有些不同，但大范围（前几位数）总是固定的，这个大范围能够读到你在哪，专业术语是主机。</p>
-<h2 id="IPv4和IPv6"><a href="#IPv4和IPv6" class="headerlink" title="IPv4和IPv6"></a>IPv4和IPv6</h2><p>字面意思非常简单，不同年代发布的协议版本。第4版（version 4）和第六版（version 6）。果然非母语容易被唬着。</p>
-<h3 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h3><p>IPv4规定地址32位（二进制），十进制写法xxx.xxx.xxx.xxx，其中xxx取值范围0～255。</p>
-<p>1981年被提及。PS当年全球人口40亿左右。前面说到，上网就是一个IP访问另一个IP地址。于是专家们想，我们协议搞40亿（ $2^{32}$）左右个IP地址，差不多人手一个，大家都有网上！</p>
-<h3 id="网络地址转换NAT"><a href="#网络地址转换NAT" class="headerlink" title="网络地址转换NAT"></a>网络地址转换NAT</h3><p>那时候专家没想到电子设备能这么普及，从一家一台变为一人N台……。然后就发现IP地址不够用了啊！提案有很多，比如IPv6，网络地址转换（现在还在用）。</p>
-<p>网络地址转换简单说就是一个人一个IP太奢侈了，我们决定很多人共用一个IP！内网外网用的就是他。咱就是说……一开始多整点坑位，我就不用学这么多了……</p>
-<h3 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h3><p>IPv6想法很简单粗暴，地址不够用，那我允许存更多不就完事了，长长长！</p>
-<p>IPv6规定地址128位（32进制），按全球80亿人，每人都能分配到数万亿亿个，以我们现在的眼界感觉是够用了。</p>
-<p>目前是IPv4和IPv6混用的状态。</p>
-<h3 id="IPv4-格式"><a href="#IPv4-格式" class="headerlink" title="IPv4 格式"></a>IPv4 格式</h3><p>待填</p>
-<p>服务器 主机 等</p>
-<h2 id="自问自答"><a href="#自问自答" class="headerlink" title="自问自答"></a>自问自答</h2><p><strong>网址和IP地址</strong></p>
-<p>上网的过程是IP间的访问，但我们都是输google.com而不是那一串IP地址诶？</p>
-<p>拿IPv4来说，几十亿个实在是太难记了啊！所以我们给IP地址穿上了网址的衣服，我们只记网址，电脑网址和IP两个都记。让电脑透过表面看本质，这个过程称为DNS解析。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://m.300.cn/itzspd/457078.html">IP协议介绍</a></li>
-<li><a href="https://zh.m.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">网络地址转换</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>PlainTech</category>
-        <category>Network</category>
-      </categories>
-      <tags>
-        <tag>TCP/IP</tag>
-        <tag>NetworkLayer</tag>
       </tags>
   </entry>
   <entry>
@@ -923,71 +876,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode285 Inorder Successor in BST</title>
-    <url>/2022/07/20/leetcode-285/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
-<p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,3], p = 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: 1&#x27;s in-order successor node is 2. Note that both p and the return value is of TreeNode type.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], p = 6</span><br><span class="line">Output: null</span><br><span class="line">Explanation: There is no in-order successor of the current node, so the answer is null.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[1, 104]</code>.</li>
-<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
-<li>All Nodes will have unique values.</li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">inorderSuccessor</span><span class="params">(TreeNode root, TreeNode p)</span> &#123;</span><br><span class="line">        TreeNode ans=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(root!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val&lt;=p.val)&#123;</span><br><span class="line">                root=root.right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans=root;</span><br><span class="line">                root=root.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>BST</tag>
-        <tag>Inorder</tag>
-        <tag>Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode314</title>
-    <url>/2022/07/31/leetcode-314-tree-vertical-traversal/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary tree, return <em><strong>the vertical order traversal</strong> of its nodes’ values</em>. (i.e., from top to bottom, column by column).</p>
-<p>If two nodes are in the same row and column, the order should be from <strong>left to right</strong>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree1.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: [[9],[3,15],[20],[7]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2-1.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7]</span><br><span class="line">Output: [[4],[9],[3,0,1],[8],[7]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7,null,null,null,2,5]</span><br><span class="line">Output: [[4],[9,5],[3,0,1],[8,2],[7]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>Traversal</tag>
-        <tag>Binary Tree</tag>
-        <tag>Premium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode268 找缺失值</title>
     <url>/2022/07/21/leetcode-268-missing-num/</url>
     <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>找到数组0～n中的缺失值</p>
@@ -1024,6 +912,118 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode285 Inorder Successor in BST</title>
+    <url>/2022/07/20/leetcode-285/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
+<p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,3], p = 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: 1&#x27;s in-order successor node is 2. Note that both p and the return value is of TreeNode type.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], p = 6</span><br><span class="line">Output: null</span><br><span class="line">Explanation: There is no in-order successor of the current node, so the answer is null.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[1, 104]</code>.</li>
+<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
+<li>All Nodes will have unique values.</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">inorderSuccessor</span><span class="params">(TreeNode root, TreeNode p)</span> &#123;</span><br><span class="line">        TreeNode ans=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(root!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val&lt;=p.val)&#123;</span><br><span class="line">                root=root.right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans=root;</span><br><span class="line">                root=root.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>BST</tag>
+        <tag>Inorder</tag>
+        <tag>Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络-网络协议IPv4和IPv6</title>
+    <url>/2022/07/12/ip-intro/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个系列是在实践中对计算机网络相关知识概念的整理。</p>
+<h2 id="关于IP"><a href="#关于IP" class="headerlink" title="关于IP"></a>关于IP</h2><p>IP：Internet Protocol（网际互连协议）</p>
+<p>IP是TCP&#x2F;IP体系中的网络层协议，是整个TCP&#x2F;IP协议族的核心，构成互联网的基础。</p>
+<ul>
+<li><p>对上载送传输层各种协议信息（TCP、UDP等）</p>
+</li>
+<li><p>对下将IP信息包放到链路层（以太网、令牌环网络等来传送）。[1]</p>
+</li>
+</ul>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>IP在OSI模型中位于网络层，TCP&#x2F;IP和OSI说白了就是不同专家对计算机网络结构的不同定义。链路层传输层这些词也是定义的一部分。详细介绍和区别【link待填坑】</p>
+<p>要是我早生几十年就把它定义成网络一二三四五多好记！</p>
+<p>好像说了很多，但还是没有人说它究竟在干嘛。天天网上冲浪，按理说都或多或少接触过。简单说IP是种协议，它制定了信息传输的标准（IP地址，mac地址），让我们能上网。</p>
+<p>IP地址，没错就是那串用电子设备连wifi流量 被分配的类似192.168.1.0的数字，可以想象成你的住址。更有趣的一点，互联网上的一切都是有IP地址的！包括网站和应用程序</p>
+<p>所以<strong>上网其实就是用你的IP访问另一个IP的过程！</strong></p>
+<p>至此，就能很好理解为什么微博可以显示发博地，社交媒体即使关了智能算法推荐还是很能“懂”你了。</p>
+<p>对于用户，IP地址可以理解为就近分配。所以app读出你的住址，你邻居的住址，然后把你们看的互相推送（。梯子可以一定程度规避，真想找也能找到你的原始地址，目前各大app还没有那么丧心病狂就是了，毕竟我们也有忘挂梯子的时候。</p>
+<p>IP为什么就近分配？想象一下，人在广东，想家里上网，会跑上海服务点办入网吗？我们注意到连同一wifi，每次分配的IP地址可能有些不同，但大范围（前几位数）总是固定的，这个大范围能够读到你在哪，专业术语是主机。</p>
+<h2 id="IPv4和IPv6"><a href="#IPv4和IPv6" class="headerlink" title="IPv4和IPv6"></a>IPv4和IPv6</h2><p>字面意思非常简单，不同年代发布的协议版本。第4版（version 4）和第六版（version 6）。果然非母语容易被唬着。</p>
+<h3 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h3><p>IPv4规定地址32位（二进制），十进制写法xxx.xxx.xxx.xxx，其中xxx取值范围0～255。</p>
+<p>1981年被提及。PS当年全球人口40亿左右。前面说到，上网就是一个IP访问另一个IP地址。于是专家们想，我们协议搞40亿（ $2^{32}$）左右个IP地址，差不多人手一个，大家都有网上！</p>
+<h3 id="网络地址转换NAT"><a href="#网络地址转换NAT" class="headerlink" title="网络地址转换NAT"></a>网络地址转换NAT</h3><p>那时候专家没想到电子设备能这么普及，从一家一台变为一人N台……。然后就发现IP地址不够用了啊！提案有很多，比如IPv6，网络地址转换（现在还在用）。</p>
+<p>网络地址转换简单说就是一个人一个IP太奢侈了，我们决定很多人共用一个IP！内网外网用的就是他。咱就是说……一开始多整点坑位，我就不用学这么多了……</p>
+<h3 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h3><p>IPv6想法很简单粗暴，地址不够用，那我允许存更多不就完事了，长长长！</p>
+<p>IPv6规定地址128位（32进制），按全球80亿人，每人都能分配到数万亿亿个，以我们现在的眼界感觉是够用了。</p>
+<p>目前是IPv4和IPv6混用的状态。</p>
+<h3 id="IPv4-格式"><a href="#IPv4-格式" class="headerlink" title="IPv4 格式"></a>IPv4 格式</h3><p>待填</p>
+<p>服务器 主机 等</p>
+<h2 id="自问自答"><a href="#自问自答" class="headerlink" title="自问自答"></a>自问自答</h2><p><strong>网址和IP地址</strong></p>
+<p>上网的过程是IP间的访问，但我们都是输google.com而不是那一串IP地址诶？</p>
+<p>拿IPv4来说，几十亿个实在是太难记了啊！所以我们给IP地址穿上了网址的衣服，我们只记网址，电脑网址和IP两个都记。让电脑透过表面看本质，这个过程称为DNS解析。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://m.300.cn/itzspd/457078.html">IP协议介绍</a></li>
+<li><a href="https://zh.m.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">网络地址转换</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>PlainTech</category>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>TCP/IP</tag>
+        <tag>NetworkLayer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode314</title>
+    <url>/2022/07/31/leetcode-314-tree-vertical-traversal/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary tree, return <em><strong>the vertical order traversal</strong> of its nodes’ values</em>. (i.e., from top to bottom, column by column).</p>
+<p>If two nodes are in the same row and column, the order should be from <strong>left to right</strong>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree1.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: [[9],[3,15],[20],[7]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2-1.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7]</span><br><span class="line">Output: [[4],[9],[3,0,1],[8],[7]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7,null,null,null,2,5]</span><br><span class="line">Output: [[4],[9,5],[3,0,1],[8,2],[7]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Traversal</tag>
+        <tag>Binary Tree</tag>
+        <tag>Premium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Leetcode 701 二叉搜索树BST中插入元素</title>
     <url>/2022/07/19/leetcode-701/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h2><p>BST二叉搜索树中插入元素</p>
@@ -1055,6 +1055,44 @@
         <tag>BST</tag>
         <tag>Tree</tag>
         <tag>BinarySearch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>整理DP动态规划问题</title>
+    <url>/2022/08/07/leetcode-DP-sum/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>子集LC 377. 组合和Combination Sum IV</li>
+<li>子集LC 322. 换硬币Coin Change</li>
+<li>排列LC 518. 换硬币2Coin Change2</li>
+<li></li>
+</ul>
+<p>改进解法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">code</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Summary</category>
+      </categories>
+      <tags>
+        <tag>Summary</tag>
+        <tag>DynamicProgramming</tag>
+        <tag>DP</tag>
+        <tag>Coin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>旅游足迹</title>
+    <url>/2022/10/20/map/</url>
+    <content><![CDATA[<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p><img src="/pics/zgzb.png" alt="中国制霸"></p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+      <tags>
+        <tag>Map</tag>
+        <tag>Visualization</tag>
+        <tag>Trip</tag>
       </tags>
   </entry>
   <entry>
@@ -1099,27 +1137,47 @@
       </tags>
   </entry>
   <entry>
-    <title>整理DP动态规划问题</title>
-    <url>/2022/08/07/leetcode-DP-sum/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>子集LC 377. 组合和Combination Sum IV</li>
-<li>子集LC 322. 换硬币Coin Change</li>
-<li>排列LC 518. 换硬币2Coin Change2</li>
-<li></li>
-</ul>
-<p>改进解法</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">code</span><br></pre></td></tr></table></figure>
+    <title>Markdown常用命令</title>
+    <url>/2022/07/15/md-cmd/</url>
+    <content><![CDATA[<p>金鱼脑记一些常用</p>
+<h2 id="代码公式"><a href="#代码公式" class="headerlink" title="代码公式"></a>代码公式</h2><h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$公式$</span><br></pre></td></tr></table></figure>
 
+<p>效果 $x^2$</p>
+<p>Q：公式没反应</p>
+<p>A：typora-偏好设置- markdown语法-勾选所有</p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>三个&#96;，mac电脑按中英切换键，再按波浪号（1左边）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```code```</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>插入链接&#x2F;图片都是以下格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
+
+<p>⚠️不要写反了！❌   !(备注)[url] ❌ </p>
+<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ul>
+<li><p>本地引用</p>
+<p>注意pics指专属图片文件夹。如图片和md放在同一文件夹下，直接引用。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/pics/xxx.png)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>云端引用 (github图床)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](https://cdn.jsdelivr.net/gh/用户名/仓库名/文件夹/xxxx.jpg)</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p>同理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
+
+<p>效果<a href="www.google.com">google’s url</a></p>
 ]]></content>
       <categories>
-        <category>Leetcode</category>
-        <category>Summary</category>
+        <category>CMD</category>
+        <category>Markdown</category>
       </categories>
       <tags>
-        <tag>Summary</tag>
-        <tag>DynamicProgramming</tag>
-        <tag>DP</tag>
-        <tag>Coin</tag>
+        <tag>Md</tag>
+        <tag>Typora</tag>
       </tags>
   </entry>
   <entry>
@@ -1189,64 +1247,6 @@
         <tag>StatisticsDisplay</tag>
         <tag>Wp</tag>
         <tag>Cookie</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown常用命令</title>
-    <url>/2022/07/15/md-cmd/</url>
-    <content><![CDATA[<p>金鱼脑记一些常用</p>
-<h2 id="代码公式"><a href="#代码公式" class="headerlink" title="代码公式"></a>代码公式</h2><h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$公式$</span><br></pre></td></tr></table></figure>
-
-<p>效果 $x^2$</p>
-<p>Q：公式没反应</p>
-<p>A：typora-偏好设置- markdown语法-勾选所有</p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>三个&#96;，mac电脑按中英切换键，再按波浪号（1左边）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```code```</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>插入链接&#x2F;图片都是以下格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
-
-<p>⚠️不要写反了！❌   !(备注)[url] ❌ </p>
-<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ul>
-<li><p>本地引用</p>
-<p>注意pics指专属图片文件夹。如图片和md放在同一文件夹下，直接引用。</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/pics/xxx.png)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>云端引用 (github图床)</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](https://cdn.jsdelivr.net/gh/用户名/仓库名/文件夹/xxxx.jpg)</span><br></pre></td></tr></table></figure>
-
-<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p>同理</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
-
-<p>效果<a href="www.google.com">google’s url</a></p>
-]]></content>
-      <categories>
-        <category>CMD</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Md</tag>
-        <tag>Typora</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>旅游足迹</title>
-    <url>/2022/10/20/map/</url>
-    <content><![CDATA[<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p><img src="/pics/zgzb.png" alt="中国制霸"></p>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-      <tags>
-        <tag>Map</tag>
-        <tag>Visualization</tag>
-        <tag>Trip</tag>
       </tags>
   </entry>
 </search>
