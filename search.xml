@@ -1,20 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo报错YAMLException</title>
-    <url>/2022/06/16/616-hexo-debug/</url>
-    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
-<p>报错，hexo无法将md文档转网页</p>
-<p>基本因为格式不对，空格少打了或者多大了。</p>
-<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
-<p>比如标题有特殊符号等等（目前测试出不能使用的：[ ]</p>
+    <title>Hexo日志使用方法</title>
+    <url>/2022/06/16/616-hexo-usage-backup/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>前置：Hexo+GitHub，生成可访问的网站【见：<a href="http://localhost:4000/2022/06/16/hexo-gitpages-install/">搭建网站</a> 】。</p>
+<p>本篇：如何发布新日志，总过程如下</p>
+<ul>
+<li><p>新建日志的路径</p>
+<ul>
+<li><p>直接在 路径<strong>hexo博客名&#x2F;source&#x2F;_posts</strong> 下手动新建xxx.md文件</p>
+<p>自己写需要注意格式，否则可能会报错</p>
+</li>
+<li><p>使用命令行 <strong>cd 博客名</strong> ；然后<strong>hexo new post “xxxx日志名”</strong></p>
+</li>
+</ul>
+<p>注：xxx最好是英文，后面也可以改</p>
+</li>
+<li><p>打开文件写日志</p>
+<p>有关文章标题，发布时间，分类的设置，可见官方文档[1]。摘录如下</p>
+<ul>
+<li><p>tags, categories</p>
+<p>分类categories具有顺序性和层次性，为文章添加多个分类。此时文章同时包括三个分类： <strong><code>PlayStation</code> 和 <code>Games</code></strong> 分别都是父分类 <code>Diary</code> 的子分类，同时 <strong><code>Life</code></strong> 是一个没有子分类的分类。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- [Diary, PlayStation]</span><br><span class="line">- [Diary, Games]</span><br><span class="line">- [Life]</span><br></pre></td></tr></table></figure>
+
+<p>标签tags没有顺序和层次。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Air</span><br><span class="line">- Trainline</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>将日志同步到Github上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+<p>之后想修改日志也是改md然后用这命令传上去。</p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>Front-matter <a href="https://hexo.io/zh-cn/docs/front-matter">官方文档</a></li>
+</ol>
 ]]></content>
       <categories>
         <category>TechNotes</category>
-        <category>Debug</category>
+        <category>Web</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
+        <tag>GithubPages</tag>
       </tags>
   </entry>
   <entry>
@@ -63,49 +92,20 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo日志使用方法</title>
-    <url>/2022/06/16/616-hexo-usage-backup/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>前置：Hexo+GitHub，生成可访问的网站【见：<a href="http://localhost:4000/2022/06/16/hexo-gitpages-install/">搭建网站</a> 】。</p>
-<p>本篇：如何发布新日志，总过程如下</p>
-<ul>
-<li><p>新建日志的路径</p>
-<ul>
-<li><p>直接在 路径<strong>hexo博客名&#x2F;source&#x2F;_posts</strong> 下手动新建xxx.md文件</p>
-<p>自己写需要注意格式，否则可能会报错</p>
-</li>
-<li><p>使用命令行 <strong>cd 博客名</strong> ；然后<strong>hexo new post “xxxx日志名”</strong></p>
-</li>
-</ul>
-<p>注：xxx最好是英文，后面也可以改</p>
-</li>
-<li><p>打开文件写日志</p>
-<p>有关文章标题，发布时间，分类的设置，可见官方文档[1]。摘录如下</p>
-<ul>
-<li><p>tags, categories</p>
-<p>分类categories具有顺序性和层次性，为文章添加多个分类。此时文章同时包括三个分类： <strong><code>PlayStation</code> 和 <code>Games</code></strong> 分别都是父分类 <code>Diary</code> 的子分类，同时 <strong><code>Life</code></strong> 是一个没有子分类的分类。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- [Diary, PlayStation]</span><br><span class="line">- [Diary, Games]</span><br><span class="line">- [Life]</span><br></pre></td></tr></table></figure>
-
-<p>标签tags没有顺序和层次。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Air</span><br><span class="line">- Trainline</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>将日志同步到Github上</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-
-<p>之后想修改日志也是改md然后用这命令传上去。</p>
-</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li>Front-matter <a href="https://hexo.io/zh-cn/docs/front-matter">官方文档</a></li>
-</ol>
+    <title>Hexo报错YAMLException</title>
+    <url>/2022/06/16/616-hexo-debug/</url>
+    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
+<p>报错，hexo无法将md文档转网页</p>
+<p>基本因为格式不对，空格少打了或者多大了。</p>
+<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
+<p>比如标题有特殊符号等等（目前测试出不能使用的：[ ]</p>
 ]]></content>
       <categories>
         <category>TechNotes</category>
-        <category>Web</category>
+        <category>Debug</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>GithubPages</tag>
       </tags>
   </entry>
   <entry>
@@ -126,8 +126,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>Next</tag>
         <tag>GithubPages</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -246,6 +246,41 @@
       </tags>
   </entry>
   <entry>
+    <title>Java常用API</title>
+    <url>/2022/07/21/cmd-java/</url>
+    <content><![CDATA[<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p><strong>Str转int</strong> </p>
+<p>Integer.parseInt(str)</p>
+<p><strong>str转char[]</strong></p>
+<p>char[] c &#x3D; str.toCharArray();</p>
+<p><strong>str某一位char</strong> </p>
+<p>c&#x3D;str.charAt(i)</p>
+<p><strong>int转str</strong> </p>
+<p>Integer.toString(int)</p>
+<p>String.valueOf(int) 就是调用的tostring实现，更快（？</p>
+<h2 id="String和Char"><a href="#String和Char" class="headerlink" title="String和Char"></a>String和Char</h2><p>String常用</p>
+<p>小写str.toLowerCase();</p>
+<p>分隔 String[] s&#x3D;str.split(“\\.”) 两条\注意</p>
+<p>替换&#x2F;删除特殊字符s.replaceAll(“要替换的”, “替换后”)，替换后为空即为删除。</p>
+<p>Char</p>
+<p>判断字母和数字：Character.isLetterOrDigit(s.charAt(i))</p>
+<p>单引号char[] chars&#x3D;{‘a’,’a’,’a’,’b’,’b’};</p>
+<p>length</p>
+<p>String[], char[] 的是length</p>
+<p>其他linkedlist,str,全都是length()</p>
+<p>strArr.length</p>
+<p>strArr[0].length()</p>
+]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+        <tag>Char</tag>
+        <tag>API</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在Colab上运行项目（py文件及模块导入解决方案）</title>
     <url>/2022/07/19/colab/</url>
     <content><![CDATA[<h2 id="项目导入"><a href="#项目导入" class="headerlink" title="项目导入"></a>项目导入</h2><h3 id="方法1-直接上传到Google-Drive"><a href="#方法1-直接上传到Google-Drive" class="headerlink" title="方法1: 直接上传到Google Drive"></a>方法1: 直接上传到Google Drive</h3><p>参考[2]</p>
@@ -301,41 +336,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java常用API</title>
-    <url>/2022/07/21/cmd-java/</url>
-    <content><![CDATA[<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p><strong>Str转int</strong> </p>
-<p>Integer.parseInt(str)</p>
-<p><strong>str转char[]</strong></p>
-<p>char[] c &#x3D; str.toCharArray();</p>
-<p><strong>str某一位char</strong> </p>
-<p>c&#x3D;str.charAt(i)</p>
-<p><strong>int转str</strong> </p>
-<p>Integer.toString(int)</p>
-<p>String.valueOf(int) 就是调用的tostring实现，更快（？</p>
-<h2 id="String和Char"><a href="#String和Char" class="headerlink" title="String和Char"></a>String和Char</h2><p>String常用</p>
-<p>小写str.toLowerCase();</p>
-<p>分隔 String[] s&#x3D;str.split(“\\.”) 两条\注意</p>
-<p>替换&#x2F;删除特殊字符s.replaceAll(“要替换的”, “替换后”)，替换后为空即为删除。</p>
-<p>Char</p>
-<p>判断字母和数字：Character.isLetterOrDigit(s.charAt(i))</p>
-<p>单引号char[] chars&#x3D;{‘a’,’a’,’a’,’b’,’b’};</p>
-<p>length</p>
-<p>String[], char[] 的是length</p>
-<p>其他linkedlist,str,全都是length()</p>
-<p>strArr.length</p>
-<p>strArr[0].length()</p>
-]]></content>
-      <categories>
-        <category>CMD</category>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>String</tag>
-        <tag>Char</tag>
-        <tag>API</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Github常用命令及Desktop初体验</title>
     <url>/2022/07/14/git-cmd/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>有时代码明明没怎么改突然就不能用了，github合并机制挺全有时也让人抓狂，一直提示冲突。好不容易历史版本pull下来，想push上去，提示我必须把最新的pull下来……我要是最新的能用我会回退到历史版本吗！搁这套娃呢。</p>
@@ -366,6 +366,82 @@
       </categories>
       <tags>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在google中添加站点地图（Hexo和Wp）</title>
+    <url>/2022/07/15/create-sitemap/</url>
+    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>搜索引擎排位是件生意，加上每天无数个新网站，一般来说搜索引擎不会主动收录你的自建网站！（博客园这种二级衍生的除外，或者有篇日志被第三方引流百万点击突然火了，引起大牛注意.jpg）于是自建网站，我们需要手动向每个搜索引擎提出收录请求，才会被搜到。</p>
+<p>整体步骤如下</p>
+<ol>
+<li><p>找到想被收录的搜索引擎站点</p>
+</li>
+<li><p>录入并验证网站</p>
+</li>
+<li><p>为网站生成XML站点地图</p>
+</li>
+<li><p>将XML加入到搜索引擎sitemap中</p>
+</li>
+<li><p>测试验证是否被收录</p>
+</li>
+</ol>
+<h2 id="1-找到想被收录的搜索引擎站点"><a href="#1-找到想被收录的搜索引擎站点" class="headerlink" title="1 找到想被收录的搜索引擎站点"></a>1 找到想被收录的搜索引擎站点</h2><p>这里列俩常用的</p>
+<p>google: <a href="https://search.google.com/search-console">https://search.google.com/search-console</a></p>
+<p>Baidu: <a href="https://ziyuan.baidu.com/site/index">https://ziyuan.baidu.com/site/index</a></p>
+<p>Bing：<a href="https://www.bing.com/webmasters">https://www.bing.com/webmasters</a></p>
+<p>其他的可自行搜索</p>
+<h2 id="2-录入并验证网站"><a href="#2-录入并验证网站" class="headerlink" title="2 录入并验证网站"></a>2 录入并验证网站</h2><p>搜索引擎需要验证你是网站的所有者。（为什么？后面会说隐患）</p>
+<p>以google search console为例 添加资源</p>
+<p>网域和网址前缀都可以。这里演示前者【网域】。</p>
+<p><img src="/pics/google_console.png" alt="google_console"></p>
+<p>namesilo好像可以登录验证，这里以所有DNS服务商为例。</p>
+<p>复制google给的验证字符串。</p>
+<p><img src="/pics/dns_copy.png" alt="google_console"></p>
+<p>打开域名管理网站，这里用的cloudflare，DNS解析处，选择TXT，粘贴</p>
+<p><img src="/pics/add-txt-google.png" alt="google_console"></p>
+<p>回到google界面点验证，就ok了。</p>
+<h2 id="3-为网站生成XML站点地图"><a href="#3-为网站生成XML站点地图" class="headerlink" title="3 为网站生成XML站点地图"></a>3 为网站生成XML站点地图</h2><p>站点地图简单说就是 你网站中所有日志标题和链接的list合集。</p>
+<h3 id="3-1-wordpress"><a href="#3-1-wordpress" class="headerlink" title="3.1 wordpress"></a>3.1 wordpress</h3><p>可以安装插件XML Sitemaps - active激活</p>
+<p>左菜单栏 - settings- XML-sitemap</p>
+<p>复制出XML的url（The URL to your sitemap index file is: x x x x x x x）</p>
+<p>粘到搜索引擎的站点地图即可（part 4）</p>
+<h3 id="3-2-Hexo-Github-Pages"><a href="#3-2-Hexo-Github-Pages" class="headerlink" title="3.2 Hexo Github Pages"></a>3.2 Hexo Github Pages</h3><p>参考教程<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">1</a></p>
+<p>cd到博客目录下，安装hexo-generator-sitemap插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save #google的XML用这个</span><br><span class="line">npm install hexo-generator-sitemap --save #百度的XML用这个</span><br></pre></td></tr></table></figure>
+
+<p>生成XML站点地图</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>博客目录下可以找到新生成的sitemap.xml</p>
+<p>将更新后的博客发布，找到xml文件的链接</p>
+<p>粘到搜索引擎站点地图里即可（part 4）</p>
+<h2 id="4-将XML加入到搜索引擎sitemap中"><a href="#4-将XML加入到搜索引擎sitemap中" class="headerlink" title="4 将XML加入到搜索引擎sitemap中"></a>4 将XML加入到搜索引擎sitemap中</h2><p>站点地图-添加新的站点地图-将链接粘过去就好</p>
+<p>链接格式一般是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">网址名/xxxxx.xml</span><br><span class="line">网站名/xml_sitemap=params=</span><br></pre></td></tr></table></figure>
+
+<p>都是可以的。</p>
+<h3 id="4-1-无法获取-x2F-无法读取此站点地图"><a href="#4-1-无法获取-x2F-无法读取此站点地图" class="headerlink" title="4.1 无法获取&#x2F;无法读取此站点地图"></a>4.1 无法获取&#x2F;无法读取此站点地图</h3><p>google有延时，一般1～3天才会更新。</p>
+<p>google中的站点可以同步到bing，我去bing试了下，几分钟后显示成功。</p>
+<h2 id="5-测试验证是否被收录"><a href="#5-测试验证是否被收录" class="headerlink" title="5 测试验证是否被收录"></a>5 测试验证是否被收录</h2><p>site: xxxxx（你的网站名）</p>
+<p>能搜到就是被收录了。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>Hexo博客站点地图配置（Google）<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">https://mizeri.github.io/2021/04/18/hexo-sitemap-google/</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>SEO</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Google</tag>
+        <tag>Search</tag>
+        <tag>Sitemap</tag>
+        <tag>XML</tag>
+        <tag>Wordpress</tag>
+        <tag>DNS</tag>
+        <tag>Bing</tag>
+        <tag>Baidu</tag>
       </tags>
   </entry>
   <entry>
@@ -460,8 +536,8 @@
       </categories>
       <tags>
         <tag>GithubPages</tag>
-        <tag>Cloudflare</tag>
         <tag>DNS</tag>
+        <tag>Cloudflare</tag>
         <tag>Domain</tag>
         <tag>Freenom</tag>
       </tags>
@@ -537,134 +613,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在google中添加站点地图（Hexo和Wp）</title>
-    <url>/2022/07/15/create-sitemap/</url>
-    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>搜索引擎排位是件生意，加上每天无数个新网站，一般来说搜索引擎不会主动收录你的自建网站！（博客园这种二级衍生的除外，或者有篇日志被第三方引流百万点击突然火了，引起大牛注意.jpg）于是自建网站，我们需要手动向每个搜索引擎提出收录请求，才会被搜到。</p>
-<p>整体步骤如下</p>
-<ol>
-<li><p>找到想被收录的搜索引擎站点</p>
-</li>
-<li><p>录入并验证网站</p>
-</li>
-<li><p>为网站生成XML站点地图</p>
-</li>
-<li><p>将XML加入到搜索引擎sitemap中</p>
-</li>
-<li><p>测试验证是否被收录</p>
-</li>
-</ol>
-<h2 id="1-找到想被收录的搜索引擎站点"><a href="#1-找到想被收录的搜索引擎站点" class="headerlink" title="1 找到想被收录的搜索引擎站点"></a>1 找到想被收录的搜索引擎站点</h2><p>这里列俩常用的</p>
-<p>google: <a href="https://search.google.com/search-console">https://search.google.com/search-console</a></p>
-<p>Baidu: <a href="https://ziyuan.baidu.com/site/index">https://ziyuan.baidu.com/site/index</a></p>
-<p>Bing：<a href="https://www.bing.com/webmasters">https://www.bing.com/webmasters</a></p>
-<p>其他的可自行搜索</p>
-<h2 id="2-录入并验证网站"><a href="#2-录入并验证网站" class="headerlink" title="2 录入并验证网站"></a>2 录入并验证网站</h2><p>搜索引擎需要验证你是网站的所有者。（为什么？后面会说隐患）</p>
-<p>以google search console为例 添加资源</p>
-<p>网域和网址前缀都可以。这里演示前者【网域】。</p>
-<p><img src="/pics/google_console.png" alt="google_console"></p>
-<p>namesilo好像可以登录验证，这里以所有DNS服务商为例。</p>
-<p>复制google给的验证字符串。</p>
-<p><img src="/pics/dns_copy.png" alt="google_console"></p>
-<p>打开域名管理网站，这里用的cloudflare，DNS解析处，选择TXT，粘贴</p>
-<p><img src="/pics/add-txt-google.png" alt="google_console"></p>
-<p>回到google界面点验证，就ok了。</p>
-<h2 id="3-为网站生成XML站点地图"><a href="#3-为网站生成XML站点地图" class="headerlink" title="3 为网站生成XML站点地图"></a>3 为网站生成XML站点地图</h2><p>站点地图简单说就是 你网站中所有日志标题和链接的list合集。</p>
-<h3 id="3-1-wordpress"><a href="#3-1-wordpress" class="headerlink" title="3.1 wordpress"></a>3.1 wordpress</h3><p>可以安装插件XML Sitemaps - active激活</p>
-<p>左菜单栏 - settings- XML-sitemap</p>
-<p>复制出XML的url（The URL to your sitemap index file is: x x x x x x x）</p>
-<p>粘到搜索引擎的站点地图即可（part 4）</p>
-<h3 id="3-2-Hexo-Github-Pages"><a href="#3-2-Hexo-Github-Pages" class="headerlink" title="3.2 Hexo Github Pages"></a>3.2 Hexo Github Pages</h3><p>参考教程<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">1</a></p>
-<p>cd到博客目录下，安装hexo-generator-sitemap插件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save #google的XML用这个</span><br><span class="line">npm install hexo-generator-sitemap --save #百度的XML用这个</span><br></pre></td></tr></table></figure>
-
-<p>生成XML站点地图</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<p>博客目录下可以找到新生成的sitemap.xml</p>
-<p>将更新后的博客发布，找到xml文件的链接</p>
-<p>粘到搜索引擎站点地图里即可（part 4）</p>
-<h2 id="4-将XML加入到搜索引擎sitemap中"><a href="#4-将XML加入到搜索引擎sitemap中" class="headerlink" title="4 将XML加入到搜索引擎sitemap中"></a>4 将XML加入到搜索引擎sitemap中</h2><p>站点地图-添加新的站点地图-将链接粘过去就好</p>
-<p>链接格式一般是：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">网址名/xxxxx.xml</span><br><span class="line">网站名/xml_sitemap=params=</span><br></pre></td></tr></table></figure>
-
-<p>都是可以的。</p>
-<h3 id="4-1-无法获取-x2F-无法读取此站点地图"><a href="#4-1-无法获取-x2F-无法读取此站点地图" class="headerlink" title="4.1 无法获取&#x2F;无法读取此站点地图"></a>4.1 无法获取&#x2F;无法读取此站点地图</h3><p>google有延时，一般1～3天才会更新。</p>
-<p>google中的站点可以同步到bing，我去bing试了下，几分钟后显示成功。</p>
-<h2 id="5-测试验证是否被收录"><a href="#5-测试验证是否被收录" class="headerlink" title="5 测试验证是否被收录"></a>5 测试验证是否被收录</h2><p>site: xxxxx（你的网站名）</p>
-<p>能搜到就是被收录了。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li>Hexo博客站点地图配置（Google）<a href="https://mizeri.github.io/2021/04/18/hexo-sitemap-google/">https://mizeri.github.io/2021/04/18/hexo-sitemap-google/</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>SEO</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Google</tag>
-        <tag>DNS</tag>
-        <tag>Search</tag>
-        <tag>Sitemap</tag>
-        <tag>XML</tag>
-        <tag>Wordpress</tag>
-        <tag>Bing</tag>
-        <tag>Baidu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo中加入Github每日贡献图</title>
-    <url>/2022/06/19/hexo-github-calendar/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前置要求：已完成网页搭建。</p>
-<p>效果：</p>
-<p><img src="/pics/gitCal.png" alt="img"></p>
-<p>推荐参考[1]，整理的很全面。</p>
-<h2 id="GitHub-Calendar生成步骤"><a href="#GitHub-Calendar生成步骤" class="headerlink" title="GitHub Calendar生成步骤"></a>GitHub Calendar生成步骤</h2><p>最简单的方法是直接生成图片引用。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://ghchart.rshah.org/你的用户名&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Github Chart&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<img src="https://ghchart.rshah.org/jingcs" alt="Github Chart" />
-
-<p>不过为了之后倒腾，下面还用了GitHub Calendar</p>
-<h3 id="（1）安装"><a href="#（1）安装" class="headerlink" title="（1）安装"></a>（1）安装</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i hexo-githubcalendar --save</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="（2）修改根目录下的配置文件"><a href="#（2）修改根目录下的配置文件" class="headerlink" title="（2）修改根目录下的配置文件"></a>（2）修改根目录下的配置文件</h3><p>​	把下面的加到_config.yml文件夹中</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">githubcalendar:</span><br><span class="line">  enable: true</span><br><span class="line">  priority: 0</span><br><span class="line">  enable_page: /</span><br><span class="line">  user: 你的github用户名</span><br><span class="line">  layout:</span><br><span class="line">    type: class</span><br><span class="line">    name: main-inner</span><br><span class="line">    index: 0</span><br><span class="line">  githubcalendar_html: &#x27;&lt;div class=&quot;post-block animated fadeIn&quot; style=&quot;width:100%;height:auto;padding:40px 10px 10px 10px;&quot;&gt;&lt;div id=&quot;github_loading&quot; style=&quot;height:100%;display: flex;align-items: center;justify-content: center;&quot;&gt;&lt;svg style=&quot;height:50px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  viewBox=&quot;0 0 50 50&quot; style=&quot;enable-background:new 0 0 50 50&quot; xml:space=&quot;preserve&quot;&gt;&lt;path fill=&quot;#d0d0d0&quot; d=&quot;M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z&quot; transform=&quot;rotate(275.098 25 25)&quot;&gt;&lt;animateTransform attributeType=&quot;xml&quot; attributeName=&quot;transform&quot; type=&quot;rotate&quot; from=&quot;0 25 25&quot; to=&quot;360 25 25&quot; dur=&quot;0.6s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div id=&quot;github_container&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;footer class=&quot;post-footer&quot;&gt;&lt;div class=&quot;post-eof&quot;&gt;&lt;/div&gt;&lt;/footer&gt;&#x27;</span><br><span class="line">  pc_minheight: 280px</span><br><span class="line">  mobile_minheight: 0px</span><br><span class="line">  #颜色可以自己换，这个是黑白</span><br><span class="line">  color: &quot;[&#x27;#ebedf0&#x27;, &#x27;#d3d5d8&#x27;, &#x27;#bcbdc0&#x27;, &#x27;#a4a5a8&#x27;, &#x27;#8d8e90&#x27;, &#x27;#757678&#x27;, &#x27;#5e5e60&#x27;, &#x27;#464748&#x27;, &#x27;#2f2f30&#x27;, &#x27;#2f363d&#x27;, &#x27;#24292e&#x27;]&quot;</span><br><span class="line">  api: https://python-github-calendar-api.vercel.app/api</span><br><span class="line">  #在国内网速慢可以用gitee这个</span><br><span class="line">  #api: https://python-gitee-calendar-api.vercel.app/api</span><br><span class="line">  calendar_js: https://cdn.jsdelivr.net/gh/jingcs/jingcs.github.io/js/git-calendar-cn.js</span><br><span class="line">  plus_style: &quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）运行"><a href="#（3）运行" class="headerlink" title="（3）运行"></a>（3）运行</h3><p>先本地运行看效果</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo s </span><br></pre></td></tr></table></figure>
-
-<p>注意，三条命写一起有如果报错找不到json。分开运行就行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>没有变化清理一下缓存。</p>
-<p>没问题的话就提交到github</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://blog.meta-code.top/2022/03/15/2022-41/">在主页展示GitHub&#x2F;Gitee贡献度日历</a> 推荐 整理的很全面，包含了第2个的网址</li>
-<li><a href="https://gagalab.tech/2021/07/14/Next%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Github%E8%B4%A1%E7%8C%AE%E6%97%A5%E5%8E%86%E6%95%99%E7%A8%8B/">手把手教你在Hexo中使用Github贡献日历（以Next主题为例）</a></li>
-<li><a href="https://www.freesion.com/article/7086773921/">贡献图，不是hexo的</a></li>
-</ol>
-<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ul>
-<li>没有显示每天的commit次数(好像是网速问题)</li>
-<li>js直接插到md里</li>
-</ul>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>WebUI</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Javascript</tag>
-        <tag>StatisticsDisplay</tag>
       </tags>
   </entry>
   <entry>
@@ -749,6 +697,105 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo中加入Github每日贡献图</title>
+    <url>/2022/06/19/hexo-github-calendar/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前置要求：已完成网页搭建。</p>
+<p>效果：</p>
+<p><img src="/pics/gitCal.png" alt="img"></p>
+<p>推荐参考[1]，整理的很全面。</p>
+<h2 id="GitHub-Calendar生成步骤"><a href="#GitHub-Calendar生成步骤" class="headerlink" title="GitHub Calendar生成步骤"></a>GitHub Calendar生成步骤</h2><p>最简单的方法是直接生成图片引用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://ghchart.rshah.org/你的用户名&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Github Chart&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://ghchart.rshah.org/jingcs" alt="Github Chart" />
+
+<p>不过为了之后倒腾，下面还用了GitHub Calendar</p>
+<h3 id="（1）安装"><a href="#（1）安装" class="headerlink" title="（1）安装"></a>（1）安装</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i hexo-githubcalendar --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="（2）修改根目录下的配置文件"><a href="#（2）修改根目录下的配置文件" class="headerlink" title="（2）修改根目录下的配置文件"></a>（2）修改根目录下的配置文件</h3><p>​	把下面的加到_config.yml文件夹中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">githubcalendar:</span><br><span class="line">  enable: true</span><br><span class="line">  priority: 0</span><br><span class="line">  enable_page: /</span><br><span class="line">  user: 你的github用户名</span><br><span class="line">  layout:</span><br><span class="line">    type: class</span><br><span class="line">    name: main-inner</span><br><span class="line">    index: 0</span><br><span class="line">  githubcalendar_html: &#x27;&lt;div class=&quot;post-block animated fadeIn&quot; style=&quot;width:100%;height:auto;padding:40px 10px 10px 10px;&quot;&gt;&lt;div id=&quot;github_loading&quot; style=&quot;height:100%;display: flex;align-items: center;justify-content: center;&quot;&gt;&lt;svg style=&quot;height:50px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  viewBox=&quot;0 0 50 50&quot; style=&quot;enable-background:new 0 0 50 50&quot; xml:space=&quot;preserve&quot;&gt;&lt;path fill=&quot;#d0d0d0&quot; d=&quot;M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z&quot; transform=&quot;rotate(275.098 25 25)&quot;&gt;&lt;animateTransform attributeType=&quot;xml&quot; attributeName=&quot;transform&quot; type=&quot;rotate&quot; from=&quot;0 25 25&quot; to=&quot;360 25 25&quot; dur=&quot;0.6s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div id=&quot;github_container&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;footer class=&quot;post-footer&quot;&gt;&lt;div class=&quot;post-eof&quot;&gt;&lt;/div&gt;&lt;/footer&gt;&#x27;</span><br><span class="line">  pc_minheight: 280px</span><br><span class="line">  mobile_minheight: 0px</span><br><span class="line">  #颜色可以自己换，这个是黑白</span><br><span class="line">  color: &quot;[&#x27;#ebedf0&#x27;, &#x27;#d3d5d8&#x27;, &#x27;#bcbdc0&#x27;, &#x27;#a4a5a8&#x27;, &#x27;#8d8e90&#x27;, &#x27;#757678&#x27;, &#x27;#5e5e60&#x27;, &#x27;#464748&#x27;, &#x27;#2f2f30&#x27;, &#x27;#2f363d&#x27;, &#x27;#24292e&#x27;]&quot;</span><br><span class="line">  api: https://python-github-calendar-api.vercel.app/api</span><br><span class="line">  #在国内网速慢可以用gitee这个</span><br><span class="line">  #api: https://python-gitee-calendar-api.vercel.app/api</span><br><span class="line">  calendar_js: https://cdn.jsdelivr.net/gh/jingcs/jingcs.github.io/js/git-calendar-cn.js</span><br><span class="line">  plus_style: &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）运行"><a href="#（3）运行" class="headerlink" title="（3）运行"></a>（3）运行</h3><p>先本地运行看效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo s </span><br></pre></td></tr></table></figure>
+
+<p>注意，三条命写一起有如果报错找不到json。分开运行就行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>没有变化清理一下缓存。</p>
+<p>没问题的话就提交到github</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://blog.meta-code.top/2022/03/15/2022-41/">在主页展示GitHub&#x2F;Gitee贡献度日历</a> 推荐 整理的很全面，包含了第2个的网址</li>
+<li><a href="https://gagalab.tech/2021/07/14/Next%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Github%E8%B4%A1%E7%8C%AE%E6%97%A5%E5%8E%86%E6%95%99%E7%A8%8B/">手把手教你在Hexo中使用Github贡献日历（以Next主题为例）</a></li>
+<li><a href="https://www.freesion.com/article/7086773921/">贡献图，不是hexo的</a></li>
+</ol>
+<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ul>
+<li>没有显示每天的commit次数(好像是网速问题)</li>
+<li>js直接插到md里</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>WebUI</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Javascript</tag>
+        <tag>StatisticsDisplay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络-网络协议IPv4和IPv6</title>
+    <url>/2022/07/12/ip-intro/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个系列是在实践中对计算机网络相关知识概念的整理。</p>
+<h2 id="关于IP"><a href="#关于IP" class="headerlink" title="关于IP"></a>关于IP</h2><p>IP：Internet Protocol（网际互连协议）</p>
+<p>IP是TCP&#x2F;IP体系中的网络层协议，是整个TCP&#x2F;IP协议族的核心，构成互联网的基础。</p>
+<ul>
+<li><p>对上载送传输层各种协议信息（TCP、UDP等）</p>
+</li>
+<li><p>对下将IP信息包放到链路层（以太网、令牌环网络等来传送）。[1]</p>
+</li>
+</ul>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>IP在OSI模型中位于网络层，TCP&#x2F;IP和OSI说白了就是不同专家对计算机网络结构的不同定义。链路层传输层这些词也是定义的一部分。详细介绍和区别【link待填坑】</p>
+<p>要是我早生几十年就把它定义成网络一二三四五多好记！</p>
+<p>好像说了很多，但还是没有人说它究竟在干嘛。天天网上冲浪，按理说都或多或少接触过。简单说IP是种协议，它制定了信息传输的标准（IP地址，mac地址），让我们能上网。</p>
+<p>IP地址，没错就是那串用电子设备连wifi流量 被分配的类似192.168.1.0的数字，可以想象成你的住址。更有趣的一点，互联网上的一切都是有IP地址的！包括网站和应用程序</p>
+<p>所以<strong>上网其实就是用你的IP访问另一个IP的过程！</strong></p>
+<p>至此，就能很好理解为什么微博可以显示发博地，社交媒体即使关了智能算法推荐还是很能“懂”你了。</p>
+<p>对于用户，IP地址可以理解为就近分配。所以app读出你的住址，你邻居的住址，然后把你们看的互相推送（。梯子可以一定程度规避，真想找也能找到你的原始地址，目前各大app还没有那么丧心病狂就是了，毕竟我们也有忘挂梯子的时候。</p>
+<p>IP为什么就近分配？想象一下，人在广东，想家里上网，会跑上海服务点办入网吗？我们注意到连同一wifi，每次分配的IP地址可能有些不同，但大范围（前几位数）总是固定的，这个大范围能够读到你在哪，专业术语是主机。</p>
+<h2 id="IPv4和IPv6"><a href="#IPv4和IPv6" class="headerlink" title="IPv4和IPv6"></a>IPv4和IPv6</h2><p>字面意思非常简单，不同年代发布的协议版本。第4版（version 4）和第六版（version 6）。果然非母语容易被唬着。</p>
+<h3 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h3><p>IPv4规定地址32位（二进制），十进制写法xxx.xxx.xxx.xxx，其中xxx取值范围0～255。</p>
+<p>1981年被提及。PS当年全球人口40亿左右。前面说到，上网就是一个IP访问另一个IP地址。于是专家们想，我们协议搞40亿（ $2^{32}$）左右个IP地址，差不多人手一个，大家都有网上！</p>
+<h3 id="网络地址转换NAT"><a href="#网络地址转换NAT" class="headerlink" title="网络地址转换NAT"></a>网络地址转换NAT</h3><p>那时候专家没想到电子设备能这么普及，从一家一台变为一人N台……。然后就发现IP地址不够用了啊！提案有很多，比如IPv6，网络地址转换（现在还在用）。</p>
+<p>网络地址转换简单说就是一个人一个IP太奢侈了，我们决定很多人共用一个IP！内网外网用的就是他。咱就是说……一开始多整点坑位，我就不用学这么多了……</p>
+<h3 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h3><p>IPv6想法很简单粗暴，地址不够用，那我允许存更多不就完事了，长长长！</p>
+<p>IPv6规定地址128位（32进制），按全球80亿人，每人都能分配到数万亿亿个，以我们现在的眼界感觉是够用了。</p>
+<p>目前是IPv4和IPv6混用的状态。</p>
+<h3 id="IPv4-格式"><a href="#IPv4-格式" class="headerlink" title="IPv4 格式"></a>IPv4 格式</h3><p>待填</p>
+<p>服务器 主机 等</p>
+<h2 id="自问自答"><a href="#自问自答" class="headerlink" title="自问自答"></a>自问自答</h2><p><strong>网址和IP地址</strong></p>
+<p>上网的过程是IP间的访问，但我们都是输google.com而不是那一串IP地址诶？</p>
+<p>拿IPv4来说，几十亿个实在是太难记了啊！所以我们给IP地址穿上了网址的衣服，我们只记网址，电脑网址和IP两个都记。让电脑透过表面看本质，这个过程称为DNS解析。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://m.300.cn/itzspd/457078.html">IP协议介绍</a></li>
+<li><a href="https://zh.m.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">网络地址转换</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>PlainTech</category>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>TCP/IP</tag>
+        <tag>NetworkLayer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基于Hexo+Next的进阶美化操作</title>
     <url>/2022/06/18/hexo-next-ada-toolkit/</url>
     <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已完成Hexo网页搭建，完成Next模板设置</p>
@@ -762,6 +809,127 @@
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>StatisticsDisplay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode268 找缺失值</title>
+    <url>/2022/07/21/leetcode-268-missing-num/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>找到数组0～n中的缺失值</p>
+<p>Given an array <code>nums</code> containing <code>n</code> distinct numbers in the range <code>[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [3,0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [9,6,4,2,3,5,7,0,1]</span><br><span class="line">Output: 8</span><br><span class="line">Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == nums.length</code></li>
+<li><code>1 &lt;= n &lt;= 104</code></li>
+<li><code>0 &lt;= nums[i] &lt;= n</code></li>
+<li>All the numbers of <code>nums</code> are <strong>unique</strong>.</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>为了更适配不同情况，没有考虑时间复杂度</p>
+<p>适配【5，7，9】这种非0开始情况</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">missingNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">       Arrays.sort(nums);</span><br><span class="line">      <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> i=nums[<span class="number">0</span>];i&lt;=nums[nums.length-<span class="number">1</span>];i++)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//（首项+末项）*项数/2</span></span><br><span class="line">      <span class="type">int</span> cnt=(nums[nums.length-<span class="number">1</span>]-nums[<span class="number">0</span>]+<span class="number">1</span>);<span class="comment">//相数</span></span><br><span class="line">      sum=(nums[<span class="number">0</span>]+nums[nums.length-<span class="number">1</span>])*cnt/<span class="number">2</span>;</span><br><span class="line">      <span class="comment">//减掉已有的，就是缺失值</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">        sum-=n;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//[0,1，2]这种情况，缺失值2+1=3，[1]这种情况返回0</span></span><br><span class="line">			<span class="keyword">if</span>(sum==<span class="number">0</span>&amp;&amp;nums[<span class="number">0</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">				sum=nums[nums.length-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Math</tag>
+        <tag>Binary Search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>21天系列Algorithm II</title>
+    <url>/2022/10/23/leetcode-21alg/</url>
+    <content><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ul>
+<li>LC 33</li>
+<li>LC 34</li>
+<li>LC 74</li>
+<li>LC 153</li>
+<li>LC 162</li>
+</ul>
+<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><ul>
+<li>LC 82</li>
+<li>LC 15</li>
+<li>LC 844</li>
+<li>LC 986</li>
+<li>LC 11</li>
+</ul>
+<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><ul>
+<li>LC 438</li>
+<li>LC 713</li>
+<li>LC 209</li>
+</ul>
+<p>BFS&#x2F;DFS</p>
+<ul>
+<li>LC 200</li>
+<li>LC 547</li>
+<li>LC 117</li>
+<li>LC 572</li>
+<li>LC 1091</li>
+<li>LC 130</li>
+<li>LC 797</li>
+</ul>
+<p>回溯</p>
+<ul>
+<li>LC 78</li>
+<li>LC 90</li>
+<li>LC 47</li>
+<li>LC 39</li>
+<li>LC 40</li>
+<li>LC 17</li>
+<li>LC 22</li>
+<li>LC 79</li>
+</ul>
+<p>DP动态规划</p>
+<ul>
+<li>LC 45</li>
+<li>LC 62</li>
+<li>LC 5</li>
+<li>LC 413</li>
+<li>LC 91</li>
+<li>LC 139</li>
+<li>LC 300</li>
+<li>LC 673</li>
+<li>LC 1143</li>
+<li>LC 583</li>
+<li>LC 72</li>
+<li>LC 322</li>
+<li>LC 343</li>
+</ul>
+<p>位运算</p>
+<ul>
+<li>LC 201</li>
+</ul>
+<p>其他</p>
+<ul>
+<li>LC 384</li>
+<li>LC 202</li>
+<li>LC 149</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Summary</category>
+      </categories>
+      <tags>
+        <tag>BinarySearch</tag>
+        <tag>TwoPointers</tag>
+        <tag>SlidingWindow</tag>
+        <tag>BFS</tag>
+        <tag>DFS</tag>
+        <tag>Backtracking</tag>
+        <tag>DP</tag>
+        <tag>BitManipulation</tag>
       </tags>
   </entry>
   <entry>
@@ -876,42 +1044,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode268 找缺失值</title>
-    <url>/2022/07/21/leetcode-268-missing-num/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>找到数组0～n中的缺失值</p>
-<p>Given an array <code>nums</code> containing <code>n</code> distinct numbers in the range <code>[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [3,0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [9,6,4,2,3,5,7,0,1]</span><br><span class="line">Output: 8</span><br><span class="line">Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>n == nums.length</code></li>
-<li><code>1 &lt;= n &lt;= 104</code></li>
-<li><code>0 &lt;= nums[i] &lt;= n</code></li>
-<li>All the numbers of <code>nums</code> are <strong>unique</strong>.</li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>为了更适配不同情况，没有考虑时间复杂度</p>
-<p>适配【5，7，9】这种非0开始情况</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">missingNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">       Arrays.sort(nums);</span><br><span class="line">      <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> i=nums[<span class="number">0</span>];i&lt;=nums[nums.length-<span class="number">1</span>];i++)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//（首项+末项）*项数/2</span></span><br><span class="line">      <span class="type">int</span> cnt=(nums[nums.length-<span class="number">1</span>]-nums[<span class="number">0</span>]+<span class="number">1</span>);<span class="comment">//相数</span></span><br><span class="line">      sum=(nums[<span class="number">0</span>]+nums[nums.length-<span class="number">1</span>])*cnt/<span class="number">2</span>;</span><br><span class="line">      <span class="comment">//减掉已有的，就是缺失值</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">        sum-=n;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//[0,1，2]这种情况，缺失值2+1=3，[1]这种情况返回0</span></span><br><span class="line">			<span class="keyword">if</span>(sum==<span class="number">0</span>&amp;&amp;nums[<span class="number">0</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">				sum=nums[nums.length-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Math</tag>
-        <tag>Binary Search</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode285 Inorder Successor in BST</title>
     <url>/2022/07/20/leetcode-285/</url>
     <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
@@ -944,50 +1076,37 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机网络-网络协议IPv4和IPv6</title>
-    <url>/2022/07/12/ip-intro/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个系列是在实践中对计算机网络相关知识概念的整理。</p>
-<h2 id="关于IP"><a href="#关于IP" class="headerlink" title="关于IP"></a>关于IP</h2><p>IP：Internet Protocol（网际互连协议）</p>
-<p>IP是TCP&#x2F;IP体系中的网络层协议，是整个TCP&#x2F;IP协议族的核心，构成互联网的基础。</p>
-<ul>
-<li><p>对上载送传输层各种协议信息（TCP、UDP等）</p>
-</li>
-<li><p>对下将IP信息包放到链路层（以太网、令牌环网络等来传送）。[1]</p>
-</li>
-</ul>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>IP在OSI模型中位于网络层，TCP&#x2F;IP和OSI说白了就是不同专家对计算机网络结构的不同定义。链路层传输层这些词也是定义的一部分。详细介绍和区别【link待填坑】</p>
-<p>要是我早生几十年就把它定义成网络一二三四五多好记！</p>
-<p>好像说了很多，但还是没有人说它究竟在干嘛。天天网上冲浪，按理说都或多或少接触过。简单说IP是种协议，它制定了信息传输的标准（IP地址，mac地址），让我们能上网。</p>
-<p>IP地址，没错就是那串用电子设备连wifi流量 被分配的类似192.168.1.0的数字，可以想象成你的住址。更有趣的一点，互联网上的一切都是有IP地址的！包括网站和应用程序</p>
-<p>所以<strong>上网其实就是用你的IP访问另一个IP的过程！</strong></p>
-<p>至此，就能很好理解为什么微博可以显示发博地，社交媒体即使关了智能算法推荐还是很能“懂”你了。</p>
-<p>对于用户，IP地址可以理解为就近分配。所以app读出你的住址，你邻居的住址，然后把你们看的互相推送（。梯子可以一定程度规避，真想找也能找到你的原始地址，目前各大app还没有那么丧心病狂就是了，毕竟我们也有忘挂梯子的时候。</p>
-<p>IP为什么就近分配？想象一下，人在广东，想家里上网，会跑上海服务点办入网吗？我们注意到连同一wifi，每次分配的IP地址可能有些不同，但大范围（前几位数）总是固定的，这个大范围能够读到你在哪，专业术语是主机。</p>
-<h2 id="IPv4和IPv6"><a href="#IPv4和IPv6" class="headerlink" title="IPv4和IPv6"></a>IPv4和IPv6</h2><p>字面意思非常简单，不同年代发布的协议版本。第4版（version 4）和第六版（version 6）。果然非母语容易被唬着。</p>
-<h3 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h3><p>IPv4规定地址32位（二进制），十进制写法xxx.xxx.xxx.xxx，其中xxx取值范围0～255。</p>
-<p>1981年被提及。PS当年全球人口40亿左右。前面说到，上网就是一个IP访问另一个IP地址。于是专家们想，我们协议搞40亿（ $2^{32}$）左右个IP地址，差不多人手一个，大家都有网上！</p>
-<h3 id="网络地址转换NAT"><a href="#网络地址转换NAT" class="headerlink" title="网络地址转换NAT"></a>网络地址转换NAT</h3><p>那时候专家没想到电子设备能这么普及，从一家一台变为一人N台……。然后就发现IP地址不够用了啊！提案有很多，比如IPv6，网络地址转换（现在还在用）。</p>
-<p>网络地址转换简单说就是一个人一个IP太奢侈了，我们决定很多人共用一个IP！内网外网用的就是他。咱就是说……一开始多整点坑位，我就不用学这么多了……</p>
-<h3 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h3><p>IPv6想法很简单粗暴，地址不够用，那我允许存更多不就完事了，长长长！</p>
-<p>IPv6规定地址128位（32进制），按全球80亿人，每人都能分配到数万亿亿个，以我们现在的眼界感觉是够用了。</p>
-<p>目前是IPv4和IPv6混用的状态。</p>
-<h3 id="IPv4-格式"><a href="#IPv4-格式" class="headerlink" title="IPv4 格式"></a>IPv4 格式</h3><p>待填</p>
-<p>服务器 主机 等</p>
-<h2 id="自问自答"><a href="#自问自答" class="headerlink" title="自问自答"></a>自问自答</h2><p><strong>网址和IP地址</strong></p>
-<p>上网的过程是IP间的访问，但我们都是输google.com而不是那一串IP地址诶？</p>
-<p>拿IPv4来说，几十亿个实在是太难记了啊！所以我们给IP地址穿上了网址的衣服，我们只记网址，电脑网址和IP两个都记。让电脑透过表面看本质，这个过程称为DNS解析。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://m.300.cn/itzspd/457078.html">IP协议介绍</a></li>
-<li><a href="https://zh.m.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">网络地址转换</a></li>
-</ol>
+    <title>Leetcode 701 二叉搜索树BST中插入元素</title>
+    <url>/2022/07/19/leetcode-701/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h2><p>BST二叉搜索树中插入元素</p>
+<p>二叉搜索树：左边&lt;root&lt;右边</p>
+<p><a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">https://leetcode.com/problems/insert-into-a-binary-search-tree/</a></p>
+<p>You are given the <code>root</code> node of a binary search tree (BST) and a <code>value</code> to insert into the tree. Return <em>the root node of the BST after the insertion</em>. It is guaranteed that the new value does not exist in the original BST.</p>
+<p>Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
+<p>Example 1:</p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br><span class="line">Explanation: Another accepted tree is:</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://assets.leetcode.com/uploads/2020/10/05/bst.jpg" alt="img"></p>
+<p>Example 2:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [40,20,60,10,30,50,70], val = 25</span><br><span class="line">Output: [40,20,60,10,30,50,70,null,null,25]</span><br></pre></td></tr></table></figure>
+
+<p>Example 3:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h2><p>我什么时候能自己想出递归代码omg……每次看递归都觉得被降维打击……</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public TreeNode insertIntoBST(TreeNode root, int val) &#123;</span><br><span class="line">    if (root==null)&#123;</span><br><span class="line">        TreeNode addNode=new TreeNode(val);</span><br><span class="line">        return addNode;</span><br><span class="line">    &#125;</span><br><span class="line">    if(val&lt;root.val)&#123;</span><br><span class="line">        root.left=insertIntoBST(root.left,val);//小，左边插入</span><br><span class="line">    &#125;</span><br><span class="line">    if (val&gt;root.val)&#123;</span><br><span class="line">        root.right=insertIntoBST(root.right,val);//大，右边插入</span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>PlainTech</category>
-        <category>Network</category>
+        <category>Leetcode</category>
+        <category>Medium</category>
       </categories>
       <tags>
-        <tag>TCP/IP</tag>
-        <tag>NetworkLayer</tag>
+        <tag>BinarySearch</tag>
+        <tag>Backtracking</tag>
+        <tag>BST</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -1024,40 +1143,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Leetcode 701 二叉搜索树BST中插入元素</title>
-    <url>/2022/07/19/leetcode-701/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h2><p>BST二叉搜索树中插入元素</p>
-<p>二叉搜索树：左边&lt;root&lt;右边</p>
-<p><a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">https://leetcode.com/problems/insert-into-a-binary-search-tree/</a></p>
-<p>You are given the <code>root</code> node of a binary search tree (BST) and a <code>value</code> to insert into the tree. Return <em>the root node of the BST after the insertion</em>. It is guaranteed that the new value does not exist in the original BST.</p>
-<p>Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
-<p>Example 1:</p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br><span class="line">Explanation: Another accepted tree is:</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://assets.leetcode.com/uploads/2020/10/05/bst.jpg" alt="img"></p>
-<p>Example 2:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [40,20,60,10,30,50,70], val = 25</span><br><span class="line">Output: [40,20,60,10,30,50,70,null,null,25]</span><br></pre></td></tr></table></figure>
-
-<p>Example 3:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h2><p>我什么时候能自己想出递归代码omg……每次看递归都觉得被降维打击……</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public TreeNode insertIntoBST(TreeNode root, int val) &#123;</span><br><span class="line">    if (root==null)&#123;</span><br><span class="line">        TreeNode addNode=new TreeNode(val);</span><br><span class="line">        return addNode;</span><br><span class="line">    &#125;</span><br><span class="line">    if(val&lt;root.val)&#123;</span><br><span class="line">        root.left=insertIntoBST(root.left,val);//小，左边插入</span><br><span class="line">    &#125;</span><br><span class="line">    if (val&gt;root.val)&#123;</span><br><span class="line">        root.right=insertIntoBST(root.right,val);//大，右边插入</span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>Backtracking</tag>
-        <tag>BST</tag>
-        <tag>Tree</tag>
-        <tag>BinarySearch</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>整理DP动态规划问题</title>
     <url>/2022/08/07/leetcode-DP-sum/</url>
     <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -1075,9 +1160,9 @@
         <category>Summary</category>
       </categories>
       <tags>
+        <tag>DP</tag>
         <tag>Summary</tag>
         <tag>DynamicProgramming</tag>
-        <tag>DP</tag>
         <tag>Coin</tag>
       </tags>
   </entry>
@@ -1132,9 +1217,9 @@
         <category>Summary</category>
       </categories>
       <tags>
+        <tag>Array</tag>
         <tag>Pointer</tag>
         <tag>Summary</tag>
-        <tag>Array</tag>
         <tag>Sum</tag>
       </tags>
   </entry>
@@ -1180,75 +1265,6 @@
       <tags>
         <tag>Md</tag>
         <tag>Typora</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Morgan</title>
-    <url>/2022/07/19/off-mor/</url>
-    <content><![CDATA[<h2 id="xxx"><a href="#xxx" class="headerlink" title="xxx"></a>xxx</h2><p>随便存一下</p>
-<p><img src="/pics/morgan/m1.png" alt="m1"></p>
-<p><img src="/pics/morgan/m2.png" alt="m2"></p>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-      <tags>
-        <tag>MorganStanley</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在wordpress中加入文章阅读量浏览量（javascript）</title>
-    <url>/2022/07/16/wp-views-counter-auto-update/</url>
-    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>整体参考[1]</p>
-<p>增加了整体步骤，文件插入位置，以及使用【特定主题】时，怎么找到地方插入。</p>
-<p>整体步骤</p>
-<ol>
-<li>编写计数函数</li>
-<li>自定义统计间隔时间</li>
-<li>将views值插入到想显示的地方</li>
-</ol>
-<h2 id="1-编写计数函数"><a href="#1-编写计数函数" class="headerlink" title="1 编写计数函数"></a>1 编写计数函数</h2><p>复制以下函数到functions.php文件最后。</p>
-<p>具体操作是左边导航栏在appearance- editor</p>
-<p>content主题是右边栏的Theme Functions</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count) &#123;</span><br><span class="line">        $count = <span class="number">1</span>;</span><br><span class="line">        <span class="title function_">delete_post_meta</span>($postID, $count_key);</span><br><span class="line">        <span class="title function_">add_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $count++;</span><br><span class="line">        <span class="title function_">update_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-自定义统计间隔时间"><a href="#2-自定义统计间隔时间" class="headerlink" title="2 自定义统计间隔时间"></a>2 自定义统计间隔时间</h2><p>添加以下代码至主题的single.php 文件最上面</p>
-<p>其中99999999是设置的间隔时间，间隔时间内，cookie相同的访问不累加</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"><span class="keyword">if</span>(!<span class="title function_">isset</span>($_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>]) || $_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>] != <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">    <span class="title function_">setPostViews</span>($post-&gt;<span class="variable constant_">ID</span>);</span><br><span class="line">    <span class="title function_">setcookie</span>(<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>,<span class="string">&#x27;1&#x27;</span>,<span class="title function_">time</span>() + <span class="number">99999999</span>,<span class="variable constant_">COOKIEPATH</span>,<span class="variable constant_">COOKIE_DOMAIN</span>);</span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意，如果没有找到single.php</p>
-<p>可以看看右边的小字<em>This child theme inherits templates from a parent theme XXXX</em></p>
-<p>切换到XXXX，就能找到了</p>
-<h2 id="3-将views值插入到想显示的地方"><a href="#3-将views值插入到想显示的地方" class="headerlink" title="3 将views值插入到想显示的地方"></a>3 将views值插入到想显示的地方</h2><p>将views添加到要显示浏览次数的位置</p>
-<p>文章列表(template-parts&#x2F;content.php)</p>
-<p>文章详情页面(template-parts&#x2F;content-single.php)</p>
-<p>搜索结果页面(template-parts&#x2F;content-search.php)</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php echo <span class="string">&#x27;阅读量：&#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>());.<span class="string">&#x27;次&#x27;</span>?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这里踩坑</p>
-<p>对于不同主题，文件有差异。</p>
-<p>比如我目前用的content主题。显示【作者xxx分类xxxtagsxxx】都封装在了spicepress_single_post_category_content()函数中。单独加上去字体颜色不一样也不再一排。需要找到这个函数，并在里面添加views。</p>
-<p>content是在 template-tags.php 中</p>
-<p>还可以设置下css样式我懒了就直接这样加了</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_">get_theme_mod</span>(<span class="string">&#x27;spicepress_enable_single_post_tag&#x27;</span>,<span class="literal">true</span>)==<span class="literal">true</span>):	</span><br><span class="line">	$spicepress_tag_list = <span class="title function_">get_the_tag_list</span>();</span><br><span class="line">	<span class="keyword">if</span>(!<span class="title function_">empty</span>($spicepress_tag_list)) &#123; ?&gt;</span><br><span class="line">			<span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag-links&quot;</span>&gt;</span><span class="meta">&lt;?php esc_html_e(&#x27;Tag&#x27;,&#x27;spicepress&#x27;);?&gt;</span> <span class="meta">&lt;?php the_tags(&#x27;&#x27;, &#x27;, &#x27;, &#x27;&#x27;); ?&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;?php echo <span class="string">&#x27;Views &#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>()).<span class="string">&#x27;&#x27;</span>;?&gt;	在这加</span><br><span class="line">	&lt;?php &#125; </span><br><span class="line">endif;?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>最后效果</p>
-<p><img src="/pics/views-counter.png" alt="views-counter"></p>
-<p>其他地方读了代码后可以同理修改</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://m.php.cn/cms/wordpress/478394.html">详解WordPress文章阅读量如何统计和显示（非插件）</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Toolkit</category>
-        <category>WP</category>
-      </categories>
-      <tags>
-        <tag>Wordpress</tag>
-        <tag>Javascript</tag>
-        <tag>StatisticsDisplay</tag>
-        <tag>Wp</tag>
-        <tag>Cookie</tag>
       </tags>
   </entry>
   <entry>
@@ -1347,99 +1363,83 @@
         <category>Summary</category>
       </categories>
       <tags>
-        <tag>Backtracking</tag>
         <tag>BinarySearch</tag>
-        <tag>DP</tag>
         <tag>TwoPointers</tag>
         <tag>SlidingWindow</tag>
         <tag>BFS</tag>
         <tag>DFS</tag>
+        <tag>Backtracking</tag>
+        <tag>DP</tag>
         <tag>BitManipulation</tag>
       </tags>
   </entry>
   <entry>
-    <title>21天系列Algorithm II</title>
-    <url>/2022/10/23/leetcode-21alg/</url>
-    <content><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ul>
-<li>LC 33</li>
-<li>LC 34</li>
-<li>LC 74</li>
-<li>LC 153</li>
-<li>LC 162</li>
-</ul>
-<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><ul>
-<li>LC 82</li>
-<li>LC 15</li>
-<li>LC 844</li>
-<li>LC 986</li>
-<li>LC 11</li>
-</ul>
-<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><ul>
-<li>LC 438</li>
-<li>LC 713</li>
-<li>LC 209</li>
-</ul>
-<p>BFS&#x2F;DFS</p>
-<ul>
-<li>LC 200</li>
-<li>LC 547</li>
-<li>LC 117</li>
-<li>LC 572</li>
-<li>LC 1091</li>
-<li>LC 130</li>
-<li>LC 797</li>
-</ul>
-<p>回溯</p>
-<ul>
-<li>LC 78</li>
-<li>LC 90</li>
-<li>LC 47</li>
-<li>LC 39</li>
-<li>LC 40</li>
-<li>LC 17</li>
-<li>LC 22</li>
-<li>LC 79</li>
-</ul>
-<p>DP动态规划</p>
-<ul>
-<li>LC 45</li>
-<li>LC 62</li>
-<li>LC 5</li>
-<li>LC 413</li>
-<li>LC 91</li>
-<li>LC 139</li>
-<li>LC 300</li>
-<li>LC 673</li>
-<li>LC 1143</li>
-<li>LC 583</li>
-<li>LC 72</li>
-<li>LC 322</li>
-<li>LC 343</li>
-</ul>
-<p>位运算</p>
-<ul>
-<li>LC 201</li>
-</ul>
-<p>其他</p>
-<ul>
-<li>LC 384</li>
-<li>LC 202</li>
-<li>LC 149</li>
-</ul>
+    <title>Morgan</title>
+    <url>/2022/07/19/off-mor/</url>
+    <content><![CDATA[<h2 id="xxx"><a href="#xxx" class="headerlink" title="xxx"></a>xxx</h2><p>随便存一下</p>
+<p><img src="/pics/morgan/m1.png" alt="m1"></p>
+<p><img src="/pics/morgan/m2.png" alt="m2"></p>
 ]]></content>
       <categories>
-        <category>Leetcode</category>
-        <category>Summary</category>
+        <category>Other</category>
       </categories>
       <tags>
-        <tag>Backtracking</tag>
-        <tag>BinarySearch</tag>
-        <tag>DP</tag>
-        <tag>TwoPointers</tag>
-        <tag>SlidingWindow</tag>
-        <tag>BFS</tag>
-        <tag>DFS</tag>
-        <tag>BitManipulation</tag>
+        <tag>MorganStanley</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在wordpress中加入文章阅读量浏览量（javascript）</title>
+    <url>/2022/07/16/wp-views-counter-auto-update/</url>
+    <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>整体参考[1]</p>
+<p>增加了整体步骤，文件插入位置，以及使用【特定主题】时，怎么找到地方插入。</p>
+<p>整体步骤</p>
+<ol>
+<li>编写计数函数</li>
+<li>自定义统计间隔时间</li>
+<li>将views值插入到想显示的地方</li>
+</ol>
+<h2 id="1-编写计数函数"><a href="#1-编写计数函数" class="headerlink" title="1 编写计数函数"></a>1 编写计数函数</h2><p>复制以下函数到functions.php文件最后。</p>
+<p>具体操作是左边导航栏在appearance- editor</p>
+<p>content主题是右边栏的Theme Functions</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setPostViews</span>(<span class="params">$postID</span>)&#123;</span><br><span class="line">    $count_key = <span class="string">&#x27;views&#x27;</span>;</span><br><span class="line">    $count = <span class="title function_">get_post_meta</span>($postID, $count_key, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">if</span>($count==<span class="string">&#x27;&#x27;</span> || !$count) &#123;</span><br><span class="line">        $count = <span class="number">1</span>;</span><br><span class="line">        <span class="title function_">delete_post_meta</span>($postID, $count_key);</span><br><span class="line">        <span class="title function_">add_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $count++;</span><br><span class="line">        <span class="title function_">update_post_meta</span>($postID, $count_key, $count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-自定义统计间隔时间"><a href="#2-自定义统计间隔时间" class="headerlink" title="2 自定义统计间隔时间"></a>2 自定义统计间隔时间</h2><p>添加以下代码至主题的single.php 文件最上面</p>
+<p>其中99999999是设置的间隔时间，间隔时间内，cookie相同的访问不累加</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"><span class="keyword">if</span>(!<span class="title function_">isset</span>($_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>]) || $_COOKIE[<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>] != <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">    <span class="title function_">setPostViews</span>($post-&gt;<span class="variable constant_">ID</span>);</span><br><span class="line">    <span class="title function_">setcookie</span>(<span class="string">&#x27;views&#x27;</span>.<span class="property">$post</span>-&gt;<span class="variable constant_">ID</span>.<span class="property">COOKIEHASH</span>,<span class="string">&#x27;1&#x27;</span>,<span class="title function_">time</span>() + <span class="number">99999999</span>,<span class="variable constant_">COOKIEPATH</span>,<span class="variable constant_">COOKIE_DOMAIN</span>);</span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意，如果没有找到single.php</p>
+<p>可以看看右边的小字<em>This child theme inherits templates from a parent theme XXXX</em></p>
+<p>切换到XXXX，就能找到了</p>
+<h2 id="3-将views值插入到想显示的地方"><a href="#3-将views值插入到想显示的地方" class="headerlink" title="3 将views值插入到想显示的地方"></a>3 将views值插入到想显示的地方</h2><p>将views添加到要显示浏览次数的位置</p>
+<p>文章列表(template-parts&#x2F;content.php)</p>
+<p>文章详情页面(template-parts&#x2F;content-single.php)</p>
+<p>搜索结果页面(template-parts&#x2F;content-search.php)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;?php echo <span class="string">&#x27;阅读量：&#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>());.<span class="string">&#x27;次&#x27;</span>?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里踩坑</p>
+<p>对于不同主题，文件有差异。</p>
+<p>比如我目前用的content主题。显示【作者xxx分类xxxtagsxxx】都封装在了spicepress_single_post_category_content()函数中。单独加上去字体颜色不一样也不再一排。需要找到这个函数，并在里面添加views。</p>
+<p>content是在 template-tags.php 中</p>
+<p>还可以设置下css样式我懒了就直接这样加了</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_">get_theme_mod</span>(<span class="string">&#x27;spicepress_enable_single_post_tag&#x27;</span>,<span class="literal">true</span>)==<span class="literal">true</span>):	</span><br><span class="line">	$spicepress_tag_list = <span class="title function_">get_the_tag_list</span>();</span><br><span class="line">	<span class="keyword">if</span>(!<span class="title function_">empty</span>($spicepress_tag_list)) &#123; ?&gt;</span><br><span class="line">			<span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;tag-links&quot;</span>&gt;</span><span class="meta">&lt;?php esc_html_e(&#x27;Tag&#x27;,&#x27;spicepress&#x27;);?&gt;</span> <span class="meta">&lt;?php the_tags(&#x27;&#x27;, &#x27;, &#x27;, &#x27;&#x27;); ?&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;?php echo <span class="string">&#x27;Views &#x27;</span>.<span class="title function_">getPostViews</span>(<span class="title function_">get_the_ID</span>()).<span class="string">&#x27;&#x27;</span>;?&gt;	在这加</span><br><span class="line">	&lt;?php &#125; </span><br><span class="line">endif;?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>最后效果</p>
+<p><img src="/pics/views-counter.png" alt="views-counter"></p>
+<p>其他地方读了代码后可以同理修改</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://m.php.cn/cms/wordpress/478394.html">详解WordPress文章阅读量如何统计和显示（非插件）</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Toolkit</category>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>Wordpress</tag>
+        <tag>Javascript</tag>
+        <tag>StatisticsDisplay</tag>
+        <tag>Wp</tag>
+        <tag>Cookie</tag>
       </tags>
   </entry>
 </search>
