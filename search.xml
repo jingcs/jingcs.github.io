@@ -1444,17 +1444,20 @@
   </entry>
   <entry>
     <title>XAI可解释人工智能</title>
-    <url>/2022/10/20/XAI/</url>
-    <content><![CDATA[<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><p>解释什么：黑盒，白盒模型。</p>
-<p>怎么解释：黑盒：LIME，DICE，SHAP。白盒：本身就可解释。</p>
+    <url>/2022/11/22/XAI/</url>
+    <content><![CDATA[<h2 id="中文Notes"><a href="#中文Notes" class="headerlink" title="中文Notes"></a>中文Notes</h2><p>解释什么：黑盒，白盒模型。</p>
+<p>怎么解释：</p>
+<p>黑盒：LIME(能解释任何一种分类），DICE（分类，回归），SHAP（分类，回归）。</p>
+<p>白盒：本身就可解释。</p>
 <p>Git：<a href="https://github.com/samzabdiel/XAI">https://github.com/samzabdiel/XAI</a></p>
+<p>部署线上：<a href="https://tutorial.helloflask.com/deploy/">https://tutorial.helloflask.com/deploy/</a></p>
 <p>解释方式：全局Global，特定Local，反事实Counterfactual。</p>
 <ul>
 <li><p>全局：特征重要性排序。</p>
 </li>
-<li><p>特定：对每个具体case的解释。</p>
+<li><p>特定：对每个具体case的解释。SHAP</p>
 </li>
-<li><p>反事实：改变特征，结果是否能变。</p>
+<li><p>反事实：改变特征，结果是否能变。DICE</p>
 </li>
 </ul>
 <p>评价方式：问卷</p>
@@ -1482,20 +1485,46 @@
 </ul>
 <h4 id="（2）平台方面（本地-云端）"><a href="#（2）平台方面（本地-云端）" class="headerlink" title="（2）平台方面（本地 - 云端）"></a>（2）平台方面（本地 - 云端）</h4><p>静态-&gt;可交互。</p>
 <ul>
-<li><p><input disabled="" type="checkbox"> 
+<li><p><input checked="" disabled="" type="checkbox"> 
 <strong>远程访问</strong>、在线环境，包括网络托管</p>
 </li>
-<li><p><input disabled="" type="checkbox"> 
-<strong>会话管理</strong>、用户注册、用户登录</p>
+<li><p><input checked="" disabled="" type="checkbox"> 
+<strong>会话管理</strong>、用户注册、用户登录flask-login</p>
 </li>
 <li><p><input disabled="" type="checkbox"> 
-<strong>数据采集</strong>，包括问卷提交和用户参与数据</p>
+<strong>数据采集</strong>，包括问卷提交和用户参与数据sqlite</p>
 </li>
 <li><p><input disabled="" type="checkbox"> 
-将原型界面与这个平台整合起来，准备用于终端用户的评估。</p>
+整合原型界面+平台。准备用于终端用户的评估。</p>
 </li>
 </ul>
 <h4 id="（3）评估方式"><a href="#（3）评估方式" class="headerlink" title="（3）评估方式"></a>（3）评估方式</h4><p>Prolific（一个在线评估平台）来让用户尝试和评估XAI的界面。时间：几周</p>
+<h3 id="3-时间线"><a href="#3-时间线" class="headerlink" title="3 时间线"></a>3 时间线</h3><p>11.22-28</p>
+<p>搭建一个前后端分离的用户管理页面，测试通过后上传至云端</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> （上传到服务器）<strong>远程访问</strong>、在线环境，包括网络托管</li>
+<li><input checked="" disabled="" type="checkbox"> （用户界面，数据库）<strong>会话管理</strong>、用户注册、用户登录</li>
+<li><input disabled="" type="checkbox"> （管理员界面，数据库）<strong>数据采集</strong>，包括问卷提交和用户参与数据</li>
+</ul>
+<p>12月前</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+信息展示板块，html，分页显示，可视化图表。</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+2D。自定义数据集。用户自行输入&#x2F;上传。（后端接口，富文本上传与分割）</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+1D。更详细的分析报告。（后端记录并返回更详细的数据）</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+原型界面+平台整合</p>
+</li>
+</ul>
+<p>12月</p>
+<ul>
+<li><input disabled="" type="checkbox"> Prolific评测</li>
+</ul>
 ]]></content>
       <categories>
         <category>Other</category>
@@ -1504,6 +1533,54 @@
         <tag>Summary</tag>
         <tag>XAI</tag>
         <tag>ExplainableAI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>M1芯片tensorflow和shap安装</title>
+    <url>/2022/12/13/tf-shap-m1/</url>
+    <content><![CDATA[<h2 id="安装tf和shap"><a href="#安装tf和shap" class="headerlink" title="安装tf和shap"></a>安装tf和shap</h2><p>安装tensorflow参考：</p>
+<ul>
+<li>创建环境并安装<a href="https://segmentfault.com/a/1190000042343760">ref</a></li>
+</ul>
+<p>安装shap</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install -c conda-forge shap</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="miniforge3和anaconda冲突"><a href="#miniforge3和anaconda冲突" class="headerlink" title="miniforge3和anaconda冲突"></a>miniforge3和anaconda冲突</h2><p>报错no such file)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/miniforge3/envs/tf1212/bin/../lib/libcblas.3.dylib&#x27; (no such file), &#x27;/usr/local/lib/libcblas.3.dylib&#x27; (no such file), &#x27;/usr/lib/libcblas.3.dylib&#x27; (no such file)</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方案</strong></p>
+<p>保存当前环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env export -n &lt;env-name&gt; &gt; environment.yml</span><br></pre></td></tr></table></figure>
+
+
+
+<p>重装环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env create -f path/to/environment.yml</span><br></pre></td></tr></table></figure>
+
+<p>还是不行的话更改condo的path</p>
+<ul>
+<li><p>cmd+shift+.显示隐藏文件</p>
+</li>
+<li><p>.zshrc 文件中将conda路径改为miniforge所在地</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+      </categories>
+      <tags>
+        <tag>XAI</tag>
+        <tag>ExplainableAI</tag>
+        <tag>Tensorflow</tag>
+        <tag>SHAP</tag>
+        <tag>nstallation</tag>
+        <tag>Miniforge3</tag>
+        <tag>Anaconda</tag>
+        <tag>M1</tag>
+        <tag>TF</tag>
+        <tag>Environment</tag>
       </tags>
   </entry>
 </search>
