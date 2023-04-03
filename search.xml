@@ -1,49 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo日志使用方法</title>
-    <url>/2022/06/16/616-hexo-usage-backup/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>前置：Hexo+GitHub，生成可访问的网站【见：<a href="http://localhost:4000/2022/06/16/hexo-gitpages-install/">搭建网站</a> 】。</p>
-<p>本篇：如何发布新日志，总过程如下</p>
-<ul>
-<li><p>新建日志的路径</p>
-<ul>
-<li><p>直接在 路径<strong>hexo博客名&#x2F;source&#x2F;_posts</strong> 下手动新建xxx.md文件</p>
-<p>自己写需要注意格式，否则可能会报错</p>
-</li>
-<li><p>使用命令行 <strong>cd 博客名</strong> ；然后<strong>hexo new post “xxxx日志名”</strong></p>
-</li>
-</ul>
-<p>注：xxx最好是英文，后面也可以改</p>
-</li>
-<li><p>打开文件写日志</p>
-<p>有关文章标题，发布时间，分类的设置，可见官方文档[1]。摘录如下</p>
-<ul>
-<li><p>tags, categories</p>
-<p>分类categories具有顺序性和层次性，为文章添加多个分类。此时文章同时包括三个分类： <strong><code>PlayStation</code> 和 <code>Games</code></strong> 分别都是父分类 <code>Diary</code> 的子分类，同时 <strong><code>Life</code></strong> 是一个没有子分类的分类。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- [Diary, PlayStation]</span><br><span class="line">- [Diary, Games]</span><br><span class="line">- [Life]</span><br></pre></td></tr></table></figure>
-
-<p>标签tags没有顺序和层次。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Air</span><br><span class="line">- Trainline</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>将日志同步到Github上</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-
-<p>之后想修改日志也是改md然后用这命令传上去。</p>
-</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li>Front-matter <a href="https://hexo.io/zh-cn/docs/front-matter">官方文档</a></li>
-</ol>
+    <title>Hexo报错YAMLException</title>
+    <url>/2022/06/16/616-hexo-debug/</url>
+    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
+<p>报错，hexo无法将md文档转网页</p>
+<p>基本因为格式不对，空格少打了或者多大了。</p>
+<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
+<p>比如标题有特殊符号等等（目前测试出不能使用的：[ ]</p>
 ]]></content>
       <categories>
         <category>TechNotes</category>
-        <category>Web</category>
+        <category>Debug</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>GithubPages</tag>
       </tags>
   </entry>
   <entry>
@@ -92,20 +63,142 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo报错YAMLException</title>
-    <url>/2022/06/16/616-hexo-debug/</url>
-    <content><![CDATA[<p>description: YAMLException can not read a block mapping entry; a multiline key may not be an implicit key</p>
-<p>报错，hexo无法将md文档转网页</p>
-<p>基本因为格式不对，空格少打了或者多大了。</p>
-<p>比如categories:【-】后面有空格 不是直接 -hexo的</p>
-<p>比如标题有特殊符号等等（目前测试出不能使用的：[ ]</p>
+    <title>Hexo日志使用方法</title>
+    <url>/2022/06/16/616-hexo-usage-backup/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>前置：Hexo+GitHub，生成可访问的网站【见：<a href="http://localhost:4000/2022/06/16/hexo-gitpages-install/">搭建网站</a> 】。</p>
+<p>本篇：如何发布新日志，总过程如下</p>
+<ul>
+<li><p>新建日志的路径</p>
+<ul>
+<li><p>直接在 路径<strong>hexo博客名&#x2F;source&#x2F;_posts</strong> 下手动新建xxx.md文件</p>
+<p>自己写需要注意格式，否则可能会报错</p>
+</li>
+<li><p>使用命令行 <strong>cd 博客名</strong> ；然后<strong>hexo new post “xxxx日志名”</strong></p>
+</li>
+</ul>
+<p>注：xxx最好是英文，后面也可以改</p>
+</li>
+<li><p>打开文件写日志</p>
+<p>有关文章标题，发布时间，分类的设置，可见官方文档[1]。摘录如下</p>
+<ul>
+<li><p>tags, categories</p>
+<p>分类categories具有顺序性和层次性，为文章添加多个分类。此时文章同时包括三个分类： <strong><code>PlayStation</code> 和 <code>Games</code></strong> 分别都是父分类 <code>Diary</code> 的子分类，同时 <strong><code>Life</code></strong> 是一个没有子分类的分类。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- [Diary, PlayStation]</span><br><span class="line">- [Diary, Games]</span><br><span class="line">- [Life]</span><br></pre></td></tr></table></figure>
+
+<p>标签tags没有顺序和层次。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Air</span><br><span class="line">- Trainline</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>将日志同步到Github上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+<p>之后想修改日志也是改md然后用这命令传上去。</p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>Front-matter <a href="https://hexo.io/zh-cn/docs/front-matter">官方文档</a></li>
+</ol>
 ]]></content>
       <categories>
         <category>TechNotes</category>
-        <category>Debug</category>
+        <category>Web</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
+        <tag>GithubPages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XAI可解释人工智能</title>
+    <url>/2022/11/22/XAI/</url>
+    <content><![CDATA[<h2 id="中文Notes"><a href="#中文Notes" class="headerlink" title="中文Notes"></a>中文Notes</h2><p>解释什么：黑盒，白盒模型。</p>
+<p>怎么解释：</p>
+<p>黑盒：LIME(能解释任何一种分类），DICE（分类，回归），SHAP（分类，回归）。</p>
+<p>白盒：本身就可解释。</p>
+<p>Git：<a href="https://github.com/samzabdiel/XAI">https://github.com/samzabdiel/XAI</a></p>
+<p>部署线上：<a href="https://tutorial.helloflask.com/deploy/">https://tutorial.helloflask.com/deploy/</a></p>
+<p>解释方式：全局Global，特定Local，反事实Counterfactual。</p>
+<ul>
+<li><p>全局：特征重要性排序。</p>
+</li>
+<li><p>特定：对每个具体case的解释。SHAP</p>
+</li>
+<li><p>反事实：改变特征，结果是否能变。DICE</p>
+</li>
+</ul>
+<p>评价方式：问卷</p>
+<ul>
+<li>专业&#x2F;非专业人士</li>
+<li>不同数据集</li>
+</ul>
+<h2 id="1-现有功能"><a href="#1-现有功能" class="headerlink" title="1 现有功能"></a>1 现有功能</h2><p>两个主要功能</p>
+<h4 id="（1）功能1-特征值与结果的关系"><a href="#（1）功能1-特征值与结果的关系" class="headerlink" title="（1）功能1: 特征值与结果的关系"></a>（1）<strong>功能1: 特征值与结果的关系</strong></h4><ul>
+<li><p>作用：直观感受特征对结果的影响，强弱正负</p>
+</li>
+<li><p>参数值变化的交互式控制来获得对底层ML模型的理解（图1），这样他们就可以观察特征值和ML模型的输出之间的关系。</p>
+</li>
+</ul>
+<h4 id="（2）功能2-根据解释推测结果"><a href="#（2）功能2-根据解释推测结果" class="headerlink" title="（2）功能2: 根据解释推测结果"></a>（2）<strong>功能2: 根据解释推测结果</strong></h4><ul>
+<li><p>作用：评价对于计算机的解释，用户的理解程度</p>
+</li>
+<li><p>用户在给定一组特征值作为输入的情况下，通过一种被称为可模拟性的游戏化来估计一个ML模型的预测结果。</p>
+</li>
+</ul>
+<h2 id="2-改进方向"><a href="#2-改进方向" class="headerlink" title="2 改进方向"></a>2 改进方向</h2><h4 id="（1）功能方面"><a href="#（1）功能方面" class="headerlink" title="（1）功能方面"></a>（1）功能方面</h4><p>游戏界面的功能优化。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 自定义数据集。用户自行输入&#x2F;上传。</li>
+<li><input disabled="" type="checkbox"> 更详细的分析报告。修改游戏化的日志和记录部分，以更好地分析用户的行为，这可以揭示他们对底层人工智能技术的理解。</li>
+</ul>
+<h4 id="（2）平台方面（本地-云端）"><a href="#（2）平台方面（本地-云端）" class="headerlink" title="（2）平台方面（本地 - 云端）"></a>（2）平台方面（本地 - 云端）</h4><p>静态-&gt;可交互。</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+<strong>远程访问</strong>、在线环境，包括网络托管</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+<strong>会话管理</strong>、用户注册、用户登录flask-login</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<strong>数据采集</strong>，包括问卷提交和用户参与数据sqlite</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+整合原型界面+平台。准备用于终端用户的评估。</p>
+</li>
+</ul>
+<h4 id="（3）评估方式"><a href="#（3）评估方式" class="headerlink" title="（3）评估方式"></a>（3）评估方式</h4><p>Prolific（一个在线评估平台）来让用户尝试和评估XAI的界面。时间：几周</p>
+<h3 id="3-时间线"><a href="#3-时间线" class="headerlink" title="3 时间线"></a>3 时间线</h3><p>11.22-28</p>
+<p>搭建一个前后端分离的用户管理页面，测试通过后上传至云端</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> （上传到服务器）<strong>远程访问</strong>、在线环境，包括网络托管</li>
+<li><input checked="" disabled="" type="checkbox"> （用户界面，数据库）<strong>会话管理</strong>、用户注册、用户登录</li>
+<li><input disabled="" type="checkbox"> （管理员界面，数据库）<strong>数据采集</strong>，包括问卷提交和用户参与数据</li>
+</ul>
+<p>12月前</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+信息展示板块，html，分页显示，可视化图表。</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+2D。自定义数据集。用户自行输入&#x2F;上传。（后端接口，富文本上传与分割）</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+1D。更详细的分析报告。（后端记录并返回更详细的数据）</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+原型界面+平台整合</p>
+</li>
+</ul>
+<p>12月</p>
+<ul>
+<li><input disabled="" type="checkbox"> Prolific评测</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+      <tags>
+        <tag>Summary</tag>
+        <tag>XAI</tag>
+        <tag>ExplainableAI</tag>
       </tags>
   </entry>
   <entry>
@@ -126,8 +219,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>GithubPages</tag>
         <tag>Next</tag>
+        <tag>GithubPages</tag>
       </tags>
   </entry>
   <entry>
@@ -336,39 +429,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Github常用命令及Desktop初体验</title>
-    <url>/2022/07/14/git-cmd/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>有时代码明明没怎么改突然就不能用了，github合并机制挺全有时也让人抓狂，一直提示冲突。好不容易历史版本pull下来，想push上去，提示我必须把最新的pull下来……我要是最新的能用我会回退到历史版本吗！搁这套娃呢。</p>
-<p>不想折腾冲突的我，找了一下午bug，发现是多删了个空格！！简单粗暴退到上一版本就没那么多事了！</p>
-<p>于是整理下一些强制命令（。有风险就有风险……我可以备份啊！备份就1秒，找bug一下午过去了</p>
-<h2 id="本地版本回滚（更安心）"><a href="#本地版本回滚（更安心）" class="headerlink" title="本地版本回滚（更安心）"></a>本地版本回滚（更安心）</h2><p>在本地回退到某一个版本（不影响远端），命令行</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git checkout xxxx(commit号)</span><br></pre></td></tr></table></figure>
-
-<p>其中xxx是一串类似2a3b4e的commit号，可以在github desktop-history找到。</p>
-<p>也可以desktop里找到想要的回退版本，右键revert changes in commit</p>
-<p>如果提示error，有conflicts，添加冲突的文件（error: Reverting is not possible because you have unmerged files.）</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add filename(文件名)</span><br></pre></td></tr></table></figure>
-
-<p>这时候就可以发现本地文件已经到历史版本了，但无法推送到分支，因为是detached head分支。这时想合并可以把这个保存为新分支，然后merge到主分支。</p>
-<h2 id="提交历史版本（更简单粗暴）"><a href="#提交历史版本（更简单粗暴）" class="headerlink" title="提交历史版本（更简单粗暴）"></a>提交历史版本（更简单粗暴）</h2><p>除了revert，使用reset会更加简单粗暴</p>
-<p>简单说，revert是永久时光机，能去过去，也能回未来。reset是一次性时光机，回到过去，未来就被擦掉了没有后悔药。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git reset --hard xxxx(commit号)</span><br></pre></td></tr></table></figure>
-
-<p>这样github就不会提示你有新的没pull下来，不能push了。-f代表强制推送。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -f</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>CMD</category>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在google中添加站点地图（Hexo和Wp）</title>
     <url>/2022/07/15/create-sitemap/</url>
     <content><![CDATA[<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>搜索引擎排位是件生意，加上每天无数个新网站，一般来说搜索引擎不会主动收录你的自建网站！（博客园这种二级衍生的除外，或者有篇日志被第三方引流百万点击突然火了，引起大牛注意.jpg）于是自建网站，我们需要手动向每个搜索引擎提出收录请求，才会被搜到。</p>
@@ -442,6 +502,99 @@
         <tag>DNS</tag>
         <tag>Bing</tag>
         <tag>Baidu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask的Docker部署</title>
+    <url>/2022/04/03/flask-wendeploy/</url>
+    <content><![CDATA[<h2 id="中文Notes"><a href="#中文Notes" class="headerlink" title="中文Notes"></a>中文Notes</h2><p>环境</p>
+<p>在软件目录下，添加requirements.txt 配置安装需求。</p>
+<p>为了防止各种包乱在一起，我是新建了一个环境重新配置了一遍</p>
+<p>（出现过Ipython异常*</p>
+<h2 id="1-本地测试"><a href="#1-本地测试" class="headerlink" title="1 本地测试"></a>1 本地测试</h2><p>本地只是测试可以用docker部署后可以正常运行，毕竟linux修改代码不方便，想直接部署到服务器直接跳到步骤2.</p>
+<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>压缩包或者app store搜索docker desktop</p>
+<p>运行docker</p>
+<h3 id="软件运行测试"><a href="#软件运行测试" class="headerlink" title="软件运行测试"></a>软件运行测试</h3><p>在软件目录中创建Dockerfile，dockerfiler没有后缀名</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM python:3.8</span><br><span class="line">WORKDIR /app</span><br><span class="line">COPY requirements.txt .</span><br><span class="line">RUN pip3 install -r requirements.txt</span><br><span class="line">EXPOSE 5000</span><br><span class="line">COPY . .</span><br><span class="line">CMD [ &quot;python3&quot;, &quot;app.py&quot; ]</span><br></pre></td></tr></table></figure>
+
+<p>命令行cd到软件目录，创建镜像</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker build -t [随意取个名字] .</span><br></pre></td></tr></table></figure>
+
+<p>检查镜像是否创建成功</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+
+<p>运行docker</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d -p 5000:5000 [刚刚的名字]</span><br></pre></td></tr></table></figure>
+
+<p>然后访问<a href="http://127.0.0.1:5000/">http://127.0.0.1:5000</a> 看是否成功运行</p>
+<p>要注意端口号！软件文件app.py中的端口号，Dockerfile中的端口号</p>
+<h2 id="2-服务器端部署"><a href="#2-服务器端部署" class="headerlink" title="2 服务器端部署"></a>2 服务器端部署</h2><h3 id="上传文件到服务器"><a href="#上传文件到服务器" class="headerlink" title="上传文件到服务器"></a>上传文件到服务器</h3><p>将整个软件压缩，上传到服务器</p>
+<p>这里的root是你的用户名，也可能是其他j</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp /path/xxx.zip root@ip/severpath</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接服务器"><a href="#连接服务器" class="headerlink" title="连接服务器"></a>连接服务器</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh root@ip</span><br></pre></td></tr></table></figure>
+
+<p>用ls查看文件是否上传成功</p>
+<p>解压上传的文件并cd到文件内部</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">upzip xxx.zip</span><br><span class="line">cd xxx</span><br></pre></td></tr></table></figure>
+
+<p>与本地相似的步骤创建镜像并运行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker build -t [随意取个名字] .</span><br><span class="line">docker run -d -p 5000:5000 [刚刚的名字]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker-格式化"><a href="#Docker-格式化" class="headerlink" title="Docker 格式化"></a>Docker 格式化</h2><p>有时候环境配错了重新配置，需要删除镜像却提醒有进城正在运行</p>
+<p>依次下面的命令杀死进程并删除所有镜像</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker stop $(docker ps -aq)  </span><br><span class="line">docker rm $(docker ps -aq)    #进程</span><br><span class="line">docker rmi $(docker images -q) #删除所有images</span><br></pre></td></tr></table></figure>
+
+<p>如果只想删除一个镜像</p>
+<p>删除docker images 找到他的id</p>
+<p>docker rmi 【id】</p>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>XAI</tag>
+        <tag>ExplainableAI</tag>
+        <tag>Docker</tag>
+        <tag>Flask</tag>
+        <tag>Environment</tag>
+        <tag>Cloud</tag>
+        <tag>Web</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github常用命令及Desktop初体验</title>
+    <url>/2022/07/14/git-cmd/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>有时代码明明没怎么改突然就不能用了，github合并机制挺全有时也让人抓狂，一直提示冲突。好不容易历史版本pull下来，想push上去，提示我必须把最新的pull下来……我要是最新的能用我会回退到历史版本吗！搁这套娃呢。</p>
+<p>不想折腾冲突的我，找了一下午bug，发现是多删了个空格！！简单粗暴退到上一版本就没那么多事了！</p>
+<p>于是整理下一些强制命令（。有风险就有风险……我可以备份啊！备份就1秒，找bug一下午过去了</p>
+<h2 id="本地版本回滚（更安心）"><a href="#本地版本回滚（更安心）" class="headerlink" title="本地版本回滚（更安心）"></a>本地版本回滚（更安心）</h2><p>在本地回退到某一个版本（不影响远端），命令行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git checkout xxxx(commit号)</span><br></pre></td></tr></table></figure>
+
+<p>其中xxx是一串类似2a3b4e的commit号，可以在github desktop-history找到。</p>
+<p>也可以desktop里找到想要的回退版本，右键revert changes in commit</p>
+<p>如果提示error，有conflicts，添加冲突的文件（error: Reverting is not possible because you have unmerged files.）</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add filename(文件名)</span><br></pre></td></tr></table></figure>
+
+<p>这时候就可以发现本地文件已经到历史版本了，但无法推送到分支，因为是detached head分支。这时想合并可以把这个保存为新分支，然后merge到主分支。</p>
+<h2 id="提交历史版本（更简单粗暴）"><a href="#提交历史版本（更简单粗暴）" class="headerlink" title="提交历史版本（更简单粗暴）"></a>提交历史版本（更简单粗暴）</h2><p>除了revert，使用reset会更加简单粗暴</p>
+<p>简单说，revert是永久时光机，能去过去，也能回未来。reset是一次性时光机，回到过去，未来就被擦掉了没有后悔药。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git reset --hard xxxx(commit号)</span><br></pre></td></tr></table></figure>
+
+<p>这样github就不会提示你有新的没pull下来，不能push了。-f代表强制推送。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -f</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -616,6 +769,58 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo中加入Github每日贡献图</title>
+    <url>/2022/06/19/hexo-github-calendar/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前置要求：已完成网页搭建。</p>
+<p>效果：</p>
+<p><img src="/pics/gitCal.png" alt="img"></p>
+<p>推荐参考[1]，整理的很全面。</p>
+<h2 id="GitHub-Calendar生成步骤"><a href="#GitHub-Calendar生成步骤" class="headerlink" title="GitHub Calendar生成步骤"></a>GitHub Calendar生成步骤</h2><p>最简单的方法是直接生成图片引用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://ghchart.rshah.org/你的用户名&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Github Chart&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://ghchart.rshah.org/jingcs" alt="Github Chart" />
+
+<p>不过为了之后倒腾，下面还用了GitHub Calendar</p>
+<h3 id="（1）安装"><a href="#（1）安装" class="headerlink" title="（1）安装"></a>（1）安装</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i hexo-githubcalendar --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="（2）修改根目录下的配置文件"><a href="#（2）修改根目录下的配置文件" class="headerlink" title="（2）修改根目录下的配置文件"></a>（2）修改根目录下的配置文件</h3><p>​	把下面的加到_config.yml文件夹中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">githubcalendar:</span><br><span class="line">  enable: true</span><br><span class="line">  priority: 0</span><br><span class="line">  enable_page: /</span><br><span class="line">  user: 你的github用户名</span><br><span class="line">  layout:</span><br><span class="line">    type: class</span><br><span class="line">    name: main-inner</span><br><span class="line">    index: 0</span><br><span class="line">  githubcalendar_html: &#x27;&lt;div class=&quot;post-block animated fadeIn&quot; style=&quot;width:100%;height:auto;padding:40px 10px 10px 10px;&quot;&gt;&lt;div id=&quot;github_loading&quot; style=&quot;height:100%;display: flex;align-items: center;justify-content: center;&quot;&gt;&lt;svg style=&quot;height:50px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  viewBox=&quot;0 0 50 50&quot; style=&quot;enable-background:new 0 0 50 50&quot; xml:space=&quot;preserve&quot;&gt;&lt;path fill=&quot;#d0d0d0&quot; d=&quot;M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z&quot; transform=&quot;rotate(275.098 25 25)&quot;&gt;&lt;animateTransform attributeType=&quot;xml&quot; attributeName=&quot;transform&quot; type=&quot;rotate&quot; from=&quot;0 25 25&quot; to=&quot;360 25 25&quot; dur=&quot;0.6s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div id=&quot;github_container&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;footer class=&quot;post-footer&quot;&gt;&lt;div class=&quot;post-eof&quot;&gt;&lt;/div&gt;&lt;/footer&gt;&#x27;</span><br><span class="line">  pc_minheight: 280px</span><br><span class="line">  mobile_minheight: 0px</span><br><span class="line">  #颜色可以自己换，这个是黑白</span><br><span class="line">  color: &quot;[&#x27;#ebedf0&#x27;, &#x27;#d3d5d8&#x27;, &#x27;#bcbdc0&#x27;, &#x27;#a4a5a8&#x27;, &#x27;#8d8e90&#x27;, &#x27;#757678&#x27;, &#x27;#5e5e60&#x27;, &#x27;#464748&#x27;, &#x27;#2f2f30&#x27;, &#x27;#2f363d&#x27;, &#x27;#24292e&#x27;]&quot;</span><br><span class="line">  api: https://python-github-calendar-api.vercel.app/api</span><br><span class="line">  #在国内网速慢可以用gitee这个</span><br><span class="line">  #api: https://python-gitee-calendar-api.vercel.app/api</span><br><span class="line">  calendar_js: https://cdn.jsdelivr.net/gh/jingcs/jingcs.github.io/js/git-calendar-cn.js</span><br><span class="line">  plus_style: &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）运行"><a href="#（3）运行" class="headerlink" title="（3）运行"></a>（3）运行</h3><p>先本地运行看效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo s </span><br></pre></td></tr></table></figure>
+
+<p>注意，三条命写一起有如果报错找不到json。分开运行就行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>没有变化清理一下缓存。</p>
+<p>没问题的话就提交到github</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://blog.meta-code.top/2022/03/15/2022-41/">在主页展示GitHub&#x2F;Gitee贡献度日历</a> 推荐 整理的很全面，包含了第2个的网址</li>
+<li><a href="https://gagalab.tech/2021/07/14/Next%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Github%E8%B4%A1%E7%8C%AE%E6%97%A5%E5%8E%86%E6%95%99%E7%A8%8B/">手把手教你在Hexo中使用Github贡献日历（以Next主题为例）</a></li>
+<li><a href="https://www.freesion.com/article/7086773921/">贡献图，不是hexo的</a></li>
+</ol>
+<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ul>
+<li>没有显示每天的commit次数(好像是网速问题)</li>
+<li>js直接插到md里</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>WebUI</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Javascript</tag>
+        <tag>StatisticsDisplay</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用GitHubPages&amp;Hexo搭建个人网页</title>
     <url>/2022/06/16/hexo-gitpages-install/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>用Github做网页，就是把github当免费服务器，网页文件全存GitHub仓库上。但因为Github没有数据库，更适合做静态网页。（动态进阶pending。这里的hexo就是个网页模板。官方推荐的还有Jekyll（国内貌似比较慢）。理论上hexo做出来的东西可以放任何服务器上，Github最方便。</p>
@@ -697,46 +902,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo中加入Github每日贡献图</title>
-    <url>/2022/06/19/hexo-github-calendar/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前置要求：已完成网页搭建。</p>
-<p>效果：</p>
-<p><img src="/pics/gitCal.png" alt="img"></p>
-<p>推荐参考[1]，整理的很全面。</p>
-<h2 id="GitHub-Calendar生成步骤"><a href="#GitHub-Calendar生成步骤" class="headerlink" title="GitHub Calendar生成步骤"></a>GitHub Calendar生成步骤</h2><p>最简单的方法是直接生成图片引用。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://ghchart.rshah.org/你的用户名&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Github Chart&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<img src="https://ghchart.rshah.org/jingcs" alt="Github Chart" />
-
-<p>不过为了之后倒腾，下面还用了GitHub Calendar</p>
-<h3 id="（1）安装"><a href="#（1）安装" class="headerlink" title="（1）安装"></a>（1）安装</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i hexo-githubcalendar --save</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="（2）修改根目录下的配置文件"><a href="#（2）修改根目录下的配置文件" class="headerlink" title="（2）修改根目录下的配置文件"></a>（2）修改根目录下的配置文件</h3><p>​	把下面的加到_config.yml文件夹中</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">githubcalendar:</span><br><span class="line">  enable: true</span><br><span class="line">  priority: 0</span><br><span class="line">  enable_page: /</span><br><span class="line">  user: 你的github用户名</span><br><span class="line">  layout:</span><br><span class="line">    type: class</span><br><span class="line">    name: main-inner</span><br><span class="line">    index: 0</span><br><span class="line">  githubcalendar_html: &#x27;&lt;div class=&quot;post-block animated fadeIn&quot; style=&quot;width:100%;height:auto;padding:40px 10px 10px 10px;&quot;&gt;&lt;div id=&quot;github_loading&quot; style=&quot;height:100%;display: flex;align-items: center;justify-content: center;&quot;&gt;&lt;svg style=&quot;height:50px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;  viewBox=&quot;0 0 50 50&quot; style=&quot;enable-background:new 0 0 50 50&quot; xml:space=&quot;preserve&quot;&gt;&lt;path fill=&quot;#d0d0d0&quot; d=&quot;M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z&quot; transform=&quot;rotate(275.098 25 25)&quot;&gt;&lt;animateTransform attributeType=&quot;xml&quot; attributeName=&quot;transform&quot; type=&quot;rotate&quot; from=&quot;0 25 25&quot; to=&quot;360 25 25&quot; dur=&quot;0.6s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div id=&quot;github_container&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;footer class=&quot;post-footer&quot;&gt;&lt;div class=&quot;post-eof&quot;&gt;&lt;/div&gt;&lt;/footer&gt;&#x27;</span><br><span class="line">  pc_minheight: 280px</span><br><span class="line">  mobile_minheight: 0px</span><br><span class="line">  #颜色可以自己换，这个是黑白</span><br><span class="line">  color: &quot;[&#x27;#ebedf0&#x27;, &#x27;#d3d5d8&#x27;, &#x27;#bcbdc0&#x27;, &#x27;#a4a5a8&#x27;, &#x27;#8d8e90&#x27;, &#x27;#757678&#x27;, &#x27;#5e5e60&#x27;, &#x27;#464748&#x27;, &#x27;#2f2f30&#x27;, &#x27;#2f363d&#x27;, &#x27;#24292e&#x27;]&quot;</span><br><span class="line">  api: https://python-github-calendar-api.vercel.app/api</span><br><span class="line">  #在国内网速慢可以用gitee这个</span><br><span class="line">  #api: https://python-gitee-calendar-api.vercel.app/api</span><br><span class="line">  calendar_js: https://cdn.jsdelivr.net/gh/jingcs/jingcs.github.io/js/git-calendar-cn.js</span><br><span class="line">  plus_style: &quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）运行"><a href="#（3）运行" class="headerlink" title="（3）运行"></a>（3）运行</h3><p>先本地运行看效果</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo s </span><br></pre></td></tr></table></figure>
-
-<p>注意，三条命写一起有如果报错找不到json。分开运行就行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>没有变化清理一下缓存。</p>
-<p>没问题的话就提交到github</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://blog.meta-code.top/2022/03/15/2022-41/">在主页展示GitHub&#x2F;Gitee贡献度日历</a> 推荐 整理的很全面，包含了第2个的网址</li>
-<li><a href="https://gagalab.tech/2021/07/14/Next%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Github%E8%B4%A1%E7%8C%AE%E6%97%A5%E5%8E%86%E6%95%99%E7%A8%8B/">手把手教你在Hexo中使用Github贡献日历（以Next主题为例）</a></li>
-<li><a href="https://www.freesion.com/article/7086773921/">贡献图，不是hexo的</a></li>
-</ol>
-<h2 id="进一步待填坑"><a href="#进一步待填坑" class="headerlink" title="进一步待填坑"></a>进一步待填坑</h2><ul>
-<li>没有显示每天的commit次数(好像是网速问题)</li>
-<li>js直接插到md里</li>
-</ul>
+    <title>基于Hexo+Next的进阶美化操作</title>
+    <url>/2022/06/18/hexo-next-ada-toolkit/</url>
+    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已完成Hexo网页搭建，完成Next模板设置</p>
+<p>参考官方文档，进一步设置<a href="https://hexo-next.readthedocs.io/zh_CN/latest/next/advanced/%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/">https://hexo-next.readthedocs.io/zh_CN/latest/next/advanced/%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/</a></p>
 ]]></content>
       <categories>
         <category>TechNotes</category>
@@ -744,7 +913,7 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>Javascript</tag>
+        <tag>Next</tag>
         <tag>StatisticsDisplay</tag>
       </tags>
   </entry>
@@ -793,143 +962,6 @@
       <tags>
         <tag>TCP/IP</tag>
         <tag>NetworkLayer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于Hexo+Next的进阶美化操作</title>
-    <url>/2022/06/18/hexo-next-ada-toolkit/</url>
-    <content><![CDATA[<h2 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h2><p>前提：已完成Hexo网页搭建，完成Next模板设置</p>
-<p>参考官方文档，进一步设置<a href="https://hexo-next.readthedocs.io/zh_CN/latest/next/advanced/%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/">https://hexo-next.readthedocs.io/zh_CN/latest/next/advanced/%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/</a></p>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-        <category>WebUI</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
-        <tag>StatisticsDisplay</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode268 找缺失值</title>
-    <url>/2022/07/21/leetcode-268-missing-num/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>找到数组0～n中的缺失值</p>
-<p>Given an array <code>nums</code> containing <code>n</code> distinct numbers in the range <code>[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [3,0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [9,6,4,2,3,5,7,0,1]</span><br><span class="line">Output: 8</span><br><span class="line">Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>n == nums.length</code></li>
-<li><code>1 &lt;= n &lt;= 104</code></li>
-<li><code>0 &lt;= nums[i] &lt;= n</code></li>
-<li>All the numbers of <code>nums</code> are <strong>unique</strong>.</li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>为了更适配不同情况，没有考虑时间复杂度</p>
-<p>适配【5，7，9】这种非0开始情况</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">missingNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">       Arrays.sort(nums);</span><br><span class="line">      <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> i=nums[<span class="number">0</span>];i&lt;=nums[nums.length-<span class="number">1</span>];i++)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//（首项+末项）*项数/2</span></span><br><span class="line">      <span class="type">int</span> cnt=(nums[nums.length-<span class="number">1</span>]-nums[<span class="number">0</span>]+<span class="number">1</span>);<span class="comment">//相数</span></span><br><span class="line">      sum=(nums[<span class="number">0</span>]+nums[nums.length-<span class="number">1</span>])*cnt/<span class="number">2</span>;</span><br><span class="line">      <span class="comment">//减掉已有的，就是缺失值</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">        sum-=n;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//[0,1，2]这种情况，缺失值2+1=3，[1]这种情况返回0</span></span><br><span class="line">			<span class="keyword">if</span>(sum==<span class="number">0</span>&amp;&amp;nums[<span class="number">0</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">				sum=nums[nums.length-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Math</tag>
-        <tag>Binary Search</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>21天系列Algorithm II</title>
-    <url>/2022/10/23/leetcode-21alg/</url>
-    <content><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ul>
-<li>LC 33</li>
-<li>LC 34</li>
-<li>LC 74</li>
-<li>LC 153</li>
-<li>LC 162</li>
-</ul>
-<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><ul>
-<li>LC 82</li>
-<li>LC 15</li>
-<li>LC 844</li>
-<li>LC 986</li>
-<li>LC 11</li>
-</ul>
-<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><ul>
-<li>LC 438</li>
-<li>LC 713</li>
-<li>LC 209</li>
-</ul>
-<p>BFS&#x2F;DFS</p>
-<ul>
-<li>LC 200</li>
-<li>LC 547</li>
-<li>LC 117</li>
-<li>LC 572</li>
-<li>LC 1091</li>
-<li>LC 130</li>
-<li>LC 797</li>
-</ul>
-<p>回溯</p>
-<ul>
-<li>LC 78</li>
-<li>LC 90</li>
-<li>LC 47</li>
-<li>LC 39</li>
-<li>LC 40</li>
-<li>LC 17</li>
-<li>LC 22</li>
-<li>LC 79</li>
-</ul>
-<p>DP动态规划</p>
-<ul>
-<li>LC 45</li>
-<li>LC 62</li>
-<li>LC 5</li>
-<li>LC 413</li>
-<li>LC 91</li>
-<li>LC 139</li>
-<li>LC 300</li>
-<li>LC 673</li>
-<li>LC 1143</li>
-<li>LC 583</li>
-<li>LC 72</li>
-<li>LC 322</li>
-<li>LC 343</li>
-</ul>
-<p>位运算</p>
-<ul>
-<li>LC 201</li>
-</ul>
-<p>其他</p>
-<ul>
-<li>LC 384</li>
-<li>LC 202</li>
-<li>LC 149</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Summary</category>
-      </categories>
-      <tags>
-        <tag>BinarySearch</tag>
-        <tag>TwoPointers</tag>
-        <tag>SlidingWindow</tag>
-        <tag>BFS</tag>
-        <tag>DFS</tag>
-        <tag>Backtracking</tag>
-        <tag>DP</tag>
-        <tag>BitManipulation</tag>
       </tags>
   </entry>
   <entry>
@@ -1035,236 +1067,97 @@
         <category>Summary</category>
       </categories>
       <tags>
+        <tag>Summary</tag>
         <tag>Backtracking</tag>
         <tag>Pointer</tag>
-        <tag>Summary</tag>
         <tag>Arraylist</tag>
         <tag>Subset</tag>
         <tag>Permutations</tag>
       </tags>
   </entry>
   <entry>
-    <title>leetcode285 Inorder Successor in BST</title>
-    <url>/2022/07/20/leetcode-285/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
-<p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,3], p = 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: 1&#x27;s in-order successor node is 2. Note that both p and the return value is of TreeNode type.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], p = 6</span><br><span class="line">Output: null</span><br><span class="line">Explanation: There is no in-order successor of the current node, so the answer is null.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[1, 104]</code>.</li>
-<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
-<li>All Nodes will have unique values.</li>
+    <title>21天系列Algorithm II</title>
+    <url>/2022/10/23/leetcode-21alg/</url>
+    <content><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ul>
+<li>LC 33</li>
+<li>LC 34</li>
+<li>LC 74</li>
+<li>LC 153</li>
+<li>LC 162</li>
 </ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">inorderSuccessor</span><span class="params">(TreeNode root, TreeNode p)</span> &#123;</span><br><span class="line">        TreeNode ans=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(root!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val&lt;=p.val)&#123;</span><br><span class="line">                root=root.right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans=root;</span><br><span class="line">                root=root.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><ul>
+<li>LC 82</li>
+<li>LC 15</li>
+<li>LC 844</li>
+<li>LC 986</li>
+<li>LC 11</li>
+</ul>
+<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><ul>
+<li>LC 438</li>
+<li>LC 713</li>
+<li>LC 209</li>
+</ul>
+<p>BFS&#x2F;DFS</p>
+<ul>
+<li>LC 200</li>
+<li>LC 547</li>
+<li>LC 117</li>
+<li>LC 572</li>
+<li>LC 1091</li>
+<li>LC 130</li>
+<li>LC 797</li>
+</ul>
+<p>回溯</p>
+<ul>
+<li>LC 78</li>
+<li>LC 90</li>
+<li>LC 47</li>
+<li>LC 39</li>
+<li>LC 40</li>
+<li>LC 17</li>
+<li>LC 22</li>
+<li>LC 79</li>
+</ul>
+<p>DP动态规划</p>
+<ul>
+<li>LC 45</li>
+<li>LC 62</li>
+<li>LC 5</li>
+<li>LC 413</li>
+<li>LC 91</li>
+<li>LC 139</li>
+<li>LC 300</li>
+<li>LC 673</li>
+<li>LC 1143</li>
+<li>LC 583</li>
+<li>LC 72</li>
+<li>LC 322</li>
+<li>LC 343</li>
+</ul>
+<p>位运算</p>
+<ul>
+<li>LC 201</li>
+</ul>
+<p>其他</p>
+<ul>
+<li>LC 384</li>
+<li>LC 202</li>
+<li>LC 149</li>
+</ul>
 ]]></content>
       <categories>
         <category>Leetcode</category>
-        <category>Medium</category>
+        <category>Summary</category>
       </categories>
       <tags>
-        <tag>BST</tag>
-        <tag>Inorder</tag>
-        <tag>Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Leetcode 701 二叉搜索树BST中插入元素</title>
-    <url>/2022/07/19/leetcode-701/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h2><p>BST二叉搜索树中插入元素</p>
-<p>二叉搜索树：左边&lt;root&lt;右边</p>
-<p><a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">https://leetcode.com/problems/insert-into-a-binary-search-tree/</a></p>
-<p>You are given the <code>root</code> node of a binary search tree (BST) and a <code>value</code> to insert into the tree. Return <em>the root node of the BST after the insertion</em>. It is guaranteed that the new value does not exist in the original BST.</p>
-<p>Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
-<p>Example 1:</p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br><span class="line">Explanation: Another accepted tree is:</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://assets.leetcode.com/uploads/2020/10/05/bst.jpg" alt="img"></p>
-<p>Example 2:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [40,20,60,10,30,50,70], val = 25</span><br><span class="line">Output: [40,20,60,10,30,50,70,null,null,25]</span><br></pre></td></tr></table></figure>
-
-<p>Example 3:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h2><p>我什么时候能自己想出递归代码omg……每次看递归都觉得被降维打击……</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public TreeNode insertIntoBST(TreeNode root, int val) &#123;</span><br><span class="line">    if (root==null)&#123;</span><br><span class="line">        TreeNode addNode=new TreeNode(val);</span><br><span class="line">        return addNode;</span><br><span class="line">    &#125;</span><br><span class="line">    if(val&lt;root.val)&#123;</span><br><span class="line">        root.left=insertIntoBST(root.left,val);//小，左边插入</span><br><span class="line">    &#125;</span><br><span class="line">    if (val&gt;root.val)&#123;</span><br><span class="line">        root.right=insertIntoBST(root.right,val);//大，右边插入</span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>BinarySearch</tag>
         <tag>Backtracking</tag>
-        <tag>BST</tag>
-        <tag>Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode314</title>
-    <url>/2022/07/31/leetcode-314-tree-vertical-traversal/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary tree, return <em><strong>the vertical order traversal</strong> of its nodes’ values</em>. (i.e., from top to bottom, column by column).</p>
-<p>If two nodes are in the same row and column, the order should be from <strong>left to right</strong>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree1.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: [[9],[3,15],[20],[7]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2-1.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7]</span><br><span class="line">Output: [[4],[9],[3,0,1],[8],[7]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7,null,null,null,2,5]</span><br><span class="line">Output: [[4],[9,5],[3,0,1],[8,2],[7]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Medium</category>
-      </categories>
-      <tags>
-        <tag>Traversal</tag>
-        <tag>Binary Tree</tag>
-        <tag>Premium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>整理DP动态规划问题</title>
-    <url>/2022/08/07/leetcode-DP-sum/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>子集LC 377. 组合和Combination Sum IV</li>
-<li>子集LC 322. 换硬币Coin Change</li>
-<li>排列LC 518. 换硬币2Coin Change2</li>
-<li></li>
-</ul>
-<p>改进解法</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">code</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Summary</category>
-      </categories>
-      <tags>
+        <tag>BinarySearch</tag>
+        <tag>TwoPointers</tag>
+        <tag>SlidingWindow</tag>
+        <tag>BFS</tag>
+        <tag>DFS</tag>
         <tag>DP</tag>
-        <tag>Summary</tag>
-        <tag>DynamicProgramming</tag>
-        <tag>Coin</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>旅游足迹</title>
-    <url>/2022/10/20/map/</url>
-    <content><![CDATA[<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p><a href="https://lab.magiconch.com/china-ex/">https://lab.magiconch.com/china-ex/</a></p>
-<p><img src="/pics/zgzb.png" alt="中国制霸"></p>
-<p><a href="https://lab.magiconch.com/world-ex/">https://lab.magiconch.com/world-ex/</a></p>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-      <tags>
-        <tag>Map</tag>
-        <tag>Visualization</tag>
-        <tag>Trip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>整理K sum问题</title>
-    <url>/2022/08/05/leetcode-k-sum/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>K sum问题基本是K个数的和为target，输出数字组合方法&#x2F;所在index。</p>
-<p><strong>【整体思路】</strong></p>
-<ul>
-<li><strong>先Arrays.sort()排序，不然后续指针没法用</strong></li>
-<li>对于K数之和，固定K-2个指针（循环），再用两指针一头一尾，根据sum大了小了，调左或调右<ul>
-<li><strong>4数之和，2固定2移动；</strong></li>
-<li><strong>3数之和，1固定2移动；</strong></li>
-</ul>
-</li>
-<li><strong>一定要记得去重，不仅为了减少工作量，也是确保输出结果的唯一</strong></li>
-</ul>
-<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>\1. Two Sum 返回目标和的两个数坐标（仅唯一解）</p>
-<ul>
-<li>注意：2. Add Two Numbers 这不是K-sum，是加减乘除</li>
-</ul>
-<p>\15. Three Sum &#x2F; 3Sum</p>
-<p>\39. Combination Sum 返回所有可能解</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="1-Two-sum-两数之和"><a href="#1-Two-sum-两数之和" class="headerlink" title="1. Two sum 两数之和"></a>1. Two sum 两数之和</h3><p>目标：在nums中找两数相加&#x3D;targte</p>
-<p>限制：返回两数坐标，有且仅有唯一解</p>
-<p>思路：遍历数组，使用hashmap存储已遍历过的数字。如果（target-cur）在hashmap中，即找到两数，返回index。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        HashMap&lt;Integer,Integer&gt; set=<span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">        <span class="type">int</span>[] ans=<span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(set.containsKey(target-nums[i]))&#123;</span><br><span class="line">                <span class="comment">//找到了，存index</span></span><br><span class="line">                ans[<span class="number">0</span>]=set.get(target-nums[i]);</span><br><span class="line">                ans[<span class="number">1</span>]=i;</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//没找到，存储已经遍历的</span></span><br><span class="line">            set.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>复杂度</p>
-<p>时间复杂度：O(N)。N 是数组中的元素数量。对于每个元素 x， O(1) 地寻找 target - x。<br>空间复杂度：O(N)。N 是数组中的元素数量。哈希表开销。</p>
-<h3 id="15-Three-Sum-三数之和"><a href="#15-Three-Sum-三数之和" class="headerlink" title="15. Three Sum 三数之和"></a>15. Three Sum 三数之和</h3><p>目标：在nums中找三数，和为0。</p>
-<p>限制：返回所有可能的三数解，多个解</p>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Summary</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Pointer</tag>
-        <tag>Summary</tag>
-        <tag>Sum</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown常用命令</title>
-    <url>/2022/07/15/md-cmd/</url>
-    <content><![CDATA[<p>金鱼脑记一些常用</p>
-<h2 id="代码公式"><a href="#代码公式" class="headerlink" title="代码公式"></a>代码公式</h2><h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$公式$</span><br></pre></td></tr></table></figure>
-
-<p>效果 $x^2$</p>
-<p>Q：公式没反应</p>
-<p>A：typora-偏好设置- markdown语法-勾选所有</p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>三个&#96;，mac电脑按中英切换键，再按波浪号（1左边）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```code```</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>插入链接&#x2F;图片都是以下格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
-
-<p>⚠️不要写反了！❌   !(备注)[url] ❌ </p>
-<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ul>
-<li><p>本地引用</p>
-<p>注意pics指专属图片文件夹。如图片和md放在同一文件夹下，直接引用。</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/pics/xxx.png)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>云端引用 (github图床)</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](https://cdn.jsdelivr.net/gh/用户名/仓库名/文件夹/xxxx.jpg)</span><br></pre></td></tr></table></figure>
-
-<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p>同理</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
-
-<p>效果<a href="www.google.com">google’s url</a></p>
-]]></content>
-      <categories>
-        <category>CMD</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Md</tag>
-        <tag>Typora</tag>
+        <tag>BitManipulation</tag>
       </tags>
   </entry>
   <entry>
@@ -1363,14 +1256,274 @@
         <category>Summary</category>
       </categories>
       <tags>
+        <tag>Backtracking</tag>
         <tag>BinarySearch</tag>
         <tag>TwoPointers</tag>
         <tag>SlidingWindow</tag>
         <tag>BFS</tag>
         <tag>DFS</tag>
-        <tag>Backtracking</tag>
         <tag>DP</tag>
         <tag>BitManipulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode268 找缺失值</title>
+    <url>/2022/07/21/leetcode-268-missing-num/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>找到数组0～n中的缺失值</p>
+<p>Given an array <code>nums</code> containing <code>n</code> distinct numbers in the range <code>[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [3,0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: nums = [9,6,4,2,3,5,7,0,1]</span><br><span class="line">Output: 8</span><br><span class="line">Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == nums.length</code></li>
+<li><code>1 &lt;= n &lt;= 104</code></li>
+<li><code>0 &lt;= nums[i] &lt;= n</code></li>
+<li>All the numbers of <code>nums</code> are <strong>unique</strong>.</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>为了更适配不同情况，没有考虑时间复杂度</p>
+<p>适配【5，7，9】这种非0开始情况</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">missingNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">       Arrays.sort(nums);</span><br><span class="line">      <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> i=nums[<span class="number">0</span>];i&lt;=nums[nums.length-<span class="number">1</span>];i++)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//（首项+末项）*项数/2</span></span><br><span class="line">      <span class="type">int</span> cnt=(nums[nums.length-<span class="number">1</span>]-nums[<span class="number">0</span>]+<span class="number">1</span>);<span class="comment">//相数</span></span><br><span class="line">      sum=(nums[<span class="number">0</span>]+nums[nums.length-<span class="number">1</span>])*cnt/<span class="number">2</span>;</span><br><span class="line">      <span class="comment">//减掉已有的，就是缺失值</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> n:nums)&#123;</span><br><span class="line">        sum-=n;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//[0,1，2]这种情况，缺失值2+1=3，[1]这种情况返回0</span></span><br><span class="line">			<span class="keyword">if</span>(sum==<span class="number">0</span>&amp;&amp;nums[<span class="number">0</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">				sum=nums[nums.length-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Math</tag>
+        <tag>Binary Search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode285 Inorder Successor in BST</title>
+    <url>/2022/07/20/leetcode-285/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
+<p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,3], p = 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: 1&#x27;s in-order successor node is 2. Note that both p and the return value is of TreeNode type.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], p = 6</span><br><span class="line">Output: null</span><br><span class="line">Explanation: There is no in-order successor of the current node, so the answer is null.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[1, 104]</code>.</li>
+<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
+<li>All Nodes will have unique values.</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">inorderSuccessor</span><span class="params">(TreeNode root, TreeNode p)</span> &#123;</span><br><span class="line">        TreeNode ans=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(root!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val&lt;=p.val)&#123;</span><br><span class="line">                root=root.right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans=root;</span><br><span class="line">                root=root.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>BST</tag>
+        <tag>Inorder</tag>
+        <tag>Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode314</title>
+    <url>/2022/07/31/leetcode-314-tree-vertical-traversal/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Given the <code>root</code> of a binary tree, return <em><strong>the vertical order traversal</strong> of its nodes’ values</em>. (i.e., from top to bottom, column by column).</p>
+<p>If two nodes are in the same row and column, the order should be from <strong>left to right</strong>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree1.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: [[9],[3,15],[20],[7]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2-1.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7]</span><br><span class="line">Output: [[4],[9],[3,0,1],[8],[7]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/vtree2.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,8,4,0,1,7,null,null,null,2,5]</span><br><span class="line">Output: [[4],[9,5],[3,0,1],[8,2],[7]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Traversal</tag>
+        <tag>Binary Tree</tag>
+        <tag>Premium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Leetcode 701 二叉搜索树BST中插入元素</title>
+    <url>/2022/07/19/leetcode-701/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h2><p>BST二叉搜索树中插入元素</p>
+<p>二叉搜索树：左边&lt;root&lt;右边</p>
+<p><a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">https://leetcode.com/problems/insert-into-a-binary-search-tree/</a></p>
+<p>You are given the <code>root</code> node of a binary search tree (BST) and a <code>value</code> to insert into the tree. Return <em>the root node of the BST after the insertion</em>. It is guaranteed that the new value does not exist in the original BST.</p>
+<p>Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
+<p>Example 1:</p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br><span class="line">Explanation: Another accepted tree is:</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://assets.leetcode.com/uploads/2020/10/05/bst.jpg" alt="img"></p>
+<p>Example 2:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [40,20,60,10,30,50,70], val = 25</span><br><span class="line">Output: [40,20,60,10,30,50,70,null,null,25]</span><br></pre></td></tr></table></figure>
+
+<p>Example 3:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5</span><br><span class="line">Output: [4,2,7,1,3,5]</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h2><p>我什么时候能自己想出递归代码omg……每次看递归都觉得被降维打击……</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public TreeNode insertIntoBST(TreeNode root, int val) &#123;</span><br><span class="line">    if (root==null)&#123;</span><br><span class="line">        TreeNode addNode=new TreeNode(val);</span><br><span class="line">        return addNode;</span><br><span class="line">    &#125;</span><br><span class="line">    if(val&lt;root.val)&#123;</span><br><span class="line">        root.left=insertIntoBST(root.left,val);//小，左边插入</span><br><span class="line">    &#125;</span><br><span class="line">    if (val&gt;root.val)&#123;</span><br><span class="line">        root.right=insertIntoBST(root.right,val);//大，右边插入</span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Medium</category>
+      </categories>
+      <tags>
+        <tag>Backtracking</tag>
+        <tag>BinarySearch</tag>
+        <tag>BST</tag>
+        <tag>Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>整理DP动态规划问题</title>
+    <url>/2022/08/07/leetcode-DP-sum/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>子集LC 377. 组合和Combination Sum IV</li>
+<li>子集LC 322. 换硬币Coin Change</li>
+<li>排列LC 518. 换硬币2Coin Change2</li>
+<li></li>
+</ul>
+<p>改进解法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">code</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Summary</category>
+      </categories>
+      <tags>
+        <tag>Summary</tag>
+        <tag>DP</tag>
+        <tag>DynamicProgramming</tag>
+        <tag>Coin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>整理K sum问题</title>
+    <url>/2022/08/05/leetcode-k-sum/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>K sum问题基本是K个数的和为target，输出数字组合方法&#x2F;所在index。</p>
+<p><strong>【整体思路】</strong></p>
+<ul>
+<li><strong>先Arrays.sort()排序，不然后续指针没法用</strong></li>
+<li>对于K数之和，固定K-2个指针（循环），再用两指针一头一尾，根据sum大了小了，调左或调右<ul>
+<li><strong>4数之和，2固定2移动；</strong></li>
+<li><strong>3数之和，1固定2移动；</strong></li>
+</ul>
+</li>
+<li><strong>一定要记得去重，不仅为了减少工作量，也是确保输出结果的唯一</strong></li>
+</ul>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>\1. Two Sum 返回目标和的两个数坐标（仅唯一解）</p>
+<ul>
+<li>注意：2. Add Two Numbers 这不是K-sum，是加减乘除</li>
+</ul>
+<p>\15. Three Sum &#x2F; 3Sum</p>
+<p>\39. Combination Sum 返回所有可能解</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="1-Two-sum-两数之和"><a href="#1-Two-sum-两数之和" class="headerlink" title="1. Two sum 两数之和"></a>1. Two sum 两数之和</h3><p>目标：在nums中找两数相加&#x3D;targte</p>
+<p>限制：返回两数坐标，有且仅有唯一解</p>
+<p>思路：遍历数组，使用hashmap存储已遍历过的数字。如果（target-cur）在hashmap中，即找到两数，返回index。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        HashMap&lt;Integer,Integer&gt; set=<span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">        <span class="type">int</span>[] ans=<span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(set.containsKey(target-nums[i]))&#123;</span><br><span class="line">                <span class="comment">//找到了，存index</span></span><br><span class="line">                ans[<span class="number">0</span>]=set.get(target-nums[i]);</span><br><span class="line">                ans[<span class="number">1</span>]=i;</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//没找到，存储已经遍历的</span></span><br><span class="line">            set.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>复杂度</p>
+<p>时间复杂度：O(N)。N 是数组中的元素数量。对于每个元素 x， O(1) 地寻找 target - x。<br>空间复杂度：O(N)。N 是数组中的元素数量。哈希表开销。</p>
+<h3 id="15-Three-Sum-三数之和"><a href="#15-Three-Sum-三数之和" class="headerlink" title="15. Three Sum 三数之和"></a>15. Three Sum 三数之和</h3><p>目标：在nums中找三数，和为0。</p>
+<p>限制：返回所有可能的三数解，多个解</p>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Summary</category>
+      </categories>
+      <tags>
+        <tag>Summary</tag>
+        <tag>Pointer</tag>
+        <tag>Array</tag>
+        <tag>Sum</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>旅游足迹</title>
+    <url>/2022/10/20/map/</url>
+    <content><![CDATA[<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p><a href="https://lab.magiconch.com/china-ex/">https://lab.magiconch.com/china-ex/</a></p>
+<p><img src="/pics/zgzb.png" alt="中国制霸"></p>
+<p><a href="https://lab.magiconch.com/world-ex/">https://lab.magiconch.com/world-ex/</a></p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+      <tags>
+        <tag>Map</tag>
+        <tag>Visualization</tag>
+        <tag>Trip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown常用命令</title>
+    <url>/2022/07/15/md-cmd/</url>
+    <content><![CDATA[<p>金鱼脑记一些常用</p>
+<h2 id="代码公式"><a href="#代码公式" class="headerlink" title="代码公式"></a>代码公式</h2><h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$公式$</span><br></pre></td></tr></table></figure>
+
+<p>效果 $x^2$</p>
+<p>Q：公式没反应</p>
+<p>A：typora-偏好设置- markdown语法-勾选所有</p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>三个&#96;，mac电脑按中英切换键，再按波浪号（1左边）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```code```</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>插入链接&#x2F;图片都是以下格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
+
+<p>⚠️不要写反了！❌   !(备注)[url] ❌ </p>
+<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ul>
+<li><p>本地引用</p>
+<p>注意pics指专属图片文件夹。如图片和md放在同一文件夹下，直接引用。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![img](/pics/xxx.png)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>云端引用 (github图床)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](https://cdn.jsdelivr.net/gh/用户名/仓库名/文件夹/xxxx.jpg)</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><p>同理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![备注](url)</span><br></pre></td></tr></table></figure>
+
+<p>效果<a href="www.google.com">google’s url</a></p>
+]]></content>
+      <categories>
+        <category>CMD</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Md</tag>
+        <tag>Typora</tag>
       </tags>
   </entry>
   <entry>
@@ -1385,6 +1538,54 @@
       </categories>
       <tags>
         <tag>MorganStanley</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>M1芯片tensorflow和shap安装</title>
+    <url>/2022/12/13/tf-shap-m1/</url>
+    <content><![CDATA[<h2 id="安装tf和shap"><a href="#安装tf和shap" class="headerlink" title="安装tf和shap"></a>安装tf和shap</h2><p>安装tensorflow参考：</p>
+<ul>
+<li>创建环境并安装<a href="https://segmentfault.com/a/1190000042343760">ref</a></li>
+</ul>
+<p>安装shap</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install -c conda-forge shap</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="miniforge3和anaconda冲突"><a href="#miniforge3和anaconda冲突" class="headerlink" title="miniforge3和anaconda冲突"></a>miniforge3和anaconda冲突</h2><p>报错no such file)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/miniforge3/envs/tf1212/bin/../lib/libcblas.3.dylib&#x27; (no such file), &#x27;/usr/local/lib/libcblas.3.dylib&#x27; (no such file), &#x27;/usr/lib/libcblas.3.dylib&#x27; (no such file)</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方案</strong></p>
+<p>保存当前环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env export -n &lt;env-name&gt; &gt; environment.yml</span><br></pre></td></tr></table></figure>
+
+
+
+<p>重装环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env create -f path/to/environment.yml</span><br></pre></td></tr></table></figure>
+
+<p>还是不行的话更改condo的path</p>
+<ul>
+<li><p>cmd+shift+.显示隐藏文件</p>
+</li>
+<li><p>.zshrc 文件中将conda路径改为miniforge所在地</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+      </categories>
+      <tags>
+        <tag>XAI</tag>
+        <tag>ExplainableAI</tag>
+        <tag>Environment</tag>
+        <tag>Tensorflow</tag>
+        <tag>SHAP</tag>
+        <tag>nstallation</tag>
+        <tag>Miniforge3</tag>
+        <tag>Anaconda</tag>
+        <tag>M1</tag>
+        <tag>TF</tag>
       </tags>
   </entry>
   <entry>
@@ -1440,147 +1641,6 @@
         <tag>StatisticsDisplay</tag>
         <tag>Wp</tag>
         <tag>Cookie</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>XAI可解释人工智能</title>
-    <url>/2022/11/22/XAI/</url>
-    <content><![CDATA[<h2 id="中文Notes"><a href="#中文Notes" class="headerlink" title="中文Notes"></a>中文Notes</h2><p>解释什么：黑盒，白盒模型。</p>
-<p>怎么解释：</p>
-<p>黑盒：LIME(能解释任何一种分类），DICE（分类，回归），SHAP（分类，回归）。</p>
-<p>白盒：本身就可解释。</p>
-<p>Git：<a href="https://github.com/samzabdiel/XAI">https://github.com/samzabdiel/XAI</a></p>
-<p>部署线上：<a href="https://tutorial.helloflask.com/deploy/">https://tutorial.helloflask.com/deploy/</a></p>
-<p>解释方式：全局Global，特定Local，反事实Counterfactual。</p>
-<ul>
-<li><p>全局：特征重要性排序。</p>
-</li>
-<li><p>特定：对每个具体case的解释。SHAP</p>
-</li>
-<li><p>反事实：改变特征，结果是否能变。DICE</p>
-</li>
-</ul>
-<p>评价方式：问卷</p>
-<ul>
-<li>专业&#x2F;非专业人士</li>
-<li>不同数据集</li>
-</ul>
-<h2 id="1-现有功能"><a href="#1-现有功能" class="headerlink" title="1 现有功能"></a>1 现有功能</h2><p>两个主要功能</p>
-<h4 id="（1）功能1-特征值与结果的关系"><a href="#（1）功能1-特征值与结果的关系" class="headerlink" title="（1）功能1: 特征值与结果的关系"></a>（1）<strong>功能1: 特征值与结果的关系</strong></h4><ul>
-<li><p>作用：直观感受特征对结果的影响，强弱正负</p>
-</li>
-<li><p>参数值变化的交互式控制来获得对底层ML模型的理解（图1），这样他们就可以观察特征值和ML模型的输出之间的关系。</p>
-</li>
-</ul>
-<h4 id="（2）功能2-根据解释推测结果"><a href="#（2）功能2-根据解释推测结果" class="headerlink" title="（2）功能2: 根据解释推测结果"></a>（2）<strong>功能2: 根据解释推测结果</strong></h4><ul>
-<li><p>作用：评价对于计算机的解释，用户的理解程度</p>
-</li>
-<li><p>用户在给定一组特征值作为输入的情况下，通过一种被称为可模拟性的游戏化来估计一个ML模型的预测结果。</p>
-</li>
-</ul>
-<h2 id="2-改进方向"><a href="#2-改进方向" class="headerlink" title="2 改进方向"></a>2 改进方向</h2><h4 id="（1）功能方面"><a href="#（1）功能方面" class="headerlink" title="（1）功能方面"></a>（1）功能方面</h4><p>游戏界面的功能优化。</p>
-<ul>
-<li><input disabled="" type="checkbox"> 自定义数据集。用户自行输入&#x2F;上传。</li>
-<li><input disabled="" type="checkbox"> 更详细的分析报告。修改游戏化的日志和记录部分，以更好地分析用户的行为，这可以揭示他们对底层人工智能技术的理解。</li>
-</ul>
-<h4 id="（2）平台方面（本地-云端）"><a href="#（2）平台方面（本地-云端）" class="headerlink" title="（2）平台方面（本地 - 云端）"></a>（2）平台方面（本地 - 云端）</h4><p>静态-&gt;可交互。</p>
-<ul>
-<li><p><input checked="" disabled="" type="checkbox"> 
-<strong>远程访问</strong>、在线环境，包括网络托管</p>
-</li>
-<li><p><input checked="" disabled="" type="checkbox"> 
-<strong>会话管理</strong>、用户注册、用户登录flask-login</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-<strong>数据采集</strong>，包括问卷提交和用户参与数据sqlite</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-整合原型界面+平台。准备用于终端用户的评估。</p>
-</li>
-</ul>
-<h4 id="（3）评估方式"><a href="#（3）评估方式" class="headerlink" title="（3）评估方式"></a>（3）评估方式</h4><p>Prolific（一个在线评估平台）来让用户尝试和评估XAI的界面。时间：几周</p>
-<h3 id="3-时间线"><a href="#3-时间线" class="headerlink" title="3 时间线"></a>3 时间线</h3><p>11.22-28</p>
-<p>搭建一个前后端分离的用户管理页面，测试通过后上传至云端</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> （上传到服务器）<strong>远程访问</strong>、在线环境，包括网络托管</li>
-<li><input checked="" disabled="" type="checkbox"> （用户界面，数据库）<strong>会话管理</strong>、用户注册、用户登录</li>
-<li><input disabled="" type="checkbox"> （管理员界面，数据库）<strong>数据采集</strong>，包括问卷提交和用户参与数据</li>
-</ul>
-<p>12月前</p>
-<ul>
-<li><p><input checked="" disabled="" type="checkbox"> 
-信息展示板块，html，分页显示，可视化图表。</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-2D。自定义数据集。用户自行输入&#x2F;上传。（后端接口，富文本上传与分割）</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-1D。更详细的分析报告。（后端记录并返回更详细的数据）</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-原型界面+平台整合</p>
-</li>
-</ul>
-<p>12月</p>
-<ul>
-<li><input disabled="" type="checkbox"> Prolific评测</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-      <tags>
-        <tag>Summary</tag>
-        <tag>XAI</tag>
-        <tag>ExplainableAI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>M1芯片tensorflow和shap安装</title>
-    <url>/2022/12/13/tf-shap-m1/</url>
-    <content><![CDATA[<h2 id="安装tf和shap"><a href="#安装tf和shap" class="headerlink" title="安装tf和shap"></a>安装tf和shap</h2><p>安装tensorflow参考：</p>
-<ul>
-<li>创建环境并安装<a href="https://segmentfault.com/a/1190000042343760">ref</a></li>
-</ul>
-<p>安装shap</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install -c conda-forge shap</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="miniforge3和anaconda冲突"><a href="#miniforge3和anaconda冲突" class="headerlink" title="miniforge3和anaconda冲突"></a>miniforge3和anaconda冲突</h2><p>报错no such file)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/miniforge3/envs/tf1212/bin/../lib/libcblas.3.dylib&#x27; (no such file), &#x27;/usr/local/lib/libcblas.3.dylib&#x27; (no such file), &#x27;/usr/lib/libcblas.3.dylib&#x27; (no such file)</span><br></pre></td></tr></table></figure>
-
-<p><strong>解决方案</strong></p>
-<p>保存当前环境</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env export -n &lt;env-name&gt; &gt; environment.yml</span><br></pre></td></tr></table></figure>
-
-
-
-<p>重装环境</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env create -f path/to/environment.yml</span><br></pre></td></tr></table></figure>
-
-<p>还是不行的话更改condo的path</p>
-<ul>
-<li><p>cmd+shift+.显示隐藏文件</p>
-</li>
-<li><p>.zshrc 文件中将conda路径改为miniforge所在地</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>TechNotes</category>
-      </categories>
-      <tags>
-        <tag>XAI</tag>
-        <tag>ExplainableAI</tag>
-        <tag>Tensorflow</tag>
-        <tag>SHAP</tag>
-        <tag>nstallation</tag>
-        <tag>Miniforge3</tag>
-        <tag>Anaconda</tag>
-        <tag>M1</tag>
-        <tag>TF</tag>
-        <tag>Environment</tag>
       </tags>
   </entry>
 </search>
