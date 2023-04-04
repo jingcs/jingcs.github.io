@@ -1643,4 +1643,53 @@
         <tag>Cookie</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Flask使用Nginx反向代理安装SSL证书</title>
+    <url>/2023/04/04/flask-nginx/</url>
+    <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>这篇配置后就能http访问了<br><a href="http://jingcs.ml/2023/04/03/flask-wendeploy/">http://jingcs.ml/2023/04/03/flask-wendeploy/</a></p>
+<p>要验证证书需要SSL证书，<br>一些简单的方法见<br><a href="https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https">https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https</a></p>
+<p>SSL证书：验证网络是否安全https访问，类似激活码，最简单的做法编一串字符，但这样可能无法通过验证还是显示不安全。</p>
+<p>运行docker<br>唯一不同的是运行镜像时时sudo docker run -d -p 5000:80 xxflask<br>这里前的5000是服务器端口，后面80是之前app.py里Dockfile里写的端口（本来也该写5000懒得改文件了<br>意思是把docker在80端口的软件映射到服务器的5000</p>
+<h2 id="nginx创建映射"><a href="#nginx创建映射" class="headerlink" title="nginx创建映射"></a>nginx创建映射</h2><p>nginx的作用：不用nginx也可以直接让用户访问80端口<br>但这样会有安全问题&amp;一个端口只能一个应用<br>而大部分的web都是80端口，所以nginx用来转发。<br>即用户访问80端口，nginx监听这个端口，把他转发给服务器内的端口。</p>
+<p>*这里看出来我80-&gt;5000-&gt;80纯粹为了用而用………………</p>
+<p>在&#x2F;etc&#x2F;nginx目录下找到conf.d目录sudo nano xxflask.conf 命令创建xxflask.conf文件<br>xxflask是docker image的名字<br>*&#x2F;etc&#x2F;nginx是隐藏目录<br>文件内容如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80; #这是映射到的号</span><br><span class="line">    server_name xxxx.com; # 这是域名网址</span><br><span class="line">    </span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://localhost:5500;#这是docker中的端口号</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>检查语法是否正确</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nginx -t</span><br></pre></td></tr></table></figure>
+
+<p>如果ok，重启nginx让他生效</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
+
+<h2 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h2><p>安装Certbot</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo snap install --classic certbot</span><br></pre></td></tr></table></figure>
+
+<p>测试能否运行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo ln -s /snap/bin/certbot /usr/bin/certbot</span><br></pre></td></tr></table></figure>
+
+<p>安装证书</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot --nginx</span><br></pre></td></tr></table></figure>
+
+<p>后面会让你选要验证哪个域名，成功后就可以https访问啦</p>
+<p>这个证书90天有效期，可以自动更新</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot renew --dry-run</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>TechNotes</category>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>XAI</tag>
+        <tag>ExplainableAI</tag>
+        <tag>Docker</tag>
+        <tag>Flask</tag>
+        <tag>Cloud</tag>
+        <tag>Web</tag>
+        <tag>Linux</tag>
+        <tag>Nginx</tag>
+        <tag>SSL</tag>
+      </tags>
+  </entry>
 </search>
